@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Arnau Ribalta Marot · Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0a0a08;--bg2:#111110;--surface:#1a1a17;
+  --border:rgba(255,255,255,0.07);--text:#e8e4d9;
+  --muted:#7a7668;--accent:#c8b87a;--accent2:#8fa87d;
+  --ff-serif:'Cormorant Garamond',Georgia,serif;
+  --ff-mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--ff-mono);font-size:13px;line-height:1.7;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 48px;background:linear-gradient(to bottom,rgba(10,10,8,0.95),transparent);backdrop-filter:blur(2px);}
+.nav-logo{font-family:var(--ff-serif);font-size:20px;font-style:italic;color:var(--accent);text-decoration:none;letter-spacing:0.02em;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.3s;}
+.nav-links a:hover{color:var(--text);}
+
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden;}
+.hero-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--ff-serif);font-size:clamp(100px,18vw,240px);font-weight:300;color:rgba(255,255,255,0.013);white-space:nowrap;pointer-events:none;user-select:none;letter-spacing:-0.03em;}
+.hero-eyebrow{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;opacity:0;animation:fadeUp 0.8s ease 0.2s forwards;}
+.hero-name{font-family:var(--ff-serif);font-size:clamp(44px,6vw,82px);font-weight:300;line-height:1.05;letter-spacing:-0.02em;margin-bottom:12px;opacity:0;animation:fadeUp 0.8s ease 0.4s forwards;}
+.hero-name em{font-style:italic;color:var(--accent);}
+.hero-tagline{font-family:var(--ff-serif);font-size:clamp(16px,2vw,24px);font-weight:300;font-style:italic;color:var(--muted);margin-bottom:36px;opacity:0;animation:fadeUp 0.8s ease 0.6s forwards;}
+.hero-desc{font-size:12px;color:var(--muted);max-width:440px;margin-bottom:44px;line-height:1.9;opacity:0;animation:fadeUp 0.8s ease 0.8s forwards;}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeUp 0.8s ease 1s forwards;}
+.btn-primary{background:var(--accent);color:var(--bg);border:none;padding:13px 28px;font-family:var(--ff-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.3s;position:relative;overflow:hidden;}
+.btn-primary::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.15);transform:translateX(-100%);transition:transform 0.3s;}
+.btn-primary:hover::after{transform:translateX(0);}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);padding:13px 28px;font-family:var(--ff-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.3s;}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.hero-right{display:flex;justify-content:flex-end;align-items:center;opacity:0;animation:fadeIn 1.2s ease 1.2s forwards;}
+.hero-visual{width:320px;height:400px;position:relative;}
+.hero-card{width:100%;height:100%;background:var(--surface);border:1px solid var(--border);position:relative;overflow:hidden;}
+.hero-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(200,184,122,0.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(143,168,125,0.06) 0%,transparent 50%);}
+.hero-card-inner{padding:32px;height:100%;display:flex;flex-direction:column;justify-content:space-between;}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block;margin-right:8px;animation:pulse 2s infinite;}
+.status-text{font-size:11px;color:var(--muted);letter-spacing:0.1em;}
+.hero-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.hero-stat{border-left:1px solid var(--border);padding-left:16px;}
+.hero-stat-num{font-family:var(--ff-serif);font-size:32px;font-weight:300;color:var(--accent);line-height:1;margin-bottom:4px;}
+.hero-stat-label{font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
+.hero-decoration{position:absolute;top:-30px;right:-30px;width:110px;height:110px;border:1px solid rgba(200,184,122,0.15);transform:rotate(15deg);}
+.hero-decoration2{position:absolute;bottom:24px;left:-18px;width:55px;height:55px;border:1px solid rgba(143,168,125,0.2);transform:rotate(-8deg);}
+.scroll-hint{position:absolute;bottom:32px;left:48px;display:flex;align-items:center;gap:12px;color:var(--muted);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0;animation:fadeIn 1s ease 2s forwards;}
+.scroll-line{width:40px;height:1px;background:var(--muted);position:relative;overflow:hidden;}
+.scroll-line::after{content:'';position:absolute;inset:0;background:var(--accent);transform:translateX(-100%);animation:lineSlide 2s ease 2s infinite;}
+
+section{padding:100px 48px;}
+.section-header{display:flex;align-items:baseline;gap:20px;margin-bottom:64px;}
+.section-num{font-size:11px;color:var(--accent);letter-spacing:0.15em;}
+.section-title{font-family:var(--ff-serif);font-size:clamp(32px,4.5vw,56px);font-weight:300;letter-spacing:-0.02em;line-height:1;}
+.section-title em{font-style:italic;color:var(--accent);}
+.section-line{flex:1;height:1px;background:var(--border);margin-left:20px;align-self:center;}
+
+#projects{background:var(--bg2);}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.project-card{background:var(--bg2);padding:32px;cursor:pointer;position:relative;overflow:hidden;opacity:0;transform:translateY(20px);transition:background 0.3s,opacity 0.6s ease,transform 0.6s ease;}
+.project-card.visible{opacity:1;transform:translateY(0);}
+.project-card:hover{background:var(--surface);}
+.project-card:hover .project-arrow{transform:translate(4px,-4px);}
+.project-img{width:100%;height:160px;background:var(--surface);margin-bottom:22px;position:relative;overflow:hidden;}
+.project-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--ff-serif);font-style:italic;font-size:40px;color:rgba(255,255,255,0.04);transition:transform 0.5s ease;}
+.project-card:hover .project-img-inner{transform:scale(1.04);}
+.project-num{position:absolute;top:12px;left:14px;font-size:10px;color:var(--accent);letter-spacing:0.15em;}
+.project-asignatura{position:absolute;top:12px;right:14px;font-size:9px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
+.project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+.project-title{font-family:var(--ff-serif);font-size:20px;font-weight:400;letter-spacing:-0.01em;line-height:1.2;}
+.project-arrow{color:var(--muted);font-size:16px;transition:transform 0.3s;flex-shrink:0;margin-top:2px;}
+.project-desc{font-size:11px;color:var(--muted);line-height:1.85;margin-bottom:18px;}
+.project-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.tag{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--border);color:var(--muted);transition:all 0.2s;}
+.project-card:hover .tag{border-color:rgba(200,184,122,0.2);color:var(--text);}
+
+#about{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.about-text{font-family:var(--ff-serif);font-size:clamp(15px,1.6vw,19px);font-weight:300;line-height:1.85;color:rgba(232,228,217,0.8);margin-bottom:28px;}
+.about-text em{font-style:italic;color:var(--accent);}
+.about-small{font-size:12px;color:var(--muted);line-height:1.9;}
+.skills-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;}
+.skill-row{display:flex;align-items:center;gap:16px;margin-bottom:18px;opacity:0;transform:translateX(20px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.skill-row.visible{opacity:1;transform:translateX(0);}
+.skill-name{min-width:130px;font-size:11px;color:var(--text);}
+.skill-bar{flex:1;height:1px;background:var(--border);position:relative;}
+.skill-fill{position:absolute;top:0;left:0;height:100%;background:var(--accent);width:0;transition:width 1s ease 0.3s;}
+.skill-row.visible .skill-fill{width:var(--w);}
+.skill-pct{font-size:10px;color:var(--muted);min-width:32px;text-align:right;}
+.experience-list{margin-top:48px;}
+.exp-item{border-left:1px solid var(--border);padding:0 0 28px 24px;position:relative;opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.exp-item.visible{opacity:1;transform:translateY(0);}
+.exp-item::before{content:'';position:absolute;top:4px;left:-4px;width:7px;height:7px;border-radius:50%;background:var(--accent);}
+.exp-year{font-size:10px;color:var(--accent);letter-spacing:0.15em;margin-bottom:5px;}
+.exp-role{font-family:var(--ff-serif);font-size:17px;font-weight:400;margin-bottom:3px;}
+.exp-company{font-size:11px;color:var(--muted);margin-bottom:7px;}
+.exp-desc{font-size:11px;color:var(--muted);line-height:1.8;}
+.badge{display:inline-block;background:rgba(200,184,122,0.1);border:1px solid rgba(200,184,122,0.25);color:var(--accent);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 9px;margin-top:6px;}
+
+#contact{background:var(--bg2);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+.contact-intro{font-family:var(--ff-serif);font-size:clamp(17px,2.2vw,24px);font-weight:300;line-height:1.65;color:rgba(232,228,217,0.75);margin-bottom:40px;}
+.contact-intro em{font-style:italic;color:var(--accent);}
+.social-links{display:flex;flex-direction:column;gap:14px;}
+.social-link{display:flex;align-items:center;gap:16px;color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:0.08em;padding:14px;border:1px solid transparent;transition:all 0.3s;}
+.social-link:hover{border-color:var(--border);color:var(--text);background:var(--surface);}
+.social-icon{width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;transition:all 0.3s;}
+.social-link:hover .social-icon{border-color:var(--accent);color:var(--accent);}
+.form-group{margin-bottom:22px;}
+.form-label{display:block;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.form-input,.form-textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);padding:10px 0;color:var(--text);font-family:var(--ff-mono);font-size:13px;outline:none;transition:border-color 0.3s;}
+.form-input:focus,.form-textarea:focus{border-color:var(--accent);}
+.form-textarea{resize:none;height:90px;}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(122,118,104,0.5);}
+
+footer{padding:36px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.footer-left{font-family:var(--ff-serif);font-style:italic;font-size:16px;color:var(--accent);}
+.footer-right{font-size:11px;color:var(--muted);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+@keyframes lineSlide{from{transform:translateX(-100%);}to{transform:translateX(100%);}}
+
+@media(max-width:900px){
+  nav{padding:16px 24px;}.nav-links{display:none;}
+  #hero{grid-template-columns:1fr;padding:100px 24px 60px;}.hero-right{display:none;}
+  section{padding:80px 24px;}
+  .projects-grid{grid-template-columns:1fr;}
+  #about{grid-template-columns:1fr;gap:48px;}
+  .contact-grid{grid-template-columns:1fr;gap:48px;}
+  footer{padding:28px 24px;flex-direction:column;gap:10px;text-align:center;}
+  .scroll-hint{left:24px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">A·R·M</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Proyectos</a></li>
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg-text">ARM</div>
+  <div class="hero-left">
+    <p class="hero-eyebrow">// Márketing · IA · Emprendimiento</p>
+    <h1 class="hero-name">Arnau<br/>Ribalta<br/><em>Marot</em></h1>
+    <p class="hero-tagline">Donde la estrategia se encuentra con la tecnología.</p>
+    <p class="hero-desc">Estudiante de Márketing y Comunicación con experiencia real liderando proyectos en logística, restauración, deporte y consultoría IA. Especializado en estrategia digital, negociación y automatización de procesos. Finalista en ISE Innovation Hackathon 2026 y tester de ALIA en el MWC 2026.</p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn-primary">Ver proyectos</a>
+      <a href="#contact" class="btn-outline">Contactar</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-decoration"></div>
+      <div class="hero-card">
+        <div class="hero-card-inner">
+          <div>
+            <span class="status-dot"></span>
+            <span class="status-text">Disponible · Oliana, Lleida</span>
+          </div>
+          <div class="hero-stat-grid">
+            <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Proyectos académicos</div></div>
+            <div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-label">Ventures propias</div></div>
+            <div class="hero-stat"><div class="hero-stat-num">2</div><div class="hero-stat-label">Hackathons top</div></div>
+            <div class="hero-stat"><div class="hero-stat-num">∞</div><div class="hero-stat-label">Curiosidad aplicada</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-decoration2"></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
+</section>
+
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Proyectos <em>académicos</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-img"><span class="project-num">01 —</span><span class="project-asignatura">Investigació de Mercats II</span><div class="project-img-inner">⬡</div></div>
+      <div class="project-header"><h3 class="project-title">Ametller Vital Whey</h3><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Propuesta de nuevo producto para Ametller Origen: bebida probiótica funcional creada a partir del upcycling del suero de leche sobrante. Análisis Mintel 2030, segmentación de mercado, buyer persona y validación estratégica con datos de Grand View Research.</p>
+      <div class="project-tags"><span class="tag">Investigación de Mercados</span><span class="tag">Upcycling</span><span class="tag">Buyer Persona</span><span class="tag">Sostenibilidad</span><span class="tag">Producto</span></div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"><span class="project-num">02 —</span><span class="project-asignatura">Màrqueting de Serveis</span><div class="project-img-inner">◈</div></div>
+      <div class="project-header"><h3 class="project-title">AI Boosters · Plan de Marketing</h3><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Plan de marketing completo para una consultora de implementación de IA dirigida a PYMEs. Análisis de puntos críticos, estrategia B2B, desarrollo de contenido, presencia en redes y modelo de medición de resultados.</p>
+      <div class="project-tags"><span class="tag">Marketing B2B</span><span class="tag">Consultoría IA</span><span class="tag">PYMEs</span><span class="tag">7P</span><span class="tag">Estrategia Digital</span></div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"><span class="project-num">03 —</span><span class="project-asignatura">Entorn Empresarial</span><div class="project-img-inner">⚡</div></div>
+      <div class="project-header"><h3 class="project-title">Impacto del Entorno en la Consultoría IA</h3><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Análisis PESTEL aplicado a una consultora IA-PYME. Factores tecnológicos, económicos, socioculturales y competitivos. Matriz de impacto con soluciones IA concretas para ventas, operaciones, supply chain y RRHH. EU AI Act incluido.</p>
+      <div class="project-tags"><span class="tag">PESTEL</span><span class="tag">IA Generativa</span><span class="tag">Regulación EU</span><span class="tag">B2B</span><span class="tag">Estrategia</span></div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"><span class="project-num">04 —</span><span class="project-asignatura">Comunicació Corporativa</span><div class="project-img-inner">✈</div></div>
+      <div class="project-header"><h3 class="project-title">Synk Agency × Ryanair</h3><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Plan de comunicación corporativa para Ryanair España en contexto de crisis reputacional: multas de Consumo (107,8M€), conflicto con AENA y recortes de rutas. Diagnóstico, metas y objetivos cognitivos, afectivos y conativos a 18 meses.</p>
+      <div class="project-tags"><span class="tag">Comunicación Corporativa</span><span class="tag">Gestión de Crisis</span><span class="tag">Reputación</span><span class="tag">Ryanair</span><span class="tag">RRPP</span></div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"><span class="project-num">05 —</span><span class="project-asignatura">Comunicació Digital</span><div class="project-img-inner">◎</div></div>
+      <div class="project-header"><h3 class="project-title">Estrategias de Comunicación Digital</h3><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Estrategia de comunicación digital: análisis de canales, audiencias y contenidos en entornos online. Planificación de campañas y definición de KPIs de impacto para marcas en ecosistemas digitales.</p>
+      <div class="project-tags"><span class="tag">Comunicación Digital</span><span class="tag">Social Media</span><span class="tag">KPIs</span><span class="tag">Contenidos</span><span class="tag">Campañas</span></div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"><span class="project-num">⚑ —</span><span class="project-asignatura">Venture propia</span><div class="project-img-inner" style="background:linear-gradient(135deg,var(--surface) 0%,#1c1c18 100%);">Æ</div></div>
+      <div class="project-header"><h3 class="project-title">AO2 Solutions + Pàdel Noguera</h3><span class="project-arrow">↗</span></div>
+      <p class="project-desc">AO2 Solutions: empresa propia de automatización de procesos informáticos (2024–2026). Pàdel Noguera: socio fundador en Balaguer. Desde la definición del modelo de negocio hasta la estrategia de RRSS y negociación con proveedores.</p>
+      <div class="project-tags"><span class="tag">Emprendimiento</span><span class="tag">Automatización</span><span class="tag">Modelo de Negocio</span><span class="tag">RRSS</span><span class="tag">Negociación</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-left">
+    <div class="section-header" style="margin-bottom:40px">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Sobre <em>mí</em></h2>
+    </div>
+    <p class="about-text">Creo que la <em>tecnología es la palanca</em>, pero la estrategia es quien decide dónde apoyarla. Me apasiona entender los negocios desde dentro para transformarlos con las herramientas correctas.</p>
+    <p class="about-text">Soy de Oliana, Lleida. He gestionado equipos, negociado con proveedores, montado empresas, <em>ganado hackathons</em> y analizado desde Ryanair hasta el suero de leche. Todo con el mismo objetivo: convertir retos en soluciones que funcionen.</p>
+    <p class="about-small">Estudiante de Márketing y Comunicación en la Universitat de Vic (2024–2027). Formación previa en Empresariales en la UPF (3 años). Certificaciones de Google y Santander. Permisos de conducir B1 y A. Disponible para proyectos, prácticas y colaboraciones.</p>
+    <div class="experience-list">
+      <div class="exp-item" style="transition-delay:0.1s">
+        <div class="exp-year">2026 · MWC Barcelona</div>
+        <div class="exp-role">Tester ALIA — Talent Arena</div>
+        <div class="exp-company">Mobile World Congress · Fira de Barcelona</div>
+        <div class="exp-desc">Optimización de la fiabilidad del modelo de IA del Gobierno de España mediante testeo, detección de limitaciones y validación de respuestas en contextos reales.</div>
+        <span class="badge">🏆 Finalista ISE 2026 · 2º puesto</span>
+      </div>
+      <div class="exp-item" style="transition-delay:0.2s">
+        <div class="exp-year">2024 — Actualidad</div>
+        <div class="exp-role">Socio Fundador</div>
+        <div class="exp-company">Pàdel Noguera · Balaguer</div>
+        <div class="exp-desc">Definición del modelo de negocio, investigación de mercado, estrategia de RRSS y negociación con proveedores y colaboradores externos.</div>
+      </div>
+      <div class="exp-item" style="transition-delay:0.3s">
+        <div class="exp-year">Gen. 2024 — Mar. 2026</div>
+        <div class="exp-role">Fundador</div>
+        <div class="exp-company">AO2 Solutions · Oliana</div>
+        <div class="exp-desc">Empresa de automatización de procesos informáticos. Liderazgo, gestión de proyectos y relación con clientes. Soluciones tecnológicas a medida.</div>
+      </div>
+      <div class="exp-item" style="transition-delay:0.4s">
+        <div class="exp-year">Jun. 2025 — Sep. 2025</div>
+        <div class="exp-role">Propietario</div>
+        <div class="exp-company">Bar Piscines Oliana · Oliana</div>
+        <div class="exp-desc">Gestión administrativa y financiera, organización de eventos, fidelización de clientes y supervisión de operaciones diarias.</div>
+      </div>
+      <div class="exp-item" style="transition-delay:0.5s">
+        <div class="exp-year">Jun. 2024 — Sep. 2024</div>
+        <div class="exp-role">Encargado Logístico</div>
+        <div class="exp-company">Ribalta · Oliana</div>
+        <div class="exp-desc">Coordinación de equipos, optimización de procesos logísticos y gestión de relaciones con proveedores y clientes.</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-right">
+    <div style="margin-top:120px">
+      <p class="skills-label">Competencias clave</p>
+      <div class="skill-row" style="--w:90%;transition-delay:0.1s"><span class="skill-name">Estrategia Digital</span><div class="skill-bar"><div class="skill-fill"></div></div><span class="skill-pct">90%</span></div>
+      <div class="skill-row" style="--w:88%;transition-delay:0.2s"><span class="skill-name">Prompt Engineering</span><div class="skill-bar"><div class="skill-fill"></div></div><span class="skill-pct">88%</span></div>
+      <div class="skill-row" style="--w:85%;transition-delay:0.3s"><span class="skill-name">IA Generativa</span><div class="skill-bar"><div class="skill-fill"></div></div><span class="skill-pct">85%</span></div>
+      <div class="skill-row" style="--w:82%;transition-delay:0.4s"><span class="skill-name">Investigación Mercados</span><div class="skill-bar"><div class="skill-fill"></div></div><span class="skill-pct">82%</span></div>
+      <div class="skill-row" style="--w:80%;transition-delay:0.5s"><span class="skill-name">Negociación</span><div class="skill-bar"><div class="skill-fill"></div></div><span class="skill-pct">80%</span></div>
+      <div class="skill-row" style="--w:78%;transition-delay:0.6s"><span class="skill-name">Gestión de Proyectos</span><div class="skill-bar"><div class="skill-fill"></div></div><span class="skill-pct">78%</span></div>
+      <div class="skill-row" style="--w:75%;transition-delay:0.7s"><span class="skill-name">Comunicación Corp.</span><div class="skill-bar"><div class="skill-fill"></div></div><span class="skill-pct">75%</span></div>
+      <div style="margin-top:48px">
+        <p class="skills-label">Idiomas</p>
+        <div class="skill-row" style="--w:100%;transition-delay:0.8s"><span class="skill-name">Catalán</span><div class="skill-bar"><div class="skill-fill"></div></div><span class="skill-pct">Nativo</span></div>
+        <div class="skill-row" style="--w:100%;transition-delay:0.9s"><span class="skill-name">Castellano</span><div class="skill-bar"><div class="skill-fill"></div></div><span class="skill-pct">Nativo</span></div>
+        <div class="skill-row" style="--w:80%;transition-delay:1s"><span class="skill-name">Inglés</span><div class="skill-bar"><div class="skill-fill"></div></div><span class="skill-pct">Profesional</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Hablemos <em>pronto</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-left">
+      <p class="contact-intro">¿Tienes un proyecto, una idea o una propuesta? Estoy buscando <em>retos ambiciosos</em> donde la estrategia y la tecnología marquen la diferencia.</p>
+      <div class="social-links">
+        <a href="mailto:arnauribalta.contact@gmail.com" class="social-link">
+          <div class="social-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <span>arnauribalta.contact@gmail.com</span>
+        </a>
+        <a href="tel:+34628069171" class="social-link">
+          <div class="social-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <span>+34 628 06 91 71</span>
+        </a>
+        <a href="https://www.linkedin.com/in/arnau-ribalta-marot-64b860273/" target="_blank" rel="noopener noreferrer" class="social-link">
+          <div class="social-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <span>linkedin.com/in/arnau-ribalta-marot</span>
+        </a>
+        <a href="#" class="social-link">
+          <div class="social-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <span>Oliana, 25790 · Lleida</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" type="text" placeholder="Tu nombre"/></div>
+      <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="tu@email.com"/></div>
+      <div class="form-group"><label class="form-label">Mensaje</label><textarea class="form-textarea" placeholder="Cuéntame tu proyecto o propuesta..."></textarea></div>
+      <button class="btn-primary" style="margin-top:8px;width:100%;text-align:center;">Enviar mensaje →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">Arnau Ribalta Marot</div>
+  <div class="footer-right">© 2026 · Márketing · IA · Emprendimiento</div>
+</footer>
+
+<script>
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.12});
+document.querySelectorAll('.project-card,.skill-row,.exp-item').forEach(el=>observer.observe(el));
+document.querySelectorAll('.project-card').forEach((c,i)=>c.style.transitionDelay=`${i*0.07}s`);
+</script>
+</body>
+</html>
