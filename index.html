@@ -331,10 +331,12 @@ footer{padding:36px 48px;border-top:1px solid var(--border);display:flex;justify
       </div>
     </div>
     <div class="contact-right">
-      <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" type="text" placeholder="Tu nombre"/></div>
-      <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="tu@email.com"/></div>
-      <div class="form-group"><label class="form-label">Mensaje</label><textarea class="form-textarea" placeholder="Cuéntame tu proyecto o propuesta..."></textarea></div>
-      <button class="btn-primary" style="margin-top:8px;width:100%;text-align:center;">Enviar mensaje →</button>
+      <form action="https://formspree.io/f/xgopzaeo" method="POST">
+      <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" type="text" name="nombre" placeholder="Tu nombre" required/></div>
+      <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" name="email" placeholder="tu@email.com" required/></div>
+      <div class="form-group"><label class="form-label">Mensaje</label><textarea class="form-textarea" name="mensaje" placeholder="Cuéntame tu proyecto o propuesta..." required></textarea></div>
+      <button type="submit" class="btn-primary" style="margin-top:8px;width:100%;text-align:center;">Enviar mensaje →</button>
+      </form>
     </div>
   </div>
 </section>
