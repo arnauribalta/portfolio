@@ -1,0 +1,221 @@
+{
+  "grupos": [
+    {
+      "id": "negocio",
+      "titulo": {
+        "es": "Negocio y marketing",
+        "ca": "Negoci i màrqueting",
+        "en": "Business and marketing"
+      },
+      "items": [
+        {
+          "es": "Estrategia y plan de marketing",
+          "ca": "Estratègia i pla de màrqueting",
+          "en": "Marketing strategy and planning"
+        },
+        {
+          "es": "Investigación de mercados",
+          "ca": "Investigació de mercats",
+          "en": "Market research"
+        },
+        {
+          "es": "Go-to-market y pricing",
+          "ca": "Go-to-market i pricing",
+          "en": "Go-to-market and pricing"
+        },
+        {
+          "es": "Google Ads (Search y Demand Gen)",
+          "ca": "Google Ads (Search i Demand Gen)",
+          "en": "Google Ads (Search and Demand Gen)"
+        },
+        {
+          "es": "Contenido y copy para redes y anuncios",
+          "ca": "Contingut i copy per a xarxes i anuncis",
+          "en": "Social and ad content and copy"
+        },
+        {
+          "es": "Comunicación corporativa y de crisis",
+          "ca": "Comunicació corporativa i de crisi",
+          "en": "Corporate and crisis communication"
+        },
+        {
+          "es": "Captación y gestión de clientes B2B",
+          "ca": "Captació i gestió de clients B2B",
+          "en": "B2B client acquisition and account management"
+        },
+        {
+          "es": "Negociación con proveedores",
+          "ca": "Negociació amb proveïdors",
+          "en": "Supplier negotiation"
+        }
+      ]
+    },
+    {
+      "id": "producto",
+      "titulo": {
+        "es": "Producto, datos e IA",
+        "ca": "Producte, dades i IA",
+        "en": "Product, data and AI"
+      },
+      "items": [
+        {
+          "es": "Diseño de producto con usuarios",
+          "ca": "Disseny de producte amb usuaris",
+          "en": "User-centred product design"
+        },
+        {
+          "es": "Prompt engineering y pipelines con LLM",
+          "ca": "Prompt engineering i pipelines amb LLM",
+          "en": "Prompt engineering and LLM pipelines"
+        },
+        {
+          "es": "Desarrollo asistido por IA (Claude Code)",
+          "ca": "Desenvolupament assistit per IA (Claude Code)",
+          "en": "AI-assisted development (Claude Code)"
+        },
+        {
+          "es": "Especificaciones y briefs técnicos",
+          "ca": "Especificacions i briefs tècnics",
+          "en": "Technical specs and briefs"
+        },
+        {
+          "es": "Análisis de datos y paneles",
+          "ca": "Anàlisi de dades i panells",
+          "en": "Data analysis and dashboards"
+        },
+        {
+          "es": "Excel avanzado",
+          "ca": "Excel avançat",
+          "en": "Advanced Excel"
+        },
+        {
+          "es": "Chatbots y automatizaciones",
+          "ca": "Xatbots i automatitzacions",
+          "en": "Chatbots and automations"
+        }
+      ]
+    },
+    {
+      "id": "sectores",
+      "titulo": {
+        "es": "Conocimiento de sector",
+        "ca": "Coneixement del sector",
+        "en": "Industry knowledge"
+      },
+      "items": [
+        {
+          "es": "Construcción: presupuestos, mediciones y certificaciones",
+          "ca": "Construcció: pressupostos, amidaments i certificacions",
+          "en": "Construction: budgets, quantities and progress certificates"
+        },
+        {
+          "es": "BC3/FIEBDC, CYPE, Presto y BEDEC",
+          "ca": "BC3/FIEBDC, CYPE, Presto i BEDEC",
+          "en": "BC3/FIEBDC, CYPE, Presto and BEDEC"
+        },
+        {
+          "es": "E-commerce en Amazon (Vendor Central 1P)",
+          "ca": "E-commerce a Amazon (Vendor Central 1P)",
+          "en": "Amazon e-commerce (Vendor Central 1P)"
+        },
+        {
+          "es": "Hostelería y restauración",
+          "ca": "Hostaleria i restauració",
+          "en": "Hospitality and restaurants"
+        },
+        {
+          "es": "Eventos y ocio",
+          "ca": "Esdeveniments i lleure",
+          "en": "Events and leisure"
+        }
+      ]
+    },
+    {
+      "id": "gestion",
+      "titulo": {
+        "es": "Gestión",
+        "ca": "Gestió",
+        "en": "Management"
+      },
+      "items": [
+        {
+          "es": "Creación y gestión de empresas",
+          "ca": "Creació i gestió d'empreses",
+          "en": "Starting and running companies"
+        },
+        {
+          "es": "Gestión de proyectos",
+          "ca": "Gestió de projectes",
+          "en": "Project management"
+        },
+        {
+          "es": "Coordinación de equipos",
+          "ca": "Coordinació d'equips",
+          "en": "Team coordination"
+        },
+        {
+          "es": "Operaciones y logística",
+          "ca": "Operacions i logística",
+          "en": "Operations and logistics"
+        },
+        {
+          "es": "Contabilidad y control de caja",
+          "ca": "Comptabilitat i control de caixa",
+          "en": "Bookkeeping and cash control"
+        }
+      ]
+    }
+  ],
+  "stack": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Supabase",
+    "PostgreSQL",
+    "Node.js",
+    "Anthropic API",
+    "Claude Code",
+    "Vercel",
+    "Git · GitHub",
+    "Astro"
+  ],
+  "idiomas": [
+    {
+      "idioma": {
+        "es": "Catalán",
+        "ca": "Català",
+        "en": "Catalan"
+      },
+      "nivel": {
+        "es": "Nativo",
+        "ca": "Natiu",
+        "en": "Native"
+      }
+    },
+    {
+      "idioma": {
+        "es": "Castellano",
+        "ca": "Castellà",
+        "en": "Spanish"
+      },
+      "nivel": {
+        "es": "Nativo",
+        "ca": "Natiu",
+        "en": "Native"
+      }
+    },
+    {
+      "idioma": {
+        "es": "Inglés",
+        "ca": "Anglès",
+        "en": "English"
+      },
+      "nivel": {
+        "es": "Profesional",
+        "ca": "Professional",
+        "en": "Professional working proficiency"
+      }
+    }
+  ]
+}

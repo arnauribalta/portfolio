@@ -1,0 +1,152 @@
+{
+  "titulos": [
+    {
+      "id": "uvic",
+      "titulo": {
+        "es": "Grado en Marketing y Comunicación",
+        "ca": "Grau en Màrqueting i Comunicació",
+        "en": "Bachelor's degree in Marketing and Communication"
+      },
+      "centro": "Universitat de Vic – Universitat Central de Catalunya (UVic-UCC)",
+      "periodo": {
+        "es": "2024 — 2027 · en curso",
+        "ca": "2024 — 2027 · en curs",
+        "en": "2024 — 2027 · in progress"
+      },
+      "detalle": {
+        "es": "Facultad de Empresa y Comunicación. Proyectos en equipo sobre casos reales de empresa y prácticas en Taurus Group.",
+        "ca": "Facultat d'Empresa i Comunicació. Projectes en equip sobre casos reals d'empresa i pràctiques a Taurus Group.",
+        "en": "Faculty of Business and Communication. Team projects on real company cases and an internship at Taurus Group."
+      }
+    },
+    {
+      "id": "upf",
+      "titulo": {
+        "es": "Estudios de Empresariales (3 cursos)",
+        "ca": "Estudis d'Empresarials (3 cursos)",
+        "en": "Business studies (3 years)"
+      },
+      "centro": "Universitat Pompeu Fabra (UPF)",
+      "periodo": null,
+      "detalle": null
+    }
+  ],
+  "otros": [
+    {
+      "es": "Certificaciones de Google y Santander",
+      "ca": "Certificacions de Google i Santander",
+      "en": "Google and Santander certifications"
+    },
+    {
+      "es": "Permisos de conducir A y B",
+      "ca": "Permisos de conduir A i B",
+      "en": "Driving licences A and B"
+    }
+  ],
+  "trabajos": [
+    {
+      "id": "ametller-vital-whey",
+      "asignatura": {
+        "es": "Investigació de Mercats II",
+        "ca": "Investigació de Mercats II",
+        "en": "Market Research II"
+      },
+      "titulo": {
+        "es": "Ametller Vital Whey",
+        "ca": "Ametller Vital Whey",
+        "en": "Ametller Vital Whey"
+      },
+      "descripcion": {
+        "es": "Nuevo producto para Ametller Origen: una bebida probiótica funcional hecha con el suero de leche sobrante (upcycling). Tendencias Mintel 2030, segmentación, buyer persona y validación con datos de mercado.",
+        "ca": "Nou producte per a Ametller Origen: una beguda probiòtica funcional feta amb el sèrum de llet sobrant (upcycling). Tendències Mintel 2030, segmentació, buyer persona i validació amb dades de mercat.",
+        "en": "A new product for Ametller Origen: a functional probiotic drink made from leftover whey (upcycling). Mintel 2030 trends, segmentation, buyer persona and validation with market data."
+      },
+      "equipo": {
+        "es": "Equipo de 6",
+        "ca": "Equip de 6",
+        "en": "Team of 6"
+      },
+      "pdf": "/docs/academico/ametller-vital-whey.pdf"
+    },
+    {
+      "id": "ai-boosters",
+      "asignatura": {
+        "es": "Màrqueting de Serveis",
+        "ca": "Màrqueting de Serveis",
+        "en": "Services Marketing"
+      },
+      "titulo": {
+        "es": "AI Boosters · Plan de marketing",
+        "ca": "AI Boosters · Pla de màrqueting",
+        "en": "AI Boosters · Marketing plan"
+      },
+      "descripcion": {
+        "es": "Plan de marketing para una consultora que implanta IA en pymes: puntos de dolor del cliente, estrategia B2B, marketing mix de servicios (7P), contenidos, redes sociales y sistema de medición.",
+        "ca": "Pla de màrqueting per a una consultora que implanta IA a les pimes: punts de dolor del client, estratègia B2B, màrqueting mix de serveis (7P), continguts, xarxes socials i sistema de mesura.",
+        "en": "Marketing plan for a consultancy that brings AI to SMEs: customer pain points, B2B strategy, the services marketing mix (7Ps), content, social media and measurement."
+      },
+      "equipo": null,
+      "pdf": "/docs/academico/ai-boosters-plan-marketing.pdf"
+    },
+    {
+      "id": "pestel-consultoria-ia",
+      "asignatura": {
+        "es": "Entorn Empresarial",
+        "ca": "Entorn Empresarial",
+        "en": "Business Environment"
+      },
+      "titulo": {
+        "es": "Impacto del entorno en la consultoría de IA",
+        "ca": "Impacte de l'entorn en la consultoria d'IA",
+        "en": "How the environment shapes AI consulting"
+      },
+      "descripcion": {
+        "es": "Análisis PESTEL de una consultora de IA para pymes, con matriz de impacto, soluciones de IA por área (ventas, operaciones, cadena de suministro y RR. HH.) y el Reglamento Europeo de IA.",
+        "ca": "Anàlisi PESTEL d'una consultora d'IA per a pimes, amb matriu d'impacte, solucions d'IA per àrea (vendes, operacions, cadena de subministrament i RH) i el Reglament europeu d'IA.",
+        "en": "PESTEL analysis of an AI consultancy for SMEs, with an impact matrix, AI solutions by area (sales, operations, supply chain and HR) and the EU AI Act."
+      },
+      "equipo": null,
+      "pdf": "/docs/academico/pestel-consultoria-ia.pdf"
+    },
+    {
+      "id": "synk-ryanair",
+      "asignatura": {
+        "es": "Comunicació Corporativa",
+        "ca": "Comunicació Corporativa",
+        "en": "Corporate Communication"
+      },
+      "titulo": {
+        "es": "Synk Agency × Ryanair",
+        "ca": "Synk Agency × Ryanair",
+        "en": "Synk Agency × Ryanair"
+      },
+      "descripcion": {
+        "es": "Plan de comunicación corporativa a 18 meses para Ryanair España en plena crisis reputacional (multas de Consumo de 107,8 M€, conflicto con AENA y recorte de rutas): diagnóstico y objetivos cognitivos, afectivos y conativos.",
+        "ca": "Pla de comunicació corporativa a 18 mesos per a Ryanair Espanya en plena crisi reputacional (multes de Consum de 107,8 M€, conflicte amb AENA i retallada de rutes): diagnosi i objectius cognitius, afectius i conatius.",
+        "en": "An 18-month corporate communication plan for Ryanair Spain amid a reputational crisis (€107.8M in consumer-authority fines, a dispute with AENA and route cuts): diagnosis plus cognitive, affective and conative objectives."
+      },
+      "equipo": null,
+      "pdf": "/docs/academico/synk-ryanair-comunicacion.pdf"
+    },
+    {
+      "id": "comunicacion-digital",
+      "asignatura": {
+        "es": "Comunicació Digital",
+        "ca": "Comunicació Digital",
+        "en": "Digital Communication"
+      },
+      "titulo": {
+        "es": "Estrategias de comunicación digital",
+        "ca": "Estratègies de comunicació digital",
+        "en": "Digital communication strategies"
+      },
+      "descripcion": {
+        "es": "Estrategia de comunicación digital: análisis de canales, audiencias y contenidos, planificación de campañas y KPIs de impacto.",
+        "ca": "Estratègia de comunicació digital: anàlisi de canals, audiències i continguts, planificació de campanyes i KPI d'impacte.",
+        "en": "Digital communication strategy: analysis of channels, audiences and content, campaign planning and impact KPIs."
+      },
+      "equipo": null,
+      "pdf": "/docs/academico/estrategias-comunicacion-digital.pdf"
+    }
+  ]
+}

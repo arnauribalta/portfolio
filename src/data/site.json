@@ -1,0 +1,729 @@
+{
+  "meta": {
+    "siteUrl": "https://arnauribaltamarot.com",
+    "title": {
+      "es": "Arnau Ribalta Marot · Marketing, negocio e IA aplicada",
+      "ca": "Arnau Ribalta Marot · Màrqueting, negoci i IA aplicada",
+      "en": "Arnau Ribalta Marot · Marketing, business and applied AI"
+    },
+    "description": {
+      "es": "Estudiante de Marketing y Comunicación que construye producto con IA para empresas reales: una plataforma de presupuestos y obra para una constructora, un SaaS para restaurantes y análisis de e-commerce en Amazon.",
+      "ca": "Estudiant de Màrqueting i Comunicació que construeix producte amb IA per a empreses reals: una plataforma de pressupostos i obra per a una constructora, un SaaS per a restaurants i anàlisi d'e-commerce a Amazon.",
+      "en": "Marketing and Communication student who builds AI products for real companies: a budgeting and site-planning platform for a construction firm, a SaaS for restaurants and e-commerce analytics on Amazon."
+    },
+    "ogImage": {
+      "es": "/og/og-es.png",
+      "ca": "/og/og-ca.png",
+      "en": "/og/og-en.png"
+    }
+  },
+  "person": {
+    "fullName": "Arnau Ribalta Marot",
+    "displayName": [
+      "Arnau",
+      "Ribalta."
+    ],
+    "jobTitle": {
+      "es": "Estudiante de Marketing y Comunicación y emprendedor",
+      "ca": "Estudiant de Màrqueting i Comunicació i emprenedor",
+      "en": "Marketing and Communication student and entrepreneur"
+    },
+    "location": {
+      "es": "Oliana, Lleida",
+      "ca": "Oliana, Lleida",
+      "en": "Oliana, Lleida (Spain)"
+    },
+    "email": "arnauribalta.contact@gmail.com",
+    "phone": {
+      "value": "+34 628 06 91 71",
+      "href": "tel:+34628069171",
+      "visible": true
+    },
+    "links": [
+      {
+        "id": "linkedin",
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/arnau-ribalta-marot-64b860273/",
+        "visible": true
+      },
+      {
+        "id": "github",
+        "label": "GitHub",
+        "url": "https://github.com/arnauribalta",
+        "visible": true
+      },
+      {
+        "id": "email",
+        "label": "Email",
+        "url": "mailto:arnauribalta.contact@gmail.com",
+        "visible": true
+      }
+    ],
+    "alumniOf": [
+      "Universitat de Vic – Universitat Central de Catalunya",
+      "Universitat Pompeu Fabra"
+    ],
+    "knowsAbout": [
+      "Marketing digital",
+      "Inteligencia artificial aplicada",
+      "Desarrollo de producto",
+      "Presupuestos de obra",
+      "Amazon Vendor Central"
+    ]
+  },
+  "nav": {
+    "items": [
+      {
+        "id": "trayectoria",
+        "label": {
+          "es": "Trayectoria",
+          "ca": "Trajectòria",
+          "en": "Experience"
+        }
+      },
+      {
+        "id": "proyectos",
+        "label": {
+          "es": "Proyectos",
+          "ca": "Projectes",
+          "en": "Projects"
+        }
+      },
+      {
+        "id": "formacion",
+        "label": {
+          "es": "Formación",
+          "ca": "Formació",
+          "en": "Education"
+        }
+      }
+    ],
+    "cta": {
+      "id": "contacto",
+      "label": {
+        "es": "Contacto",
+        "ca": "Contacte",
+        "en": "Contact"
+      }
+    },
+    "menu": {
+      "es": "Menú",
+      "ca": "Menú",
+      "en": "Menu"
+    },
+    "close": {
+      "es": "Cerrar",
+      "ca": "Tanca",
+      "en": "Close"
+    },
+    "skip": {
+      "es": "Saltar al contenido",
+      "ca": "Salta al contingut",
+      "en": "Skip to content"
+    },
+    "langSwitch": {
+      "es": "Cambiar idioma",
+      "ca": "Canvia l'idioma",
+      "en": "Change language"
+    },
+    "sections": {
+      "es": "Secciones",
+      "ca": "Seccions",
+      "en": "Sections"
+    }
+  },
+  "sections": [
+    {
+      "id": "inicio",
+      "dot": {
+        "es": "Inicio",
+        "ca": "Inici",
+        "en": "Home"
+      }
+    },
+    {
+      "id": "sobre-mi",
+      "dot": {
+        "es": "Sobre mí",
+        "ca": "Sobre mi",
+        "en": "About"
+      },
+      "title": {
+        "es": [
+          "Sobre",
+          "mí"
+        ],
+        "ca": [
+          "Sobre",
+          "mi"
+        ],
+        "en": [
+          "About",
+          "me"
+        ]
+      }
+    },
+    {
+      "id": "trayectoria",
+      "dot": {
+        "es": "Trayectoria",
+        "ca": "Trajectòria",
+        "en": "Experience"
+      },
+      "title": {
+        "es": [
+          "Trayectoria"
+        ],
+        "ca": [
+          "Trajectòria"
+        ],
+        "en": [
+          "Experience"
+        ]
+      }
+    },
+    {
+      "id": "proyectos",
+      "dot": {
+        "es": "Proyectos",
+        "ca": "Projectes",
+        "en": "Projects"
+      },
+      "title": {
+        "es": [
+          "Proyectos",
+          "destacados"
+        ],
+        "ca": [
+          "Projectes",
+          "destacats"
+        ],
+        "en": [
+          "Featured",
+          "projects"
+        ]
+      }
+    },
+    {
+      "id": "competencias",
+      "dot": {
+        "es": "Competencias",
+        "ca": "Competències",
+        "en": "Skills"
+      },
+      "title": {
+        "es": [
+          "Competencias"
+        ],
+        "ca": [
+          "Competències"
+        ],
+        "en": [
+          "Skills"
+        ]
+      }
+    },
+    {
+      "id": "formacion",
+      "dot": {
+        "es": "Formación",
+        "ca": "Formació",
+        "en": "Education"
+      },
+      "title": {
+        "es": [
+          "Formación"
+        ],
+        "ca": [
+          "Formació"
+        ],
+        "en": [
+          "Education"
+        ]
+      }
+    },
+    {
+      "id": "contacto",
+      "dot": {
+        "es": "Contacto",
+        "ca": "Contacte",
+        "en": "Contact"
+      },
+      "title": {
+        "es": [
+          "Contacto"
+        ],
+        "ca": [
+          "Contacte"
+        ],
+        "en": [
+          "Contact"
+        ]
+      }
+    }
+  ],
+  "hero": {
+    "subtitle": {
+      "es": "Emprendedor • Marketing • IA aplicada",
+      "ca": "Emprenedor • Màrqueting • IA aplicada",
+      "en": "Entrepreneur • Marketing • Applied AI"
+    },
+    "status": {
+      "visible": true,
+      "text": {
+        "es": "Abierto a oportunidades y proyectos",
+        "ca": "Obert a oportunitats i projectes",
+        "en": "Open to opportunities and projects"
+      }
+    },
+    "scrollHint": {
+      "es": "Desliza",
+      "ca": "Llisca",
+      "en": "Scroll"
+    },
+    "portrait": {
+      "src": "img/arnau/hero.png",
+      "alt": {
+        "es": "Retrato de Arnau Ribalta",
+        "ca": "Retrat de l'Arnau Ribalta",
+        "en": "Portrait of Arnau Ribalta"
+      }
+    }
+  },
+  "about": {
+    "photo": {
+      "src": "img/arnau/sobre-mi.jpg",
+      "cutout": "img/arnau/sobre-mi-recorte.png",
+      "alt": {
+        "es": "Arnau Ribalta trabajando",
+        "ca": "L'Arnau Ribalta treballant",
+        "en": "Arnau Ribalta at work"
+      }
+    },
+    "paragraphs": [
+      {
+        "es": "Estudio **Marketing y Comunicación en la UVic-UCC** y construyo herramientas con inteligencia artificial para negocios reales. Me muevo entre la estrategia y la ejecución: entiendo cómo funciona un negocio por dentro —he cofundado tres y he llevado otro de principio a fin— y lo convierto en producto, procesos y campañas.",
+        "ca": "Estudio **Màrqueting i Comunicació a la UVic-UCC** i construeixo eines amb intel·ligència artificial per a negocis reals. Em moc entre l'estratègia i l'execució: entenc com funciona un negoci per dins —n'he cofundat tres i n'he portat un altre de principi a fi— i ho converteixo en producte, processos i campanyes.",
+        "en": "I study **Marketing and Communication at UVic-UCC** and build AI-powered tools for real businesses. I work between strategy and execution: I understand how a business runs from the inside—I've co-founded three and run another end to end—and turn that into products, processes and campaigns."
+      },
+      {
+        "es": "Ahora desarrollo la plataforma de presupuestos y planificación de obra de **Ribalta i Fills**, la constructora familiar; hago prácticas de análisis de e-commerce en **Taurus Group**, y he lanzado **GastroVision AI**, un SaaS de cartas digitales con IA para restaurantes. Me interesan los proyectos donde el marketing, los datos y la IA se juntan para que una empresa venda más o trabaje mejor.",
+        "ca": "Ara desenvolupo la plataforma de pressupostos i planificació d'obra de **Ribalta i Fills**, la constructora familiar; faig pràctiques d'anàlisi d'e-commerce a **Taurus Group**, i he llançat **GastroVision AI**, un SaaS de cartes digitals amb IA per a restaurants. M'interessen els projectes en què el màrqueting, les dades i la IA s'ajunten perquè una empresa vengui més o treballi millor.",
+        "en": "Right now I'm building the budgeting and site-planning platform for **Ribalta i Fills**, my family's construction company; I'm interning in e-commerce analytics at **Taurus Group**; and I launched **GastroVision AI**, an AI digital-menu SaaS for restaurants. I'm drawn to projects where marketing, data and AI come together to help a company sell more or work better."
+      }
+    ],
+    "figures": [
+      {
+        "value": {
+          "es": "2",
+          "ca": "2",
+          "en": "2"
+        },
+        "label": {
+          "es": "productos con IA en producción",
+          "ca": "productes amb IA en producció",
+          "en": "AI products in production"
+        }
+      },
+      {
+        "value": {
+          "es": "3",
+          "ca": "3",
+          "en": "3"
+        },
+        "label": {
+          "es": "negocios cofundados",
+          "ca": "negocis cofundats",
+          "en": "businesses co-founded"
+        }
+      },
+      {
+        "value": {
+          "es": "2.º",
+          "ca": "2n",
+          "en": "2nd"
+        },
+        "label": {
+          "es": "ISE Innovation Hackathon 2026",
+          "ca": "ISE Innovation Hackathon 2026",
+          "en": "ISE Innovation Hackathon 2026"
+        }
+      }
+    ],
+    "badges": [
+      {
+        "es": "Finalista (2.º puesto) · ISE Innovation Hackathon 2026",
+        "ca": "Finalista (2n lloc) · ISE Innovation Hackathon 2026",
+        "en": "Finalist (2nd place) · ISE Innovation Hackathon 2026"
+      },
+      {
+        "es": "Tester de ALIA, la IA del Gobierno de España · Talent Arena, MWC 2026",
+        "ca": "Tester d'ALIA, la IA del Govern d'Espanya · Talent Arena, MWC 2026",
+        "en": "Tester of ALIA, the Spanish Government's AI model · Talent Arena, MWC 2026"
+      }
+    ]
+  },
+  "experience": {
+    "intro": {
+      "es": "Soy de Oliana, en el Alt Urgell, y he aprendido haciendo: en la constructora familiar, detrás de una barra, montando empresas y construyendo producto con IA.",
+      "ca": "Soc d'Oliana, a l'Alt Urgell, i he après fent: a la constructora familiar, darrere d'una barra, muntant empreses i construint producte amb IA.",
+      "en": "I'm from Oliana, in the Catalan Pyrenees, and I've learned by doing: at the family construction company, behind a bar, starting companies and building AI products."
+    },
+    "projectLink": {
+      "es": "Ver proyecto",
+      "ca": "Veure el projecte",
+      "en": "View project"
+    },
+    "photos": [
+      {
+        "src": "img/trayectoria/01.jpg",
+        "caption": {
+          "es": "En obra con Ribalta i Fills",
+          "ca": "A l'obra amb Ribalta i Fills",
+          "en": "On site with Ribalta i Fills"
+        }
+      },
+      {
+        "src": "img/trayectoria/02.jpg",
+        "caption": {
+          "es": "El bar de las piscinas de Oliana",
+          "ca": "El bar de les piscines d'Oliana",
+          "en": "The Oliana pool bar"
+        }
+      },
+      {
+        "src": "img/trayectoria/03.jpg",
+        "caption": {
+          "es": "Pádel Noguera, Balaguer",
+          "ca": "Pádel Noguera, Balaguer",
+          "en": "Pádel Noguera, Balaguer"
+        }
+      },
+      {
+        "src": "img/trayectoria/04.jpg",
+        "caption": {
+          "es": "Montaje de un evento con DecibeliK",
+          "ca": "Muntatge d'un esdeveniment amb DecibeliK",
+          "en": "Setting up an event with DecibeliK"
+        }
+      },
+      {
+        "src": "img/trayectoria/05.jpg",
+        "caption": {
+          "es": "ISE Innovation Hackathon 2026",
+          "ca": "ISE Innovation Hackathon 2026",
+          "en": "ISE Innovation Hackathon 2026"
+        }
+      },
+      {
+        "src": "img/trayectoria/06.jpg",
+        "caption": {
+          "es": "Talent Arena · MWC Barcelona 2026",
+          "ca": "Talent Arena · MWC Barcelona 2026",
+          "en": "Talent Arena · MWC Barcelona 2026"
+        }
+      }
+    ]
+  },
+  "projects": {
+    "intro": {
+      "es": "Proyectos reales, con clientes y usuarios. Cada uno tiene su página con el reto, lo que hice, el stack y lo que aprendí.",
+      "ca": "Projectes reals, amb clients i usuaris. Cadascun té la seva pàgina amb el repte, el que hi vaig fer, les eines i el que en vaig aprendre.",
+      "en": "Real projects with real clients and users. Each one has its own page with the challenge, what I did, the stack and what I learned."
+    },
+    "cta": {
+      "es": "Ver proyecto",
+      "ca": "Veure el projecte",
+      "en": "View project"
+    }
+  },
+  "skills": {
+    "intro": {
+      "es": "Lo que sé hacer, con proyectos que lo demuestran.",
+      "ca": "El que sé fer, amb projectes que ho demostren.",
+      "en": "What I can do, backed by projects that prove it."
+    },
+    "stackTitle": {
+      "es": "Stack con el que construyo",
+      "ca": "Stack amb què construeixo",
+      "en": "The stack I build with"
+    },
+    "languagesTitle": {
+      "es": "Idiomas",
+      "ca": "Idiomes",
+      "en": "Languages"
+    }
+  },
+  "education": {
+    "intro": {
+      "es": "Formación en empresa y comunicación, siempre aplicada a casos reales.",
+      "ca": "Formació en empresa i comunicació, sempre aplicada a casos reals.",
+      "en": "Business and communication studies, always applied to real cases."
+    },
+    "othersTitle": {
+      "es": "Otros",
+      "ca": "Altres",
+      "en": "Other"
+    },
+    "academicTitle": {
+      "es": "Casos académicos",
+      "ca": "Casos acadèmics",
+      "en": "Academic case studies"
+    },
+    "pdfCta": {
+      "es": "Ver trabajo (PDF)",
+      "ca": "Veure el treball (PDF)",
+      "en": "View work (PDF)"
+    }
+  },
+  "contact": {
+    "intro": {
+      "es": "¿Tienes una oferta, un proyecto o una idea? Escríbeme y hablamos.",
+      "ca": "Tens una oferta, un projecte o una idea? Escriu-me i en parlem.",
+      "en": "Got a role, a project or an idea? Write to me and let's talk."
+    },
+    "endpoint": "https://formspree.io/f/xgopzaeo",
+    "subject": {
+      "es": "Nuevo mensaje desde arnauribaltamarot.com",
+      "ca": "Nou missatge des d'arnauribaltamarot.com",
+      "en": "New message from arnauribaltamarot.com"
+    },
+    "fields": {
+      "name": {
+        "es": "Nombre",
+        "ca": "Nom",
+        "en": "Name"
+      },
+      "email": {
+        "es": "Email",
+        "ca": "Correu electrònic",
+        "en": "Email"
+      },
+      "reason": {
+        "es": "Motivo de contacto",
+        "ca": "Motiu de contacte",
+        "en": "Reason for contact"
+      },
+      "message": {
+        "es": "Mensaje",
+        "ca": "Missatge",
+        "en": "Message"
+      },
+      "consent": {
+        "es": "Acepto la política de privacidad",
+        "ca": "Accepto la política de privacitat",
+        "en": "I accept the privacy policy"
+      }
+    },
+    "reasons": [
+      {
+        "es": "Oferta de empleo o prácticas",
+        "ca": "Oferta de feina o pràctiques",
+        "en": "Job or internship opportunity"
+      },
+      {
+        "es": "Proyecto o colaboración",
+        "ca": "Projecte o col·laboració",
+        "en": "Project or collaboration"
+      },
+      {
+        "es": "Otros",
+        "ca": "Altres",
+        "en": "Other"
+      }
+    ],
+    "submit": {
+      "es": "Enviar",
+      "ca": "Envia",
+      "en": "Send"
+    },
+    "sending": {
+      "es": "Enviando…",
+      "ca": "Enviant…",
+      "en": "Sending…"
+    },
+    "success": {
+      "es": "¡Gracias! Te responderé lo antes posible.",
+      "ca": "Gràcies! Et respondré tan aviat com pugui.",
+      "en": "Thanks! I'll get back to you as soon as I can."
+    },
+    "error": {
+      "es": "No se ha podido enviar. Escríbeme a arnauribalta.contact@gmail.com.",
+      "ca": "No s'ha pogut enviar. Escriu-me a arnauribalta.contact@gmail.com.",
+      "en": "Your message couldn't be sent. Please email me at arnauribalta.contact@gmail.com."
+    }
+  },
+  "projectPage": {
+    "back": {
+      "es": "Proyectos",
+      "ca": "Projectes",
+      "en": "Projects"
+    },
+    "toc": {
+      "es": "En esta página",
+      "ca": "En aquesta pàgina",
+      "en": "On this page"
+    },
+    "meta": {
+      "role": {
+        "es": "Rol",
+        "ca": "Rol",
+        "en": "Role"
+      },
+      "period": {
+        "es": "Periodo",
+        "ca": "Període",
+        "en": "Period"
+      },
+      "status": {
+        "es": "Estado",
+        "ca": "Estat",
+        "en": "Status"
+      },
+      "client": {
+        "es": "Cliente",
+        "ca": "Client",
+        "en": "Client"
+      },
+      "team": {
+        "es": "Equipo",
+        "ca": "Equip",
+        "en": "Team"
+      }
+    },
+    "blocks": {
+      "summary": {
+        "es": "Resumen",
+        "ca": "Resum",
+        "en": "Overview"
+      },
+      "challenge": {
+        "es": "El reto",
+        "ca": "El repte",
+        "en": "The challenge"
+      },
+      "whatIDid": {
+        "es": "Qué hice",
+        "ca": "Què vaig fer",
+        "en": "What I did"
+      },
+      "features": {
+        "es": "Cómo funciona",
+        "ca": "Com funciona",
+        "en": "How it works"
+      },
+      "decisions": {
+        "es": "Decisiones clave",
+        "ca": "Decisions clau",
+        "en": "Key decisions"
+      },
+      "results": {
+        "es": "Resultados",
+        "ca": "Resultats",
+        "en": "Results"
+      },
+      "stack": {
+        "es": "Stack y herramientas",
+        "ca": "Stack i eines",
+        "en": "Stack and tools"
+      },
+      "skills": {
+        "es": "Aptitudes",
+        "ca": "Aptituds",
+        "en": "Skills"
+      },
+      "learnings": {
+        "es": "Qué aprendí",
+        "ca": "Què vaig aprendre",
+        "en": "What I learned"
+      },
+      "gallery": {
+        "es": "Galería",
+        "ca": "Galeria",
+        "en": "Gallery"
+      }
+    },
+    "prev": {
+      "es": "Proyecto anterior",
+      "ca": "Projecte anterior",
+      "en": "Previous project"
+    },
+    "next": {
+      "es": "Siguiente proyecto",
+      "ca": "Projecte següent",
+      "en": "Next project"
+    },
+    "ctaTitle": {
+      "es": [
+        "¿Hablamos?"
+      ],
+      "ca": [
+        "En parlem?"
+      ],
+      "en": [
+        "Let's",
+        "talk"
+      ]
+    },
+    "ctaButton": {
+      "es": "Contactar",
+      "ca": "Escriu-me",
+      "en": "Get in touch"
+    }
+  },
+  "carousel": {
+    "label": {
+      "es": "Carrusel",
+      "ca": "Carrusel",
+      "en": "Carousel"
+    },
+    "prev": {
+      "es": "Anterior",
+      "ca": "Anterior",
+      "en": "Previous"
+    },
+    "next": {
+      "es": "Siguiente",
+      "ca": "Següent",
+      "en": "Next"
+    }
+  },
+  "footer": {
+    "privacy": {
+      "es": "Política de privacidad",
+      "ca": "Política de privacitat",
+      "en": "Privacy policy"
+    },
+    "rights": {
+      "es": "© {year} Arnau Ribalta Marot · Oliana, Lleida",
+      "ca": "© {year} Arnau Ribalta Marot · Oliana, Lleida",
+      "en": "© {year} Arnau Ribalta Marot · Oliana, Lleida"
+    }
+  },
+  "notFound": {
+    "title": {
+      "es": [
+        "Página",
+        "no encontrada"
+      ],
+      "ca": [
+        "Pàgina",
+        "no trobada"
+      ],
+      "en": [
+        "Page",
+        "not found"
+      ]
+    },
+    "text": {
+      "es": "Esta página no existe o ha cambiado de dirección.",
+      "ca": "Aquesta pàgina no existeix o ha canviat d'adreça.",
+      "en": "This page doesn't exist or has moved."
+    },
+    "button": {
+      "es": "Volver al inicio",
+      "ca": "Torna a l'inici",
+      "en": "Back to home"
+    }
+  }
+}

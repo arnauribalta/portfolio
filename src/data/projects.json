@@ -1,0 +1,1272 @@
+[
+  {
+    "slug": "ribalta-obra-ia",
+    "visible": true,
+    "mostrarDetalle": true,
+    "orden": 1,
+    "titulo": {
+      "es": [
+        "Ribalta",
+        "Presupuestos y obra con IA"
+      ],
+      "ca": [
+        "Ribalta",
+        "Pressupostos i obra amb IA"
+      ],
+      "en": [
+        "Ribalta",
+        "AI budgeting and site planning"
+      ]
+    },
+    "logo": "logos/ribalta.svg",
+    "categoria": {
+      "es": "Producto interno · IA aplicada · Construcción",
+      "ca": "Producte intern · IA aplicada · Construcció",
+      "en": "Internal product · Applied AI · Construction"
+    },
+    "cliente": "Ribalta i Fills, S.A.",
+    "rol": {
+      "es": "Producto, diseño y desarrollo (freelance)",
+      "ca": "Producte, disseny i desenvolupament (freelance)",
+      "en": "Product, design and development (freelance)"
+    },
+    "periodo": {
+      "es": "Jun. 2026 — actualidad",
+      "ca": "Juny 2026 — actualitat",
+      "en": "Jun 2026 — present"
+    },
+    "estado": {
+      "es": "En producción · uso interno",
+      "ca": "En producció · ús intern",
+      "en": "In production · internal use"
+    },
+    "equipo": {
+      "es": "Proyecto individual, con encargados, oficina técnica y gerencia como usuarios",
+      "ca": "Projecte individual, amb encarregats, oficina tècnica i gerència com a usuaris",
+      "en": "Solo project, with site managers, the technical office and management as users"
+    },
+    "tags": [
+      {
+        "es": "IA aplicada",
+        "ca": "IA aplicada",
+        "en": "Applied AI"
+      },
+      {
+        "es": "Producto",
+        "ca": "Producte",
+        "en": "Product"
+      },
+      {
+        "es": "Construcción",
+        "ca": "Construcció",
+        "en": "Construction"
+      }
+    ],
+    "resumenCorto": {
+      "es": "Plataforma interna que convierte un PDF de mediciones en un presupuesto valorado en minutos y planifica obras, brigadas y maquinaria.",
+      "ca": "Plataforma interna que converteix un PDF d'amidaments en un pressupost valorat en minuts i planifica obres, brigades i maquinària.",
+      "en": "Internal platform that turns a bill of quantities into a priced budget in minutes and schedules sites, crews and machinery."
+    },
+    "resumen": {
+      "es": "Ribalta i Fills es una constructora familiar de obra pública y civil del Alt Urgell con unas 80 personas. Diseñé y desarrollé su plataforma interna: lee mediciones en PDF o Excel con IA, valora cada partida con los precios reales de la empresa y genera el Excel corporativo. Hoy cubre el ciclo completo de una obra: presupuestar, certificar y planificar brigadas y maquinaria.",
+      "ca": "Ribalta i Fills és una constructora familiar d'obra pública i civil de l'Alt Urgell amb unes 80 persones. Vaig dissenyar i desenvolupar la seva plataforma interna: llegeix amidaments en PDF o Excel amb IA, valora cada partida amb els preus reals de l'empresa i genera l'Excel corporatiu. Avui cobreix el cicle complet d'una obra: pressupostar, certificar i planificar brigades i maquinària.",
+      "en": "Ribalta i Fills is a family-owned public works and civil engineering company in the Catalan Pyrenees with around 80 people. I designed and built its internal platform: it reads bills of quantities in PDF or Excel with AI, prices every line item with the company's real historical prices and exports the branded Excel. Today it covers the whole life of a job: budgeting, monthly progress certificates and crew and machinery planning."
+    },
+    "reto": {
+      "es": "Cada presupuesto se montaba a mano en Excel: entre 4 y 7 horas buscando precios en archivos antiguos, con fórmulas que se rompen y tarifas desactualizadas. La planificación de brigadas y maquinaria se llevaba en papel, sin avisos de plazos ni de documentación pendiente.",
+      "ca": "Cada pressupost es muntava a mà en Excel: entre 4 i 7 hores buscant preus en arxius antics, amb fórmules que es trenquen i tarifes desactualitzades. La planificació de brigades i maquinària es portava en paper, sense avisos de terminis ni de documentació pendent.",
+      "en": "Every budget was built by hand in Excel: 4 to 7 hours digging prices out of old files, with broken formulas and outdated rates. Crew and machinery planning lived on paper, with no alerts for deadlines or missing paperwork."
+    },
+    "queHice": [
+      {
+        "es": "Analicé cómo se hacían los presupuestos y redacté el estudio de viabilidad y la propuesta para dirección: coste, retorno y comparativa con CYPE y Presto.",
+        "ca": "Vaig analitzar com es feien els pressupostos i vaig redactar l'estudi de viabilitat i la proposta per a la direcció: cost, retorn i comparativa amb CYPE i Presto.",
+        "en": "Analysed how budgets were being made and wrote the feasibility study and proposal for management: cost, payback and a comparison with CYPE and Presto."
+      },
+      {
+        "es": "Diseñé el producto con sus usuarios: reuniones con el equipo de la empresa, prioridades por módulo y listas de mejoras iteradas.",
+        "ca": "Vaig dissenyar el producte amb els seus usuaris: reunions amb l'equip de l'empresa, prioritats per mòdul i llistes de millores iterades.",
+        "en": "Designed the product with its users: meetings with the company's team, priorities per module and iterated improvement lists."
+      },
+      {
+        "es": "Desarrollé la aplicación con desarrollo asistido por IA (Claude Code): 36 commits en tres meses, de estimador de presupuestos a CRM de obra.",
+        "ca": "Vaig desenvolupar l'aplicació amb desenvolupament assistit per IA (Claude Code): 36 commits en tres mesos, d'estimador de pressupostos a CRM d'obra.",
+        "en": "Built the app with AI-assisted development (Claude Code): 36 commits in three months, from budget estimator to construction CRM."
+      },
+      {
+        "es": "Construí la base de precios a partir de presupuestos reales de la empresa: 645 partidas iniciales separadas en obra pública y privada.",
+        "ca": "Vaig construir la base de preus a partir de pressupostos reals de l'empresa: 645 partides inicials separades en obra pública i privada.",
+        "en": "Built the price database from the company's real budgets: 645 initial line items split into public and private works."
+      },
+      {
+        "es": "Diseñé el pipeline de IA: lectura de documentos largos por bloques, búsqueda de precios por lotes y un modelo distinto según la tarea.",
+        "ca": "Vaig dissenyar el pipeline d'IA: lectura de documents llargs per blocs, cerca de preus per lots i un model diferent segons la tasca.",
+        "en": "Designed the AI pipeline: long documents read in chunks, prices looked up in batches and a different model for each task."
+      },
+      {
+        "es": "La puse en producción y la sigo ampliando a partir de las peticiones del equipo.",
+        "ca": "La vaig posar en producció i la continuo ampliant a partir de les peticions de l'equip.",
+        "en": "Shipped it to production and keep extending it based on the team's requests."
+      }
+    ],
+    "funcionalidades": [
+      {
+        "titulo": {
+          "es": "Presupuesto en minutos",
+          "ca": "Pressupost en minuts",
+          "en": "Budgets in minutes"
+        },
+        "texto": {
+          "es": "Texto, PDF o Excel: la IA extrae las partidas con sus mediciones y las valora, primero con el histórico propio, después con precios de internet y, si no, con una estimación.",
+          "ca": "Text, PDF o Excel: la IA extreu les partides amb els seus amidaments i les valora, primer amb l'històric propi, després amb preus d'internet i, si no, amb una estimació.",
+          "en": "Text, PDF or Excel: the AI extracts each line item with its quantities and prices it—first from the company's history, then from the web, and otherwise with an estimate."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Semáforo de fiabilidad",
+          "ca": "Semàfor de fiabilitat",
+          "en": "Reliability traffic light"
+        },
+        "texto": {
+          "es": "Cada partida muestra de dónde sale su precio: verde (histórico de Ribalta), amarillo (internet o IA), rojo (falta) y azul (sin comparación). Los colores viajan al Excel.",
+          "ca": "Cada partida mostra d'on surt el seu preu: verd (històric de Ribalta), groc (internet o IA), vermell (falta) i blau (sense comparació). Els colors viatgen a l'Excel.",
+          "en": "Every line shows where its price comes from: green (Ribalta's history), yellow (web or AI), red (missing) and blue (no comparison). The colours carry over to the Excel."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Excel corporativo",
+          "ca": "Excel corporatiu",
+          "en": "Branded Excel export"
+        },
+        "texto": {
+          "es": "Exportación con la marca de la empresa, fórmulas vivas, hoja de revisión con filtros, baja de adjudicación editable y un resumen con diagnóstico y recomendaciones.",
+          "ca": "Exportació amb la marca de l'empresa, fórmules vives, full de revisió amb filtres, baixa d'adjudicació editable i un resum amb diagnosi i recomanacions.",
+          "en": "Export with company branding, live formulas, a review sheet with filters, an editable tender discount and a summary with diagnosis and recommendations."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Base de precios con revisión humana",
+          "ca": "Base de preus amb revisió humana",
+          "en": "Human-reviewed price base"
+        },
+        "texto": {
+          "es": "Partidas propias y de referencia, con trazabilidad de la obra de origen. Solo aprende de Excels corregidos por una persona.",
+          "ca": "Partides pròpies i de referència, amb traçabilitat de l'obra d'origen. Només aprèn d'Excels corregits per una persona.",
+          "en": "Own and reference line items, traceable to the job they came from. It only learns from Excels corrected by a person."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Certificaciones",
+          "ca": "Certificacions",
+          "en": "Progress certificates"
+        },
+        "texto": {
+          "es": "Certificación mensual a partir del presupuesto del arquitecto (formato Arquímedes o Excel), con fórmulas que el técnico municipal puede revisar.",
+          "ca": "Certificació mensual a partir del pressupost de l'arquitecte (format Arquímedes o Excel), amb fórmules que el tècnic municipal pot revisar.",
+          "en": "Monthly progress certificates from the architect's budget (Arquímedes format or Excel), with formulas the council's surveyor can audit."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Planificación y avisos",
+          "ca": "Planificació i avisos",
+          "en": "Planning and alerts"
+        },
+        "texto": {
+          "es": "Gantt de obras, brigadas y maquinaria con cinco vistas y un motor de avisos: obras sin equipo, brigadas duplicadas, plazos con penalización o documentación pendiente. Es el módulo más usado.",
+          "ca": "Gantt d'obres, brigades i maquinària amb cinc vistes i un motor d'avisos: obres sense equip, brigades duplicades, terminis amb penalització o documentació pendent. És el mòdul més utilitzat.",
+          "en": "A Gantt of sites, crews and machinery with five views and an alerts engine: sites with no team, double-booked crews, penalty deadlines or missing paperwork. It's the most-used module."
+        }
+      }
+    ],
+    "decisiones": [
+      {
+        "es": "El Excel retocado es la cifra definitiva: descarté enlazar automáticamente presupuesto, obra y certificación porque los técnicos ajustan mucho el Excel después de exportarlo.",
+        "ca": "L'Excel retocat és la xifra definitiva: vaig descartar enllaçar automàticament pressupost, obra i certificació perquè els tècnics ajusten molt l'Excel després d'exportar-lo.",
+        "en": "The edited Excel is the final number: I dropped an automatic budget–job–certificate link because technicians adjust the Excel heavily after exporting it."
+      },
+      {
+        "es": "La base de precios solo aprende de Excels revisados por una persona, para que los errores del sistema nunca se conviertan en referencia.",
+        "ca": "La base de preus només aprèn d'Excels revisats per una persona, perquè els errors del sistema no es converteixin mai en referència.",
+        "en": "The price base only learns from human-reviewed Excels, so the system's own mistakes never become the reference."
+      },
+      {
+        "es": "El módulo de costes queda fuera del menú: es información de gerencia y no debe parecer una herramienta para recortar personal.",
+        "ca": "El mòdul de costos queda fora del menú: és informació de gerència i no ha de semblar una eina per retallar personal.",
+        "en": "The cost module stays out of the menu: it's management information and must not look like a tool for cutting staff."
+      },
+      {
+        "es": "Catalán primero, un solo color de acento y ninguna librería nueva en planificación: Gantt, avisos y gráficos hechos a mano para que sea ligera y fácil de mantener.",
+        "ca": "El català primer, un sol color d'accent i cap biblioteca nova a la planificació: Gantt, avisos i gràfics fets a mà perquè sigui lleugera i fàcil de mantenir.",
+        "en": "Catalan first, a single accent colour and no new libraries for planning: the Gantt, alerts and charts are hand-built to keep it light and maintainable."
+      }
+    ],
+    "resultados": [
+      {
+        "valor": {
+          "es": "6",
+          "ca": "6",
+          "en": "6"
+        },
+        "etiqueta": {
+          "es": "módulos en producción",
+          "ca": "mòduls en producció",
+          "en": "modules in production"
+        },
+        "nota": null
+      },
+      {
+        "valor": {
+          "es": "645",
+          "ca": "645",
+          "en": "645"
+        },
+        "etiqueta": {
+          "es": "partidas reales en la base de precios inicial",
+          "ca": "partides reals a la base de preus inicial",
+          "en": "real line items in the initial price base"
+        },
+        "nota": null
+      },
+      {
+        "valor": {
+          "es": "36",
+          "ca": "36",
+          "en": "36"
+        },
+        "etiqueta": {
+          "es": "commits entre junio y septiembre de 2026",
+          "ca": "commits entre juny i setembre de 2026",
+          "en": "commits between June and September 2026"
+        },
+        "nota": null
+      },
+      {
+        "valor": {
+          "es": "4–7 h → 1,5 h",
+          "ca": "4–7 h → 1,5 h",
+          "en": "4–7 h → 1.5 h"
+        },
+        "etiqueta": {
+          "es": "por presupuesto",
+          "ca": "per pressupost",
+          "en": "per budget"
+        },
+        "nota": {
+          "es": "Objetivo del estudio de viabilidad",
+          "ca": "Objectiu de l'estudi de viabilitat",
+          "en": "Target set in the feasibility study"
+        }
+      }
+    ],
+    "stack": [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "shadcn/ui",
+      "TanStack Table",
+      "Supabase (PostgreSQL, Auth, Storage)",
+      "Anthropic API (Claude Opus · Sonnet · Haiku)",
+      "Anthropic web search",
+      "pdf-lib",
+      "Vercel",
+      "GitHub",
+      "Claude Code"
+    ],
+    "aptitudes": [
+      {
+        "es": "Descubrimiento de producto con usuarios",
+        "ca": "Descobriment de producte amb usuaris",
+        "en": "Product discovery with users"
+      },
+      {
+        "es": "UX para perfiles no técnicos",
+        "ca": "UX per a perfils no tècnics",
+        "en": "UX for non-technical users"
+      },
+      {
+        "es": "Prompt engineering y pipelines con LLM",
+        "ca": "Prompt engineering i pipelines amb LLM",
+        "en": "Prompt engineering and LLM pipelines"
+      },
+      {
+        "es": "Modelado de datos en PostgreSQL",
+        "ca": "Modelatge de dades en PostgreSQL",
+        "en": "PostgreSQL data modelling"
+      },
+      {
+        "es": "Presupuestos de obra: mediciones, partidas, PEC y bajas",
+        "ca": "Pressupostos d'obra: amidaments, partides, PEC i baixes",
+        "en": "Construction budgeting: quantities, line items, contract price and tender discounts"
+      },
+      {
+        "es": "Business case y retorno de la inversión",
+        "ca": "Business case i retorn de la inversió",
+        "en": "Business case and ROI"
+      },
+      {
+        "es": "Gestión de proyecto con cliente real",
+        "ca": "Gestió de projecte amb client real",
+        "en": "Project management with a real client"
+      }
+    ],
+    "aprendizajes": [
+      {
+        "es": "Una herramienta interna funciona si respeta cómo trabaja la gente: el Excel sigue mandando, así que la app lo alimenta en lugar de sustituirlo.",
+        "ca": "Una eina interna funciona si respecta com treballa la gent: l'Excel continua manant, així que l'aplicació l'alimenta en lloc de substituir-lo.",
+        "en": "An internal tool works when it respects how people already work: Excel still rules, so the app feeds it instead of replacing it."
+      },
+      {
+        "es": "Trocear el trabajo de la IA en bloques y lotes es lo que permite leer documentos largos dentro de los límites de un hosting serverless.",
+        "ca": "Trossejar la feina de la IA en blocs i lots és el que permet llegir documents llargs dins dels límits d'un hosting serverless.",
+        "en": "Splitting AI work into chunks and batches is what makes long documents readable within serverless time limits."
+      },
+      {
+        "es": "Elegir el modelo por tarea —el más potente para leer documentos difíciles, otro equilibrado para buscar precios y uno rápido para lecturas simples— equilibra calidad y coste.",
+        "ca": "Triar el model per tasca —el més potent per llegir documents difícils, un altre d'equilibrat per buscar preus i un de ràpid per a lectures simples— equilibra qualitat i cost.",
+        "en": "Picking the model per task—the strongest for hard documents, a balanced one for price lookups and a fast one for simple reads—balances quality and cost."
+      },
+      {
+        "es": "Hablar el idioma del sector (mediciones, certificaciones, bajas) acelera más que cualquier funcionalidad.",
+        "ca": "Parlar l'idioma del sector (amidaments, certificacions, baixes) accelera més que qualsevol funcionalitat.",
+        "en": "Speaking the industry's language (quantities, certificates, tender discounts) speeds things up more than any feature."
+      }
+    ],
+    "enlaces": [],
+    "imagenes": {
+      "cover": {
+        "src": "img/proyectos/ribalta/cover.png",
+        "alt": {
+          "es": "Estimador de presupuestos con el semáforo de precios (datos de ejemplo)",
+          "ca": "Estimador de pressupostos amb el semàfor de preus (dades d'exemple)",
+          "en": "Budget estimator with the price traffic light (sample data)"
+        }
+      },
+      "galeria": [
+        {
+          "src": "img/proyectos/ribalta/planificacion.png",
+          "alt": {
+            "es": "Gantt de obras con un color por encargado (datos de ejemplo)",
+            "ca": "Gantt d'obres amb un color per encarregat (dades d'exemple)",
+            "en": "Site Gantt chart with one colour per site manager (sample data)"
+          }
+        },
+        {
+          "src": "img/proyectos/ribalta/avisos.png",
+          "alt": {
+            "es": "Panel de avisos por gravedad (datos de ejemplo)",
+            "ca": "Panell d'avisos per gravetat (dades d'exemple)",
+            "en": "Alerts panel by severity (sample data)"
+          }
+        },
+        {
+          "src": "img/proyectos/ribalta/excel.png",
+          "alt": {
+            "es": "Excel exportado con la marca de la empresa (datos de ejemplo)",
+            "ca": "Excel exportat amb la marca de l'empresa (dades d'exemple)",
+            "en": "Exported Excel with company branding (sample data)"
+          }
+        },
+        {
+          "src": "img/proyectos/ribalta/base-precios.png",
+          "alt": {
+            "es": "Base de precios con partidas propias y de referencia (datos de ejemplo)",
+            "ca": "Base de preus amb partides pròpies i de referència (dades d'exemple)",
+            "en": "Price base with own and reference line items (sample data)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "slug": "gastrovision-ai",
+    "visible": true,
+    "mostrarDetalle": true,
+    "orden": 2,
+    "titulo": {
+      "es": [
+        "GastroVision",
+        "AI"
+      ],
+      "ca": [
+        "GastroVision",
+        "AI"
+      ],
+      "en": [
+        "GastroVision",
+        "AI"
+      ]
+    },
+    "logo": "logos/gastrovision.svg",
+    "categoria": {
+      "es": "SaaS propio · IA generativa · Restauración",
+      "ca": "SaaS propi · IA generativa · Restauració",
+      "en": "Own SaaS · Generative AI · Hospitality"
+    },
+    "cliente": null,
+    "rol": {
+      "es": "Fundador: producto, desarrollo y marketing",
+      "ca": "Fundador: producte, desenvolupament i màrqueting",
+      "en": "Founder: product, development and marketing"
+    },
+    "periodo": {
+      "es": "2026",
+      "ca": "2026",
+      "en": "2026"
+    },
+    "estado": {
+      "es": "Lanzado en gastrovision.xyz · comercialización en pausa",
+      "ca": "Llançat a gastrovision.xyz · comercialització en pausa",
+      "en": "Live at gastrovision.xyz · sales on hold"
+    },
+    "equipo": {
+      "es": "Proyecto individual",
+      "ca": "Projecte individual",
+      "en": "Solo project"
+    },
+    "tags": [
+      {
+        "es": "SaaS",
+        "ca": "SaaS",
+        "en": "SaaS"
+      },
+      {
+        "es": "IA generativa",
+        "ca": "IA generativa",
+        "en": "Generative AI"
+      },
+      {
+        "es": "Restauración",
+        "ca": "Restauració",
+        "en": "Hospitality"
+      }
+    ],
+    "resumenCorto": {
+      "es": "SaaS que convierte la foto de una carta en una carta digital multilingüe con fotos, maridajes y un maître virtual, accesible por QR.",
+      "ca": "SaaS que converteix la foto d'una carta en una carta digital multilingüe amb fotos, maridatges i un maître virtual, accessible per QR.",
+      "en": "SaaS that turns a photo of a menu into a multilingual digital menu with photos, pairings and a virtual maître d', opened by QR."
+    },
+    "resumen": {
+      "es": "El restaurante sube una foto o un PDF de su carta y la IA la transcribe, la enriquece con descripciones, maridajes e historia de cada plato, busca fotos y la traduce a hasta diez idiomas. El comensal la abre con un QR y puede preguntar a un maître virtual. Lo diseñé, lo construí y lo lancé en nueve semanas, con precio, landing y materiales de lanzamiento.",
+      "ca": "El restaurant puja una foto o un PDF de la seva carta i la IA la transcriu, l'enriqueix amb descripcions, maridatges i la història de cada plat, busca fotos i la tradueix a fins a deu idiomes. El comensal l'obre amb un QR i pot fer preguntes a un maître virtual. El vaig dissenyar, construir i llançar en nou setmanes, amb preu, landing i materials de llançament.",
+      "en": "A restaurant uploads a photo or PDF of its menu and the AI transcribes it, enriches every dish with descriptions, pairings and its story, finds photos and translates it into up to ten languages. Diners open it by QR and can ask a virtual maître d'. I designed, built and launched it in nine weeks, with pricing, a landing page and launch materials."
+    },
+    "reto": {
+      "es": "En zonas turísticas, una carta en papel o en PDF no se traduce, no enseña los platos y no ayuda a vender. Digitalizarla suele obligar al restaurante a rehacerla a mano.",
+      "ca": "En zones turístiques, una carta en paper o en PDF no es tradueix, no ensenya els plats i no ajuda a vendre. Digitalitzar-la sol obligar el restaurant a refer-la a mà.",
+      "en": "In tourist areas, a paper or PDF menu isn't translated, doesn't show the food and doesn't help sell. Going digital usually means retyping the whole menu by hand."
+    },
+    "queHice": [
+      {
+        "es": "Definí el producto, el público —restaurantes, bares y hoteles de zonas turísticas— y el precio: 25 €/mes como oferta de lanzamiento.",
+        "ca": "Vaig definir el producte, el públic —restaurants, bars i hotels de zones turístiques— i el preu: 25 €/mes com a oferta de llançament.",
+        "en": "Defined the product, the audience—restaurants, bars and hotels in tourist areas—and the price: €25/month as a launch offer."
+      },
+      {
+        "es": "Construí la plataforma multirrestaurante completa: carta pública, panel del propietario y panel de administración, con 63 commits en nueve semanas.",
+        "ca": "Vaig construir la plataforma multirestaurant completa: carta pública, panell del propietari i panell d'administració, amb 63 commits en nou setmanes.",
+        "en": "Built the full multi-tenant platform: public menu, owner dashboard and admin panel, with 63 commits in nine weeks."
+      },
+      {
+        "es": "Diseñé el pipeline de IA: extracción de platos, enriquecimiento en el idioma original y traducción con caché de prompts para controlar costes.",
+        "ca": "Vaig dissenyar el pipeline d'IA: extracció de plats, enriquiment en l'idioma original i traducció amb memòria cau de prompts per controlar els costos.",
+        "en": "Designed the AI pipeline: dish extraction, enrichment in the original language and translation with prompt caching to keep costs down."
+      },
+      {
+        "es": "Monté el alta autoservicio con prueba gratuita, activación supervisada y límites antiabuso.",
+        "ca": "Vaig muntar l'alta d'autoservei amb prova gratuïta, activació supervisada i límits antiabús.",
+        "en": "Set up self-serve sign-up with a free trial, supervised activation and anti-abuse limits."
+      },
+      {
+        "es": "Preparé el lanzamiento: landing multilingüe, siete carruseles para Instagram, guiones de anuncios para Meta y mensajes de prospección por WhatsApp y email.",
+        "ca": "Vaig preparar el llançament: landing multilingüe, set carrusels per a Instagram, guions d'anuncis per a Meta i missatges de prospecció per WhatsApp i correu electrònic.",
+        "en": "Prepared the launch: a multilingual landing page, seven Instagram carousels, Meta ad scripts and outreach messages by WhatsApp and email."
+      }
+    ],
+    "funcionalidades": [
+      {
+        "titulo": {
+          "es": "De foto a carta en minutos",
+          "ca": "De foto a carta en minuts",
+          "en": "From photo to menu in minutes"
+        },
+        "texto": {
+          "es": "Se sube una foto o un PDF y la IA detecta el idioma, extrae los platos, los enriquece y los traduce. Los de baja confianza pasan a una cola de revisión.",
+          "ca": "Es puja una foto o un PDF i la IA detecta l'idioma, extreu els plats, els enriqueix i els tradueix. Els de baixa confiança passen a una cua de revisió.",
+          "en": "Upload a photo or PDF and the AI detects the language, extracts the dishes, enriches them and translates them. Low-confidence dishes go to a review queue."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Carta multilingüe por QR",
+          "ca": "Carta multilingüe per QR",
+          "en": "Multilingual menu by QR"
+        },
+        "texto": {
+          "es": "Hasta 10 idiomas, tema claro y oscuro, fotos con efecto Ken Burns y una sección de platos destacados. El QR imprimible no cambia nunca.",
+          "ca": "Fins a 10 idiomes, tema clar i fosc, fotos amb efecte Ken Burns i una secció de plats destacats. El QR imprimible no canvia mai.",
+          "en": "Up to 10 languages, light and dark themes, Ken Burns photos and a featured-dishes section. The printable QR code never changes."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Maître virtual",
+          "ca": "Maître virtual",
+          "en": "Virtual maître d'"
+        },
+        "texto": {
+          "es": "Un asistente que recomienda platos y resuelve dudas de alérgenos y maridajes en el idioma del comensal.",
+          "ca": "Un assistent que recomana plats i resol dubtes sobre al·lèrgens i maridatges en l'idioma del comensal.",
+          "en": "An assistant that recommends dishes and answers questions about allergens and pairings in the diner's language."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Panel del propietario",
+          "ca": "Panell del propietari",
+          "en": "Owner dashboard"
+        },
+        "texto": {
+          "es": "Onboarding en cuatro pasos, edición de platos, menús por franjas horarias con precios propios, estadísticas exportables a Excel y un chatbot de soporte.",
+          "ca": "Onboarding en quatre passos, edició de plats, menús per franges horàries amb preus propis, estadístiques exportables a Excel i un xatbot de suport.",
+          "en": "Four-step onboarding, dish editing, time-slot menus with their own prices, statistics exportable to Excel and a support chatbot."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Panel de administración",
+          "ca": "Panell d'administració",
+          "en": "Admin panel"
+        },
+        "texto": {
+          "es": "Todos los restaurantes con buscador y filtros, gestión de pruebas gratuitas y métricas de coste de IA, errores y sugerencias.",
+          "ca": "Tots els restaurants amb cercador i filtres, gestió de proves gratuïtes i mètriques de cost d'IA, errors i suggeriments.",
+          "en": "Every restaurant with search and filters, free-trial management and metrics for AI cost, errors and suggestions."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Seguridad multirrestaurante",
+          "ca": "Seguretat multirestaurant",
+          "en": "Multi-tenant security"
+        },
+        "texto": {
+          "es": "Cada restaurante solo ve sus datos gracias a Row Level Security, con sesiones firmadas y contraseñas cifradas con PBKDF2.",
+          "ca": "Cada restaurant només veu les seves dades gràcies a Row Level Security, amb sessions signades i contrasenyes xifrades amb PBKDF2.",
+          "en": "Each restaurant only sees its own data thanks to Row Level Security, with signed sessions and PBKDF2-hashed passwords."
+        }
+      }
+    ],
+    "decisiones": [
+      {
+        "es": "Reescribí el prompt para que la historia de cada plato sea factual y regeneré las que parecían inventadas.",
+        "ca": "Vaig reescriure el prompt perquè la història de cada plat fos factual i vaig regenerar les que semblaven inventades.",
+        "en": "Rewrote the prompt so every dish's story is factual and regenerated the ones that looked made up."
+      },
+      {
+        "es": "Registrar el coste real de cada llamada a la IA por restaurante, para fijar límites de uso y proteger el margen de un precio bajo.",
+        "ca": "Registrar el cost real de cada crida a la IA per restaurant, per fixar límits d'ús i protegir el marge d'un preu baix.",
+        "en": "Logging the real cost of every AI call per restaurant, to set usage limits and protect the margin of a low price."
+      },
+      {
+        "es": "Retraducciones mediante tool use en lugar de JSON libre, para eliminar respuestas mal formadas.",
+        "ca": "Retraduccions mitjançant tool use en lloc de JSON lliure, per eliminar respostes mal formades.",
+        "en": "Re-translations through tool use instead of free-form JSON, to eliminate malformed responses."
+      },
+      {
+        "es": "Prueba gratuita con activación supervisada antes de automatizar el cobro con Stripe, que dejé especificado.",
+        "ca": "Prova gratuïta amb activació supervisada abans d'automatitzar el cobrament amb Stripe, que vaig deixar especificat.",
+        "en": "A free trial with supervised activation before automating billing with Stripe, which I specified."
+      }
+    ],
+    "resultados": [
+      {
+        "valor": {
+          "es": "63",
+          "ca": "63",
+          "en": "63"
+        },
+        "etiqueta": {
+          "es": "commits en nueve semanas",
+          "ca": "commits en nou setmanes",
+          "en": "commits in nine weeks"
+        },
+        "nota": null
+      },
+      {
+        "valor": {
+          "es": "10",
+          "ca": "10",
+          "en": "10"
+        },
+        "etiqueta": {
+          "es": "idiomas por carta",
+          "ca": "idiomes per carta",
+          "en": "languages per menu"
+        },
+        "nota": null
+      },
+      {
+        "valor": {
+          "es": "3",
+          "ca": "3",
+          "en": "3"
+        },
+        "etiqueta": {
+          "es": "interfaces: comensal, propietario y administración",
+          "ca": "interfícies: comensal, propietari i administració",
+          "en": "interfaces: diner, owner and admin"
+        },
+        "nota": null
+      },
+      {
+        "valor": {
+          "es": "25 €/mes",
+          "ca": "25 €/mes",
+          "en": "€25/month"
+        },
+        "etiqueta": {
+          "es": "precio de lanzamiento",
+          "ca": "preu de llançament",
+          "en": "launch price"
+        },
+        "nota": null
+      }
+    ],
+    "stack": [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Supabase (PostgreSQL + Row Level Security)",
+      "Anthropic API (Claude Sonnet · Haiku)",
+      "Prompt caching",
+      "Zod",
+      "sharp",
+      "Vercel",
+      "Claude Code"
+    ],
+    "aptitudes": [
+      {
+        "es": "Producto SaaS de principio a fin",
+        "ca": "Producte SaaS de principi a fi",
+        "en": "End-to-end SaaS product"
+      },
+      {
+        "es": "Pricing y modelo de suscripción",
+        "ca": "Pricing i model de subscripció",
+        "en": "Pricing and subscription model"
+      },
+      {
+        "es": "Arquitectura multirrestaurante",
+        "ca": "Arquitectura multirestaurant",
+        "en": "Multi-tenant architecture"
+      },
+      {
+        "es": "Pipelines de IA y control de costes",
+        "ca": "Pipelines d'IA i control de costos",
+        "en": "AI pipelines and cost control"
+      },
+      {
+        "es": "Copywriting y contenido para redes",
+        "ca": "Copywriting i contingut per a xarxes",
+        "en": "Copywriting and social content"
+      },
+      {
+        "es": "Prospección comercial B2B",
+        "ca": "Prospecció comercial B2B",
+        "en": "B2B sales outreach"
+      }
+    ],
+    "aprendizajes": [
+      {
+        "es": "Un producto completo no se vende solo: el siguiente paso habría sido validar con un grupo pequeño de restaurantes antes de ampliar funcionalidades.",
+        "ca": "Un producte complet no es ven sol: el pas següent hauria estat validar-lo amb un grup petit de restaurants abans d'ampliar funcionalitats.",
+        "en": "A finished product doesn't sell itself: the next step should have been validating with a handful of restaurants before adding features."
+      },
+      {
+        "es": "Controlar el coste por cliente desde el primer día (tokens, límites y caché) es lo que hace viable un precio bajo.",
+        "ca": "Controlar el cost per client des del primer dia (tokens, límits i memòria cau) és el que fa viable un preu baix.",
+        "en": "Tracking cost per customer from day one (tokens, limits and caching) is what makes a low price viable."
+      },
+      {
+        "es": "Comunicar beneficios para el restaurante —vender más, atender a turistas— en lugar de tecnología.",
+        "ca": "Comunicar beneficis per al restaurant —vendre més, atendre turistes— en lloc de tecnologia.",
+        "en": "Talk about benefits for the restaurant—selling more, serving tourists—rather than the technology."
+      }
+    ],
+    "enlaces": [
+      {
+        "label": {
+          "es": "Visitar la web",
+          "ca": "Visitar el web",
+          "en": "Visit the website"
+        },
+        "url": "https://gastrovision.xyz"
+      },
+      {
+        "label": {
+          "es": "Ver la carta de ejemplo",
+          "ca": "Veure la carta d'exemple",
+          "en": "See the demo menu"
+        },
+        "url": "https://gastrovision.xyz/carta-ejemplo"
+      }
+    ],
+    "imagenes": {
+      "cover": {
+        "src": "img/proyectos/gastrovision/cover.png",
+        "alt": {
+          "es": "Landing de GastroVision AI y carta digital en el móvil",
+          "ca": "Landing de GastroVision AI i carta digital al mòbil",
+          "en": "GastroVision AI landing page and digital menu on a phone"
+        }
+      },
+      "galeria": [
+        {
+          "src": "img/proyectos/gastrovision/carta.png",
+          "alt": {
+            "es": "Carta pública en el móvil con fichas de plato",
+            "ca": "Carta pública al mòbil amb fitxes de plat",
+            "en": "Public menu on a phone with dish cards"
+          }
+        },
+        {
+          "src": "img/proyectos/gastrovision/panel.png",
+          "alt": {
+            "es": "Panel del propietario",
+            "ca": "Panell del propietari",
+            "en": "Owner dashboard"
+          }
+        },
+        {
+          "src": "img/proyectos/gastrovision/maitre.png",
+          "alt": {
+            "es": "Conversación con el maître virtual",
+            "ca": "Conversa amb el maître virtual",
+            "en": "Chat with the virtual maître d'"
+          }
+        },
+        {
+          "src": "img/proyectos/gastrovision/instagram.png",
+          "alt": {
+            "es": "Carrusel de lanzamiento para Instagram",
+            "ca": "Carrusel de llançament per a Instagram",
+            "en": "Instagram launch carousel"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "slug": "ao2-solutions",
+    "visible": true,
+    "mostrarDetalle": true,
+    "orden": 4,
+    "titulo": {
+      "es": [
+        "AO2",
+        "Solutions"
+      ],
+      "ca": [
+        "AO2",
+        "Solutions"
+      ],
+      "en": [
+        "AO2",
+        "Solutions"
+      ]
+    },
+    "logo": "logos/ao2.svg",
+    "categoria": {
+      "es": "Empresa cofundada · Automatización e IA",
+      "ca": "Empresa cofundada · Automatització i IA",
+      "en": "Co-founded company · Automation and AI"
+    },
+    "cliente": null,
+    "rol": {
+      "es": "Cofundador · negocio, clientes y proyectos",
+      "ca": "Cofundador · negoci, clients i projectes",
+      "en": "Co-founder · business, clients and projects"
+    },
+    "periodo": {
+      "es": "Ene. 2024 — ene. 2026",
+      "ca": "Gen. 2024 — gen. 2026",
+      "en": "Jan 2024 — Jan 2026"
+    },
+    "estado": {
+      "es": "Cerrada en enero de 2026",
+      "ca": "Tancada el gener de 2026",
+      "en": "Closed in January 2026"
+    },
+    "equipo": {
+      "es": "Dos socios: uno técnico y uno de negocio",
+      "ca": "Dos socis: un de tècnic i un de negoci",
+      "en": "Two partners: one technical, one business"
+    },
+    "tags": [
+      {
+        "es": "Chatbots",
+        "ca": "Xatbots",
+        "en": "Chatbots"
+      },
+      {
+        "es": "Automatización",
+        "ca": "Automatització",
+        "en": "Automation"
+      },
+      {
+        "es": "Pymes",
+        "ca": "Pimes",
+        "en": "SMEs"
+      }
+    ],
+    "resumenCorto": {
+      "es": "Empresa de chatbots, automatizaciones con IA y redes sociales para pymes del Pirineo, cofundada con un socio desarrollador.",
+      "ca": "Empresa de xatbots, automatitzacions amb IA i xarxes socials per a pimes del Pirineu, cofundada amb un soci desenvolupador.",
+      "en": "Chatbots, AI automations and social media for small businesses in the Pyrenees, co-founded with a developer partner."
+    },
+    "resumen": {
+      "es": "AO2 Solutions nació en Oliana con un lema: «Tecnologia des del Pirineu». Con un socio desarrollador ofrecíamos a pequeñas empresas de la zona chatbots de atención al cliente, automatizaciones de tareas con IA y gestión de redes sociales. Yo llevaba el negocio: clientes, proyectos y estrategia comercial.",
+      "ca": "AO2 Solutions va néixer a Oliana amb un lema: «Tecnologia des del Pirineu». Amb un soci desenvolupador oferíem a petites empreses de la zona xatbots d'atenció al client, automatitzacions de tasques amb IA i gestió de xarxes socials. Jo portava el negoci: clients, projectes i estratègia comercial.",
+      "en": "AO2 Solutions started in Oliana with a motto: “Tecnologia des del Pirineu” (technology from the Pyrenees). With a developer partner, we offered local small businesses customer-service chatbots, AI task automation and social media management. I ran the business side: clients, projects and sales strategy."
+    },
+    "reto": {
+      "es": "Acercar la IA y la automatización a pymes de comarcas de montaña sin equipo técnico propio.",
+      "ca": "Apropar la IA i l'automatització a pimes de comarques de muntanya sense equip tècnic propi.",
+      "en": "Bringing AI and automation to small businesses in mountain counties with no in-house tech team."
+    },
+    "queHice": [
+      {
+        "es": "Cofundé la empresa y definí la propuesta de valor y los servicios: chatbots multiplataforma, 24/7 y multidioma, y automatización de tareas repetitivas.",
+        "ca": "Vaig cofundar l'empresa i vaig definir la proposta de valor i els serveis: xatbots multiplataforma, 24/7 i multiidioma, i automatització de tasques repetitives.",
+        "en": "Co-founded the company and defined its value proposition and services: multi-platform, 24/7, multilingual chatbots and automation of repetitive tasks."
+      },
+      {
+        "es": "Gestioné la relación con los clientes y los proyectos, de la propuesta a la entrega, con clientes como Ribalta, Organyapark o Cal Palau.",
+        "ca": "Vaig gestionar la relació amb els clients i els projectes, de la proposta al lliurament, amb clients com Ribalta, Organyapark o Cal Palau.",
+        "en": "Managed client relationships and projects from proposal to delivery, for clients such as Ribalta, Organyapark and Cal Palau."
+      },
+      {
+        "es": "Diseñé el go-to-market de un servicio de copias de seguridad y recuperación de correo para pymes del Alt Urgell, la Cerdanya y Andorra, con alianzas y la Cámara de Comercio como canales prioritarios.",
+        "ca": "Vaig dissenyar el go-to-market d'un servei de còpies de seguretat i recuperació de correu per a pimes de l'Alt Urgell, la Cerdanya i Andorra, amb aliances i la Cambra de Comerç com a canals prioritaris.",
+        "en": "Designed the go-to-market for a backup and email-recovery service for SMEs in Alt Urgell, Cerdanya and Andorra, prioritising partnerships and the Chamber of Commerce as channels."
+      },
+      {
+        "es": "Cerramos la sociedad en enero de 2026, tras dos años de actividad.",
+        "ca": "Vam tancar la societat el gener de 2026, després de dos anys d'activitat.",
+        "en": "We closed the company in January 2026 after two years in business."
+      }
+    ],
+    "funcionalidades": [],
+    "decisiones": [],
+    "resultados": [],
+    "stack": [],
+    "aptitudes": [
+      {
+        "es": "Creación y gestión de empresa",
+        "ca": "Creació i gestió d'empresa",
+        "en": "Starting and running a company"
+      },
+      {
+        "es": "Venta consultiva B2B",
+        "ca": "Venda consultiva B2B",
+        "en": "Consultative B2B sales"
+      },
+      {
+        "es": "Gestión de proyectos",
+        "ca": "Gestió de projectes",
+        "en": "Project management"
+      },
+      {
+        "es": "Go-to-market",
+        "ca": "Go-to-market",
+        "en": "Go-to-market"
+      },
+      {
+        "es": "Relación con clientes",
+        "ca": "Relació amb clients",
+        "en": "Client relations"
+      }
+    ],
+    "aprendizajes": [
+      {
+        "es": "Hacer números de la estructura —cuotas, horas y margen por cliente— antes de crecer.",
+        "ca": "Fer números de l'estructura —quotes, hores i marge per client— abans de créixer.",
+        "en": "Run the numbers on the cost structure—fees, hours and margin per client—before growing."
+      }
+    ],
+    "enlaces": [],
+    "imagenes": {
+      "cover": {
+        "src": "img/proyectos/ao2/cover.png",
+        "alt": {
+          "es": "Identidad de AO2 Solutions",
+          "ca": "Identitat d'AO2 Solutions",
+          "en": "AO2 Solutions brand identity"
+        }
+      },
+      "galeria": []
+    }
+  },
+  {
+    "slug": "padel-noguera",
+    "visible": true,
+    "mostrarDetalle": true,
+    "orden": 5,
+    "titulo": {
+      "es": [
+        "Pádel",
+        "Noguera"
+      ],
+      "ca": [
+        "Pádel",
+        "Noguera"
+      ],
+      "en": [
+        "Pádel",
+        "Noguera"
+      ]
+    },
+    "logo": "logos/padel-noguera.svg",
+    "categoria": {
+      "es": "Empresa cofundada · Deporte",
+      "ca": "Empresa cofundada · Esport",
+      "en": "Co-founded company · Sport"
+    },
+    "cliente": null,
+    "rol": {
+      "es": "Socio fundador",
+      "ca": "Soci fundador",
+      "en": "Co-founder"
+    },
+    "periodo": {
+      "es": "2024 — actualidad",
+      "ca": "2024 — actualitat",
+      "en": "2024 — present"
+    },
+    "estado": {
+      "es": "En actividad",
+      "ca": "En activitat",
+      "en": "Operating"
+    },
+    "equipo": {
+      "es": "Tres socios fundadores",
+      "ca": "Tres socis fundadors",
+      "en": "Three founding partners"
+    },
+    "tags": [
+      {
+        "es": "Emprendimiento",
+        "ca": "Emprenedoria",
+        "en": "Entrepreneurship"
+      },
+      {
+        "es": "Deporte",
+        "ca": "Esport",
+        "en": "Sport"
+      },
+      {
+        "es": "Marketing local",
+        "ca": "Màrqueting local",
+        "en": "Local marketing"
+      }
+    ],
+    "resumenCorto": {
+      "es": "Club indoor de pádel con cinco pistas en Balaguer que cofundé con dos socios: del modelo de negocio a las redes sociales.",
+      "ca": "Club indoor de pàdel amb cinc pistes a Balaguer que vaig cofundar amb dos socis: del model de negoci a les xarxes socials.",
+      "en": "Five-court indoor padel club in Balaguer that I co-founded with two partners, from business model to social media."
+    },
+    "resumen": {
+      "es": "Pádel Noguera es un club indoor de pádel con cinco pistas en Balaguer (Lleida) que fundamos tres socios en 2024. Participé desde el primer día: modelo de negocio, estudio de mercado, estrategia de redes sociales y negociación con proveedores y colaboradores.",
+      "ca": "Pádel Noguera és un club indoor de pàdel amb cinc pistes a Balaguer (Lleida) que vam fundar tres socis el 2024. Hi vaig participar des del primer dia: model de negoci, estudi de mercat, estratègia de xarxes socials i negociació amb proveïdors i col·laboradors.",
+      "en": "Pádel Noguera is a five-court indoor padel club in Balaguer (Lleida) that three of us founded in 2024. I was involved from day one: business model, market research, social media strategy and negotiations with suppliers and partners."
+    },
+    "reto": {
+      "es": "Poner en marcha una instalación deportiva desde cero: inversión, proveedores, captación de jugadores y ocupación de las pistas.",
+      "ca": "Posar en marxa una instal·lació esportiva des de zero: inversió, proveïdors, captació de jugadors i ocupació de les pistes.",
+      "en": "Launching a sports venue from scratch: investment, suppliers, player acquisition and court occupancy."
+    },
+    "queHice": [
+      {
+        "es": "Definí el modelo de negocio con mis socios y analicé el mercado local.",
+        "ca": "Vaig definir el model de negoci amb els meus socis i vaig analitzar el mercat local.",
+        "en": "Defined the business model with my partners and analysed the local market."
+      },
+      {
+        "es": "Diseñé la estrategia de redes sociales para captar y fidelizar jugadores.",
+        "ca": "Vaig dissenyar l'estratègia de xarxes socials per captar i fidelitzar jugadors.",
+        "en": "Designed the social media strategy to attract and retain players."
+      },
+      {
+        "es": "Negocié con proveedores y colaboradores externos.",
+        "ca": "Vaig negociar amb proveïdors i col·laboradors externs.",
+        "en": "Negotiated with suppliers and external partners."
+      }
+    ],
+    "funcionalidades": [],
+    "decisiones": [],
+    "resultados": [
+      {
+        "valor": {
+          "es": "5",
+          "ca": "5",
+          "en": "5"
+        },
+        "etiqueta": {
+          "es": "pistas indoor",
+          "ca": "pistes indoor",
+          "en": "indoor courts"
+        },
+        "nota": null
+      }
+    ],
+    "stack": [],
+    "aptitudes": [
+      {
+        "es": "Plan de negocio",
+        "ca": "Pla de negoci",
+        "en": "Business planning"
+      },
+      {
+        "es": "Investigación de mercado",
+        "ca": "Investigació de mercat",
+        "en": "Market research"
+      },
+      {
+        "es": "Marketing local y redes sociales",
+        "ca": "Màrqueting local i xarxes socials",
+        "en": "Local and social media marketing"
+      },
+      {
+        "es": "Negociación con proveedores",
+        "ca": "Negociació amb proveïdors",
+        "en": "Supplier negotiation"
+      }
+    ],
+    "aprendizajes": [],
+    "enlaces": [],
+    "imagenes": {
+      "cover": {
+        "src": "img/proyectos/padel-noguera/cover.jpg",
+        "alt": {
+          "es": "Pistas de Pádel Noguera en Balaguer",
+          "ca": "Pistes de Pádel Noguera a Balaguer",
+          "en": "Pádel Noguera courts in Balaguer"
+        }
+      },
+      "galeria": []
+    }
+  },
+  {
+    "slug": "segundo-cerebro",
+    "visible": true,
+    "mostrarDetalle": true,
+    "orden": 6,
+    "titulo": {
+      "es": [
+        "Segundo",
+        "Cerebro"
+      ],
+      "ca": [
+        "Segon",
+        "Cervell"
+      ],
+      "en": [
+        "Second",
+        "Brain"
+      ]
+    },
+    "logo": null,
+    "categoria": {
+      "es": "Proyecto personal · IA · Gestión del conocimiento",
+      "ca": "Projecte personal · IA · Gestió del coneixement",
+      "en": "Personal project · AI · Knowledge management"
+    },
+    "cliente": null,
+    "rol": {
+      "es": "Diseño y desarrollo",
+      "ca": "Disseny i desenvolupament",
+      "en": "Design and development"
+    },
+    "periodo": {
+      "es": "Sep. 2026 — actualidad",
+      "ca": "Set. 2026 — actualitat",
+      "en": "Sep 2026 — present"
+    },
+    "estado": {
+      "es": "En uso · privado",
+      "ca": "En ús · privat",
+      "en": "In use · private"
+    },
+    "equipo": {
+      "es": "Proyecto individual",
+      "ca": "Projecte individual",
+      "en": "Solo project"
+    },
+    "tags": [
+      {
+        "es": "IA",
+        "ca": "IA",
+        "en": "AI"
+      },
+      {
+        "es": "Productividad",
+        "ca": "Productivitat",
+        "en": "Productivity"
+      },
+      {
+        "es": "Node.js",
+        "ca": "Node.js",
+        "en": "Node.js"
+      }
+    ],
+    "resumenCorto": {
+      "es": "Mi base de conocimiento: una wiki en Markdown que mantiene una IA a partir de mis documentos, con una app local para recorrerla como un grafo.",
+      "ca": "La meva base de coneixement: una wiki en Markdown que manté una IA a partir dels meus documents, amb una aplicació local per recórrer-la com un graf.",
+      "en": "My knowledge base: a Markdown wiki maintained by AI from my documents, with a local app to explore it as a graph."
+    },
+    "resumen": {
+      "es": "Reúne en un solo sitio la información de todos mis proyectos. Yo aporto las fuentes —documentos, hojas de cálculo, notas— y Claude Code las procesa: resume cada una, crea páginas de personas, empresas y temas, las enlaza entre sí y marca contradicciones y datos pendientes. Una app local me deja recorrerla con buscador, enlaces entrantes y un grafo de conexiones.",
+      "ca": "Reuneix en un sol lloc la informació de tots els meus projectes. Jo aporto les fonts —documents, fulls de càlcul, notes— i Claude Code les processa: en resumeix cadascuna, crea pàgines de persones, empreses i temes, les enllaça entre si i marca contradiccions i dades pendents. Una aplicació local em permet recórrer-la amb cercador, enllaços entrants i un graf de connexions.",
+      "en": "It brings all my projects' information together in one place. I add the sources—documents, spreadsheets, notes—and Claude Code processes them: it summarises each one, creates pages for people, companies and topics, links them together and flags contradictions and missing data. A local app lets me explore it with search, backlinks and a connection graph."
+    },
+    "reto": {
+      "es": "Con varios proyectos a la vez, la información estaba repartida entre carpetas, chats y correos, y cada pregunta a una IA empezaba de cero.",
+      "ca": "Amb diversos projectes alhora, la informació estava repartida entre carpetes, xats i correus, i cada pregunta a una IA començava de zero.",
+      "en": "With several projects at once, information was scattered across folders, chats and emails, and every question to an AI started from scratch."
+    },
+    "queHice": [
+      {
+        "es": "Definí las reglas del sistema: fuentes que no se modifican, una página por idea, cada dato con su fuente y avisos de contradicción, pendiente e inferencia.",
+        "ca": "Vaig definir les regles del sistema: fonts que no es modifiquen, una pàgina per idea, cada dada amb la seva font i avisos de contradicció, de pendent i d'inferència.",
+        "en": "Defined the system's rules: sources are never modified, one page per idea, every fact traced to its source and flags for contradictions, pending items and inferences."
+      },
+      {
+        "es": "Diseñé los flujos de trabajo: procesar una fuente, consultar y revisar la salud de la wiki, con un commit por operación.",
+        "ca": "Vaig dissenyar els fluxos de treball: processar una font, consultar i revisar la salut de la wiki, amb un commit per operació.",
+        "en": "Designed the workflows: ingesting a source, querying and health-checking the wiki, with one commit per operation."
+      },
+      {
+        "es": "Desarrollé la app local: servidor Node.js con Express, grafo interactivo, enlaces entrantes y recarga automática cuando cambia la wiki.",
+        "ca": "Vaig desenvolupar l'aplicació local: servidor Node.js amb Express, graf interactiu, enllaços entrants i recàrrega automàtica quan canvia la wiki.",
+        "en": "Built the local app: a Node.js server with Express, an interactive graph, backlinks and automatic reload whenever the wiki changes."
+      },
+      {
+        "es": "Separé lo publicable de lo confidencial, con reglas para que los datos sensibles no entren en la wiki.",
+        "ca": "Vaig separar el que es pot publicar del que és confidencial, amb regles perquè les dades sensibles no entrin a la wiki.",
+        "en": "Separated what can be shared from what is confidential, with rules that keep sensitive data out of the wiki."
+      }
+    ],
+    "funcionalidades": [
+      {
+        "titulo": {
+          "es": "Fuentes intactas",
+          "ca": "Fonts intactes",
+          "en": "Untouched sources"
+        },
+        "texto": {
+          "es": "Los originales no se tocan: la wiki los resume y cita la fuente de cada dato.",
+          "ca": "Els originals no es toquen: la wiki els resumeix i cita la font de cada dada.",
+          "en": "Originals are never edited: the wiki summarises them and cites the source of every fact."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Enlaces y grafo",
+          "ca": "Enllaços i graf",
+          "en": "Links and graph"
+        },
+        "texto": {
+          "es": "Cada página enlaza con las demás y el grafo colorea por proyecto y agranda las notas más conectadas.",
+          "ca": "Cada pàgina enllaça amb les altres, i el graf acoloreix els nodes per projecte i fa més grans les notes més connectades.",
+          "en": "Every page links to the others, and the graph colours nodes by project and enlarges the most connected notes."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Avisos de calidad",
+          "ca": "Avisos de qualitat",
+          "en": "Quality flags"
+        },
+        "texto": {
+          "es": "Contradicciones, datos pendientes e inferencias quedan marcados para no confundir lo que dice un documento con lo que deduce la IA.",
+          "ca": "Les contradiccions, les dades pendents i les inferències queden marcades per no confondre el que diu un document amb el que dedueix la IA.",
+          "en": "Contradictions, missing data and inferences are flagged so a document's content is never confused with what the AI infers."
+        }
+      },
+      {
+        "titulo": {
+          "es": "Recarga en vivo",
+          "ca": "Recàrrega en directe",
+          "en": "Live reload"
+        },
+        "texto": {
+          "es": "La app se actualiza sola mientras la IA edita la wiki.",
+          "ca": "L'aplicació s'actualitza sola mentre la IA edita la wiki.",
+          "en": "The app refreshes itself while the AI edits the wiki."
+        }
+      }
+    ],
+    "decisiones": [],
+    "resultados": [],
+    "stack": [
+      "Claude Code",
+      "Markdown + YAML",
+      "Node.js",
+      "Express",
+      "vis-network",
+      "WebSockets",
+      "chokidar",
+      "marked",
+      "gray-matter",
+      "Git · GitHub"
+    ],
+    "aptitudes": [
+      {
+        "es": "Diseño de sistemas de información",
+        "ca": "Disseny de sistemes d'informació",
+        "en": "Information system design"
+      },
+      {
+        "es": "Flujos de trabajo con agentes de IA",
+        "ca": "Fluxos de treball amb agents d'IA",
+        "en": "AI agent workflows"
+      },
+      {
+        "es": "Documentación",
+        "ca": "Documentació",
+        "en": "Documentation"
+      },
+      {
+        "es": "Gobierno de datos",
+        "ca": "Govern de dades",
+        "en": "Data governance"
+      }
+    ],
+    "aprendizajes": [
+      {
+        "es": "Unas reglas claras para la IA —qué puede tocar, cómo citar y cuándo preguntar— valen más que cualquier prompt suelto.",
+        "ca": "Unes regles clares per a la IA —què pot tocar, com ha de citar i quan ha de preguntar— valen més que qualsevol prompt solt.",
+        "en": "Clear rules for the AI—what it may touch, how to cite and when to ask—are worth more than any one-off prompt."
+      }
+    ],
+    "enlaces": [],
+    "imagenes": {
+      "cover": {
+        "src": "img/proyectos/segundo-cerebro/cover.png",
+        "alt": {
+          "es": "Grafo de la app local, con las etiquetas difuminadas",
+          "ca": "Graf de l'aplicació local, amb les etiquetes difuminades",
+          "en": "Graph view of the local app, with labels blurred"
+        }
+      },
+      "galeria": []
+    }
+  }
+]

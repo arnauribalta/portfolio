@@ -1,0 +1,262 @@
+[
+  {
+    "id": "taurus",
+    "orden": 1,
+    "visible": true,
+    "tipo": "trabajo",
+    "periodo": {
+      "es": "2026 — actualidad",
+      "ca": "2026 — actualitat",
+      "en": "2026 — present"
+    },
+    "rol": {
+      "es": "Prácticas · Análisis de e-commerce",
+      "ca": "Pràctiques · Anàlisi d'e-commerce",
+      "en": "Intern · E-commerce analytics"
+    },
+    "organizacion": "Taurus Group",
+    "lugar": null,
+    "resumen": {
+      "es": "Análisis de la cuenta Amazon Vendor (1P) de la marca TAURUS en siete mercados europeos: panel de ventas, margen, stock y estacionalidad, y propuesta de acciones para dirección.",
+      "ca": "Anàlisi del compte Amazon Vendor (1P) de la marca TAURUS en set mercats europeus: panell de vendes, marge, estoc i estacionalitat, i proposta d'accions per a la direcció.",
+      "en": "Analysis of the TAURUS brand's Amazon Vendor (1P) account across seven European marketplaces: a sales, margin, stock and seasonality dashboard, plus an action plan for management."
+    },
+    "proyecto": null
+  },
+  {
+    "id": "ribalta-plataforma",
+    "orden": 2,
+    "visible": true,
+    "tipo": "trabajo",
+    "periodo": {
+      "es": "Jun. 2026 — actualidad",
+      "ca": "Juny 2026 — actualitat",
+      "en": "Jun 2026 — present"
+    },
+    "rol": {
+      "es": "Producto y desarrollo (freelance)",
+      "ca": "Producte i desenvolupament (freelance)",
+      "en": "Product and development (freelance)"
+    },
+    "organizacion": "Ribalta i Fills",
+    "lugar": "Oliana",
+    "resumen": {
+      "es": "Diseño y desarrollo de la plataforma interna de presupuestos, certificaciones y planificación de obra con IA, hoy en producción.",
+      "ca": "Disseny i desenvolupament de la plataforma interna de pressupostos, certificacions i planificació d'obra amb IA, avui en producció.",
+      "en": "Designed and built the company's internal AI platform for budgets, progress certificates and site planning, now in production."
+    },
+    "proyecto": "ribalta-obra-ia"
+  },
+  {
+    "id": "bernat-marketing",
+    "orden": 3,
+    "visible": true,
+    "tipo": "trabajo",
+    "periodo": {
+      "es": "Actualidad",
+      "ca": "Actualitat",
+      "en": "Present"
+    },
+    "rol": {
+      "es": "Captación y gestión de clientes",
+      "ca": "Captació i gestió de clients",
+      "en": "Client acquisition and account management"
+    },
+    "organizacion": "Bernat Marketing",
+    "lugar": null,
+    "resumen": {
+      "es": "Colaboro con la agencia captando nuevos clientes y gestionando la relación con ellos.",
+      "ca": "Col·laboro amb l'agència captant clients nous i gestionant-ne la relació.",
+      "en": "I help the agency win new clients and manage those relationships."
+    },
+    "proyecto": null
+  },
+  {
+    "id": "gastrovision",
+    "orden": 4,
+    "visible": true,
+    "tipo": "emprendimiento",
+    "periodo": {
+      "es": "2026",
+      "ca": "2026",
+      "en": "2026"
+    },
+    "rol": {
+      "es": "Fundador",
+      "ca": "Fundador",
+      "en": "Founder"
+    },
+    "organizacion": "GastroVision AI",
+    "lugar": null,
+    "resumen": {
+      "es": "SaaS de cartas digitales con IA para restaurantes: producto, desarrollo, precio y lanzamiento.",
+      "ca": "SaaS de cartes digitals amb IA per a restaurants: producte, desenvolupament, preu i llançament.",
+      "en": "AI digital-menu SaaS for restaurants: product, development, pricing and launch."
+    },
+    "proyecto": "gastrovision-ai"
+  },
+  {
+    "id": "alia",
+    "orden": 5,
+    "visible": true,
+    "tipo": "logro",
+    "periodo": {
+      "es": "2026",
+      "ca": "2026",
+      "en": "2026"
+    },
+    "rol": {
+      "es": "Tester de ALIA",
+      "ca": "Tester d'ALIA",
+      "en": "ALIA tester"
+    },
+    "organizacion": "Talent Arena · MWC Barcelona",
+    "lugar": null,
+    "resumen": {
+      "es": "Pruebas del modelo de IA del Gobierno de España: detección de limitaciones y validación de respuestas en contextos reales.",
+      "ca": "Proves del model d'IA del Govern d'Espanya: detecció de limitacions i validació de respostes en contextos reals.",
+      "en": "Testing the Spanish Government's AI model: finding its limitations and validating answers in real-world contexts."
+    },
+    "proyecto": null
+  },
+  {
+    "id": "ise-hackathon",
+    "orden": 6,
+    "visible": true,
+    "tipo": "logro",
+    "periodo": {
+      "es": "2026",
+      "ca": "2026",
+      "en": "2026"
+    },
+    "rol": {
+      "es": "Finalista · 2.º puesto",
+      "ca": "Finalista · 2n lloc",
+      "en": "Finalist · 2nd place"
+    },
+    "organizacion": "ISE Innovation Hackathon",
+    "lugar": null,
+    "resumen": null,
+    "proyecto": null
+  },
+  {
+    "id": "decibelik",
+    "orden": 7,
+    "visible": true,
+    "tipo": "emprendimiento",
+    "periodo": {
+      "es": "Mar. 2025 — actualidad",
+      "ca": "Març 2025 — actualitat",
+      "en": "Mar 2025 — present"
+    },
+    "rol": {
+      "es": "Cofundador",
+      "ca": "Cofundador",
+      "en": "Co-founder"
+    },
+    "organizacion": "DecibeliK Discomòbils",
+    "lugar": null,
+    "resumen": {
+      "es": "Discomóvil de sonido e iluminación para fiestas y eventos: planificación de eventos, montaje técnico y contabilidad.",
+      "ca": "Discomòbil de so i il·luminació per a festes i esdeveniments: planificació d'esdeveniments, muntatge tècnic i comptabilitat.",
+      "en": "Mobile disco providing sound and lighting for parties and events: event planning, technical setup and bookkeeping."
+    },
+    "proyecto": null
+  },
+  {
+    "id": "bar-piscines",
+    "orden": 8,
+    "visible": true,
+    "tipo": "trabajo",
+    "periodo": {
+      "es": "Veranos 2025 y 2026",
+      "ca": "Estius 2025 i 2026",
+      "en": "Summers 2025 and 2026"
+    },
+    "rol": {
+      "es": "Responsable del bar",
+      "ca": "Responsable del bar",
+      "en": "Bar manager"
+    },
+    "organizacion": "Bar Piscines Oliana",
+    "lugar": "Oliana",
+    "resumen": {
+      "es": "Gestión integral del bar de las piscinas durante dos temporadas: administración y finanzas, eventos, fidelización y operación diaria.",
+      "ca": "Gestió integral del bar de les piscines durant dues temporades: administració i finances, esdeveniments, fidelització i operativa diària.",
+      "en": "Ran the swimming-pool bar end to end for two seasons: admin and finance, events, customer loyalty and daily operations."
+    },
+    "proyecto": null
+  },
+  {
+    "id": "padel-noguera",
+    "orden": 9,
+    "visible": true,
+    "tipo": "emprendimiento",
+    "periodo": {
+      "es": "2024 — actualidad",
+      "ca": "2024 — actualitat",
+      "en": "2024 — present"
+    },
+    "rol": {
+      "es": "Socio fundador",
+      "ca": "Soci fundador",
+      "en": "Co-founder"
+    },
+    "organizacion": "Pádel Noguera",
+    "lugar": "Balaguer",
+    "resumen": {
+      "es": "Club indoor de pádel con cinco pistas: modelo de negocio, estudio de mercado, redes sociales y negociación con proveedores.",
+      "ca": "Club indoor de pàdel amb cinc pistes: model de negoci, estudi de mercat, xarxes socials i negociació amb proveïdors.",
+      "en": "Five-court indoor padel club: business model, market research, social media and supplier negotiation."
+    },
+    "proyecto": "padel-noguera"
+  },
+  {
+    "id": "ao2",
+    "orden": 10,
+    "visible": true,
+    "tipo": "emprendimiento",
+    "periodo": {
+      "es": "Ene. 2024 — ene. 2026",
+      "ca": "Gen. 2024 — gen. 2026",
+      "en": "Jan 2024 — Jan 2026"
+    },
+    "rol": {
+      "es": "Cofundador",
+      "ca": "Cofundador",
+      "en": "Co-founder"
+    },
+    "organizacion": "AO2 Solutions",
+    "lugar": "Oliana",
+    "resumen": {
+      "es": "Chatbots, automatizaciones con IA y redes sociales para pymes del Pirineo. Liderazgo, gestión de proyectos y relación con clientes.",
+      "ca": "Xatbots, automatitzacions amb IA i xarxes socials per a pimes del Pirineu. Lideratge, gestió de projectes i relació amb clients.",
+      "en": "Chatbots, AI automations and social media for small businesses in the Pyrenees. Leadership, project management and client relations."
+    },
+    "proyecto": "ao2-solutions"
+  },
+  {
+    "id": "ribalta-2024",
+    "orden": 11,
+    "visible": true,
+    "tipo": "trabajo",
+    "periodo": {
+      "es": "Jun. — sep. 2024",
+      "ca": "Juny — set. 2024",
+      "en": "Jun — Sep 2024"
+    },
+    "rol": {
+      "es": "Encargado logístico",
+      "ca": "Encarregat de logística",
+      "en": "Logistics coordinator"
+    },
+    "organizacion": "Ribalta i Fills",
+    "lugar": "Oliana",
+    "resumen": {
+      "es": "Coordinación de brigadas, contacto con clientes y control de albaranes en una constructora de obra pública y civil.",
+      "ca": "Coordinació de brigades, contacte amb clients i control d'albarans en una constructora d'obra pública i civil.",
+      "en": "Coordinated site crews, client contact and delivery notes at a public works and civil engineering company."
+    },
+    "proyecto": null
+  }
+]
