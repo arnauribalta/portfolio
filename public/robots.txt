@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arnauribaltamarot.com/sitemap-index.xml
