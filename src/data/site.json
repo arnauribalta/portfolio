@@ -21,7 +21,7 @@
     "fullName": "Arnau Ribalta Marot",
     "displayName": [
       "Arnau",
-      "Ribalta."
+      "Ribalta Marot."
     ],
     "jobTitle": {
       "es": "Estudiante de Marketing y Comunicación y emprendedor",
@@ -43,7 +43,13 @@
       {
         "id": "linkedin",
         "label": "LinkedIn",
-        "url": "https://www.linkedin.com/in/arnau-ribalta-marot-64b860273/",
+        "url": "https://www.linkedin.com/in/arnau-ribalta-marot-64b860273",
+        "visible": true
+      },
+      {
+        "id": "instagram",
+        "label": "Instagram",
+        "url": "https://www.instagram.com/arnauribalta",
         "visible": true
       },
       {
@@ -284,9 +290,9 @@
     "portrait": {
       "src": "img/arnau/hero.png",
       "alt": {
-        "es": "Retrato de Arnau Ribalta",
-        "ca": "Retrat de l'Arnau Ribalta",
-        "en": "Portrait of Arnau Ribalta"
+        "es": "Retrato de Arnau Ribalta Marot",
+        "ca": "Retrat de l'Arnau Ribalta Marot",
+        "en": "Portrait of Arnau Ribalta Marot"
       }
     }
   },
@@ -295,9 +301,9 @@
       "src": "img/arnau/sobre-mi.jpg",
       "cutout": "img/arnau/sobre-mi-recorte.png",
       "alt": {
-        "es": "Arnau Ribalta trabajando",
-        "ca": "L'Arnau Ribalta treballant",
-        "en": "Arnau Ribalta at work"
+        "es": "Arnau Ribalta Marot trabajando",
+        "ca": "L'Arnau Ribalta Marot treballant",
+        "en": "Arnau Ribalta Marot at work"
       }
     },
     "paragraphs": [

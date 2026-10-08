@@ -19,7 +19,7 @@ const alternates = alternatesFor({ name: "privacy" });
 
 <BaseLayout
   lang={lang}
-  title={`${t(site.footer.privacy, lang)} · Arnau Ribalta`}
+  title={`${t(site.footer.privacy, lang)} · ${site.person.fullName}`}
   description={description}
   path={routePath({ name: "privacy" }, lang)}
   alternates={alternates}

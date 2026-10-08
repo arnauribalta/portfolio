@@ -12,7 +12,7 @@ const others = LANGS.filter((l) => l !== "es");
 
 <BaseLayout
   lang="es"
-  title={`${t(notFound.title, "es").join(" ")} · Arnau Ribalta`}
+  title={`${t(notFound.title, "es").join(" ")} · ${site.person.fullName}`}
   description={t(notFound.text, "es")}
   path="/404"
   noindex

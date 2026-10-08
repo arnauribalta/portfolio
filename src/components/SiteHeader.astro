@@ -158,7 +158,8 @@ const ctaHref = sectionHref(nav.cta.id, lang, onHome);
     cursor: pointer;
   }
 
-  @media (max-width: 767px) {
+  /* Con el nombre completo, la cabecera no cabe holgada por debajo de 860 px: botón «Menú» */
+  @media (max-width: 859px) {
     .site-nav,
     .site-header__actions {
       display: none;

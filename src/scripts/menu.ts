@@ -17,7 +17,7 @@ if (dialog && opener) {
   });
 
   // Si la ventana se ensancha con el menú abierto, se cierra.
-  window.matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
+  window.matchMedia("(min-width: 860px)").addEventListener("change", (e) => {
     if (e.matches && dialog.open) dialog.close();
   });
 }

@@ -7,6 +7,7 @@ export type IconName =
   | "arrow-right"
   | "arrow-up-right"
   | "linkedin"
+  | "instagram"
   | "github"
   | "email"
   | "phone"
@@ -58,6 +59,13 @@ const stroke = {
 {name === "linkedin" && (
   <svg class={className} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
     <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4V21H3V9.75Zm6.5 0h3.83v1.54h.06c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12V21h-4v-5.03c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65V21h-4V9.75Z" />
+  </svg>
+)}
+{name === "instagram" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
+    <rect x="3" y="3" width="18" height="18" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.5" cy="6.5" r=".6" fill="currentColor" />
   </svg>
 )}
 {name === "github" && (
