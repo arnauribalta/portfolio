@@ -1,0 +1,15 @@
+# Dependencias y builds
+node_modules/
+dist/
+.astro/
+
+# Entorno y Vercel
+.env*
+.vercel/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Notas internas para Claude Code: no se publican (repo público)
+BRIEF_PORTFOLIO.md
