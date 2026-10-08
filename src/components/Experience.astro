@@ -1,0 +1,81 @@
+---
+// Sección Trayectoria: entradilla + timeline y, si hay fotos, carrusel fijo a la derecha.
+import SectionTitle from "./SectionTitle.astro";
+import Timeline from "./Timeline.astro";
+import Carousel from "./Carousel.astro";
+import PhotoFrame from "./PhotoFrame.astro";
+import { getSection, site } from "../lib/content";
+import { getAsset } from "../lib/images";
+import { t, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const section = getSection("trayectoria");
+const photos = site.experience.photos
+  .map((photo) => ({ image: getAsset(photo.src), caption: t(photo.caption, lang) }))
+  .filter((photo) => photo.image);
+const title = section.title ? t(section.title, lang) : [];
+---
+
+<section id="trayectoria" class="section" aria-labelledby="trayectoria-title">
+  <div class:list={["container", "experience", { "experience--photos": photos.length > 0 }]}>
+    <div class="experience__main">
+      <header class="section-head">
+        <SectionTitle id="trayectoria-title" parts={title} />
+        <p class="intro">{t(site.experience.intro, lang)}</p>
+      </header>
+      <Timeline lang={lang} />
+    </div>
+
+    {
+      photos.length > 0 && (
+        <div class="experience__photos">
+          <Carousel lang={lang} label={title.join(" ")} controls="center">
+            {photos.map((photo) => (
+              <PhotoFrame
+                image={photo.image}
+                alt=""
+                caption={photo.caption}
+                aspect="1"
+                sizes="(max-width: 1023px) calc(100vw - 32px), 460px"
+              />
+            ))}
+          </Carousel>
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .experience__main {
+    max-width: 800px;
+  }
+
+  .experience--photos {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    align-items: start;
+    gap: clamp(40px, 6vw, 88px);
+  }
+
+  .experience__photos {
+    position: sticky;
+    top: 120px;
+  }
+
+  @media (max-width: 1023px) {
+    .experience--photos {
+      grid-template-columns: 1fr;
+    }
+
+    .experience__photos {
+      position: static;
+      order: -1;
+      width: min(480px, 100%);
+    }
+  }
+</style>

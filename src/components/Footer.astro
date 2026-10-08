@@ -1,0 +1,61 @@
+---
+import SocialLinks from "./SocialLinks.astro";
+import { site } from "../lib/content";
+import { routePath, t, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+  /** En la home continúa el fondo de la sección de contacto */
+  seamless?: boolean;
+}
+
+const { lang, seamless = false } = Astro.props;
+const year = String(new Date().getFullYear());
+---
+
+<footer class:list={["footer", { "footer--seamless": seamless }]}>
+  <div class="container footer__inner">
+    <a class="footer__privacy" href={routePath({ name: "privacy" }, lang)}>{t(site.footer.privacy, lang)}</a>
+    <SocialLinks />
+    <p class="footer__rights">{t(site.footer.rights, lang).replace("{year}", year)}</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 48px 0 40px;
+    border-top: 1px solid var(--line-soft);
+    background: var(--bg-0);
+  }
+
+  .footer--seamless {
+    min-height: var(--footer-h);
+    border-top: 0;
+    background: var(--bg-1);
+    padding-top: 8px;
+  }
+
+  .footer__inner {
+    display: grid;
+    justify-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer__privacy {
+    display: inline-block;
+    padding: 8px 4px;
+    font-size: 12px;
+    color: var(--text-faint);
+    text-underline-offset: 4px;
+  }
+
+  .footer__privacy:hover {
+    color: var(--text-strong);
+  }
+
+  .footer__rights {
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+</style>

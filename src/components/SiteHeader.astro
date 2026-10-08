@@ -1,0 +1,239 @@
+---
+// Cabecera flotante (rectángulo con borde) y menú móvil en capa a pantalla completa.
+import TwoTone from "./TwoTone.astro";
+import LangSwitch from "./LangSwitch.astro";
+import { site } from "../lib/content";
+import { routePath, sectionHref, t, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+  onHome: boolean;
+  alternates: Record<Lang, string>;
+}
+
+const { lang, onHome, alternates } = Astro.props;
+const { nav, person } = site;
+const homeHref = onHome ? "#inicio" : routePath({ name: "home" }, lang);
+const ctaHref = sectionHref(nav.cta.id, lang, onHome);
+---
+
+<header class="site-header" data-header>
+  <div class="site-header__bar">
+    <a class="logo" href={homeHref}>
+      <TwoTone parts={person.displayName} />
+    </a>
+
+    <nav class="site-nav" aria-label={t(nav.menu, lang)}>
+      <ul role="list">
+        {
+          nav.items.map((item) => (
+            <li>
+              <a href={sectionHref(item.id, lang, onHome)}>{t(item.label, lang)}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <LangSwitch lang={lang} alternates={alternates} />
+      <a class="btn-cta site-header__cta" href={ctaHref}>{t(nav.cta.label, lang)}</a>
+    </div>
+
+    <button
+      type="button"
+      class="menu-btn"
+      aria-haspopup="dialog"
+      aria-controls="site-menu"
+      aria-expanded="false"
+      data-menu-open
+    >
+      {t(nav.menu, lang)}
+    </button>
+  </div>
+</header>
+
+<dialog id="site-menu" class="menu" aria-label={t(nav.menu, lang)} data-menu>
+  <div class="menu__top">
+    <a class="logo" href={homeHref}>
+      <TwoTone parts={person.displayName} />
+    </a>
+    <button type="button" class="menu-btn" data-menu-close>{t(nav.close, lang)}</button>
+  </div>
+  <nav aria-label={t(nav.menu, lang)}>
+    <ul role="list" class="menu__links">
+      {
+        nav.items.map((item) => (
+          <li>
+            <a href={sectionHref(item.id, lang, onHome)}>{t(item.label, lang)}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div class="menu__bottom">
+    <LangSwitch lang={lang} alternates={alternates} size="lg" />
+    <a class="btn-cta" href={ctaHref}>{t(nav.cta.label, lang)}</a>
+  </div>
+</dialog>
+
+<script>
+  import "../scripts/header";
+  import "../scripts/menu";
+</script>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 16px;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    width: min(var(--container), 100% - 32px);
+    height: var(--header-h);
+    margin-inline: auto;
+    border: .8px solid var(--line);
+    border-radius: 10px;
+    transition: background-color .3s var(--ease), backdrop-filter .3s var(--ease);
+  }
+
+  .site-header:global(.is-scrolled) {
+    background: rgba(16, 16, 16, .72);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  .site-header__bar {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 2vw, 28px);
+    height: 100%;
+    padding: 0 20px;
+  }
+
+  .logo {
+    margin-right: auto;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .site-nav ul {
+    display: flex;
+    gap: clamp(14px, 1.8vw, 22px);
+  }
+
+  .site-nav a {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-underline-offset: 4px;
+    transition: color .2s var(--ease);
+  }
+
+  .site-nav a:hover {
+    color: var(--text-strong);
+  }
+
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1.6vw, 20px);
+  }
+
+  .menu-btn {
+    display: none;
+    min-height: 40px;
+    padding: 6px 18px;
+    border: 0;
+    border-radius: var(--r-cta);
+    background: var(--surface-2);
+    color: var(--text-strong);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 767px) {
+    .site-nav,
+    .site-header__actions {
+      display: none;
+    }
+
+    .menu-btn {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .site-header__bar {
+      padding: 0 10px 0 16px;
+    }
+  }
+
+  /* Capa del menú móvil */
+  .menu {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    padding: 16px;
+    border: 0;
+    background: var(--bg-0);
+    color: var(--text-body);
+  }
+
+  .menu[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu::backdrop {
+    background: var(--bg-0);
+  }
+
+  .menu__top {
+    display: flex;
+    align-items: center;
+    height: var(--header-h);
+    padding: 0 10px 0 16px;
+    border: .8px solid var(--line);
+    border-radius: 10px;
+  }
+
+  .menu__top .menu-btn {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .menu__links {
+    display: grid;
+    gap: 8px;
+    padding: 48px 16px 32px;
+  }
+
+  .menu__links a {
+    display: inline-block;
+    padding: 4px 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.25;
+    color: var(--text-title);
+    text-decoration: none;
+  }
+
+  .menu__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: auto;
+    padding: 16px;
+  }
+</style>

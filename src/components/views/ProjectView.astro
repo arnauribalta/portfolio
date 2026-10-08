@@ -1,0 +1,659 @@
+---
+// Página de proyecto (5.3). Cada bloque se oculta si su campo está vacío.
+import { getImage } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../SiteHeader.astro";
+import Footer from "../Footer.astro";
+import TwoTone from "../TwoTone.astro";
+import PhotoFrame from "../PhotoFrame.astro";
+import BrandPlaceholder from "../BrandPlaceholder.astro";
+import Carousel from "../Carousel.astro";
+import Icon from "../Icon.astro";
+import { getProjects, projectName, site, type Project } from "../../lib/content";
+import { getAsset } from "../../lib/images";
+import { alternatesFor, routePath, sectionHref, t, tMaybe, type Lang } from "../../lib/i18n";
+
+interface Props {
+  lang: Lang;
+  project: Project;
+}
+
+const { lang, project } = Astro.props;
+const pp = site.projectPage;
+const route = { name: "project", slug: project.slug } as const;
+const alternates = alternatesFor(route);
+
+const title = t(project.titulo, lang);
+const name = projectName(title);
+const logo = getAsset(project.logo);
+const cover = getAsset(project.imagenes.cover?.src);
+const coverAlt = project.imagenes.cover ? t(project.imagenes.cover.alt, lang) : "";
+const gallery = project.imagenes.galeria
+  .map((item) => ({ image: getAsset(item.src), alt: t(item.alt, lang) }))
+  .filter((item) => item.image);
+
+const category = tMaybe(project.categoria, lang);
+const summary = tMaybe(project.resumen, lang);
+const challenge = tMaybe(project.reto, lang);
+
+const meta = [
+  { label: pp.meta.role, value: tMaybe(project.rol, lang) },
+  { label: pp.meta.period, value: tMaybe(project.periodo, lang) },
+  { label: pp.meta.status, value: tMaybe(project.estado, lang) },
+  { label: pp.meta.client, value: project.cliente ?? undefined },
+  { label: pp.meta.team, value: tMaybe(project.equipo, lang) },
+].filter((row) => row.value);
+
+const blocks = [
+  { id: "resumen", label: pp.blocks.summary, show: !!summary },
+  { id: "reto", label: pp.blocks.challenge, show: !!challenge },
+  { id: "que-hice", label: pp.blocks.whatIDid, show: project.queHice.length > 0 },
+  { id: "como-funciona", label: pp.blocks.features, show: project.funcionalidades.length > 0 },
+  { id: "decisiones", label: pp.blocks.decisions, show: project.decisiones.length > 0 },
+  { id: "resultados", label: pp.blocks.results, show: project.resultados.length > 0 },
+  { id: "stack", label: pp.blocks.stack, show: project.stack.length > 0 },
+  { id: "aptitudes", label: pp.blocks.skills, show: project.aptitudes.length > 0 },
+  { id: "aprendizajes", label: pp.blocks.learnings, show: project.aprendizajes.length > 0 },
+  { id: "galeria", label: pp.blocks.gallery, show: gallery.length > 0 },
+].filter((b) => b.show);
+const label = (id: string) => t(blocks.find((b) => b.id === id)!.label, lang);
+const has = (id: string) => blocks.some((b) => b.id === id);
+
+const all = getProjects();
+const index = all.findIndex((p) => p.slug === project.slug);
+const prev = all[index - 1];
+const next = all[index + 1];
+
+const ogImage = cover
+  ? {
+      url: (await getImage({ src: cover, width: 1200, height: 630, fit: "cover", format: "jpg" })).src,
+      width: 1200,
+      height: 630,
+      alt: coverAlt,
+    }
+  : undefined;
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${name} · Arnau Ribalta`}
+  description={t(project.resumenCorto, lang)}
+  path={routePath(route, lang)}
+  alternates={alternates}
+  ogImage={ogImage}
+  ogType="article"
+>
+  <SiteHeader lang={lang} onHome={false} alternates={alternates} />
+  <main id="main" class="project">
+    <div class="container">
+      <a class="back" href={sectionHref("proyectos", lang, false)}>
+        <Icon name="arrow-left" size={16} />
+        {t(pp.back, lang)}
+      </a>
+
+      <header class:list={["phead", { "phead--logo": logo }]}>
+        <div class="phead__text">
+          {category && <p class="label">{category}</p>}
+          <h1 class="phead__title"><TwoTone parts={title} /></h1>
+          <p class="lead phead__lead">{t(project.resumenCorto, lang)}</p>
+          {
+            meta.length > 0 && (
+              <dl class="meta">
+                {meta.map((row) => (
+                  <div class="meta__row">
+                    <dt class="label">{t(row.label, lang)}</dt>
+                    <dd>{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )
+          }
+          {
+            project.enlaces.length > 0 && (
+              <div class="phead__links">
+                {project.enlaces.map((link) => (
+                  <a class="btn-cta" href={link.url} target="_blank" rel="noopener">
+                    {t(link.label, lang)}
+                    <Icon name="arrow-up-right" size={14} />
+                  </a>
+                ))}
+              </div>
+            )
+          }
+        </div>
+        {
+          logo && (
+            <div class="phead__logo">
+              <img src={logo.src} width={logo.width} height={logo.height} alt="" />
+            </div>
+          )
+        }
+      </header>
+
+      <div class="pcover">
+        {
+          cover ? (
+            <PhotoFrame image={cover} alt={coverAlt} aspect="16 / 10" sizes="(max-width: 1120px) calc(100vw - 32px), 1120px" priority />
+          ) : (
+            <div class="pcover__placeholder">
+              <BrandPlaceholder logo={logo} name={title[0]} size="lg" />
+            </div>
+          )
+        }
+      </div>
+
+      <div class="pbody">
+        {
+          blocks.length > 1 && (
+            <nav class="toc" aria-label={t(pp.toc, lang)}>
+              <p class="label toc__title">{t(pp.toc, lang)}</p>
+              <ul role="list">
+                {blocks.map((b) => (
+                  <li>
+                    <a href={`#${b.id}`}>{t(b.label, lang)}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )
+        }
+
+        <div class="pcontent">
+          {summary && (
+            <section id="resumen" class="pblock" aria-labelledby="resumen-h">
+              <h2 id="resumen-h">{label("resumen")}</h2>
+              <p>{summary}</p>
+            </section>
+          )}
+
+          {challenge && (
+            <section id="reto" class="pblock" aria-labelledby="reto-h">
+              <h2 id="reto-h">{label("reto")}</h2>
+              <p>{challenge}</p>
+            </section>
+          )}
+
+          {has("que-hice") && (
+            <section id="que-hice" class="pblock" aria-labelledby="que-hice-h">
+              <h2 id="que-hice-h">{label("que-hice")}</h2>
+              <ul class="bullets" role="list">
+                {project.queHice.map((item) => <li>{t(item, lang)}</li>)}
+              </ul>
+            </section>
+          )}
+
+          {has("como-funciona") && (
+            <section id="como-funciona" class="pblock" aria-labelledby="como-funciona-h">
+              <h2 id="como-funciona-h">{label("como-funciona")}</h2>
+              <ul class="features" role="list">
+                {project.funcionalidades.map((feature) => (
+                  <li class="feature" data-reveal>
+                    <h3>{t(feature.titulo, lang)}</h3>
+                    <p>{t(feature.texto, lang)}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {has("decisiones") && (
+            <section id="decisiones" class="pblock" aria-labelledby="decisiones-h">
+              <h2 id="decisiones-h">{label("decisiones")}</h2>
+              <ol class="numbered" role="list">
+                {project.decisiones.map((item) => <li>{t(item, lang)}</li>)}
+              </ol>
+            </section>
+          )}
+
+          {has("resultados") && (
+            <section id="resultados" class="pblock" aria-labelledby="resultados-h">
+              <h2 id="resultados-h">{label("resultados")}</h2>
+              <ul class="results" role="list">
+                {project.resultados.map((result) => {
+                  const note = tMaybe(result.nota, lang);
+                  const long = t(result.valor, lang).length > 6;
+                  return (
+                    <li class:list={["result", { "result--long": long }]} data-reveal>
+                      <span class="result__value">{t(result.valor, lang)}</span>
+                      <span class="result__label">{t(result.etiqueta, lang)}</span>
+                      {note && <span class="result__note">{note}</span>}
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          )}
+
+          {has("stack") && (
+            <section id="stack" class="pblock" aria-labelledby="stack-h">
+              <h2 id="stack-h">{label("stack")}</h2>
+              <ul class="chips" role="list">
+                {project.stack.map((item) => <li class="chip">{item}</li>)}
+              </ul>
+            </section>
+          )}
+
+          {has("aptitudes") && (
+            <section id="aptitudes" class="pblock" aria-labelledby="aptitudes-h">
+              <h2 id="aptitudes-h">{label("aptitudes")}</h2>
+              <ul class="chips" role="list">
+                {project.aptitudes.map((item) => <li class="chip">{t(item, lang)}</li>)}
+              </ul>
+            </section>
+          )}
+
+          {has("aprendizajes") && (
+            <section id="aprendizajes" class="pblock" aria-labelledby="aprendizajes-h">
+              <h2 id="aprendizajes-h">{label("aprendizajes")}</h2>
+              <ul class="bullets" role="list">
+                {project.aprendizajes.map((item) => <li>{t(item, lang)}</li>)}
+              </ul>
+            </section>
+          )}
+
+          {has("galeria") && (
+            <section id="galeria" class="pblock" aria-labelledby="galeria-h">
+              <h2 id="galeria-h">{label("galeria")}</h2>
+              <Carousel lang={lang} label={label("galeria")}>
+                {gallery.map((item) => (
+                  <PhotoFrame image={item.image} alt={item.alt} aspect="16 / 10" sizes="(max-width: 1023px) calc(100vw - 32px), 720px" />
+                ))}
+              </Carousel>
+            </section>
+          )}
+        </div>
+      </div>
+
+      {
+        (prev || next) && (
+          <nav class="pager" aria-label={t(pp.back, lang)}>
+            {prev ? (
+              <a class="tile pager__card" href={routePath({ name: "project", slug: prev.slug }, lang)} rel="prev">
+                <span class="label">← {t(pp.prev, lang)}</span>
+                <span class="pager__title"><TwoTone parts={t(prev.titulo, lang)} /></span>
+              </a>
+            ) : (
+              <span />
+            )}
+            {next && (
+              <a class="tile pager__card pager__card--next" href={routePath({ name: "project", slug: next.slug }, lang)} rel="next">
+                <span class="label">{t(pp.next, lang)} →</span>
+                <span class="pager__title"><TwoTone parts={t(next.titulo, lang)} /></span>
+              </a>
+            )}
+          </nav>
+        )
+      }
+    </div>
+
+    <section class="pcta" aria-labelledby="pcta-title">
+      <h2 id="pcta-title" class="pcta__title"><TwoTone parts={t(pp.ctaTitle, lang)} /></h2>
+      <a class="btn-cta" href={sectionHref("contacto", lang, false)}>{t(pp.ctaButton, lang)}</a>
+    </section>
+  </main>
+  <Footer lang={lang} />
+</BaseLayout>
+
+<style>
+  .project {
+    padding-top: calc(var(--header-h) + 56px);
+    background: radial-gradient(circle at 0% 0%, var(--bg-1) 0%, var(--bg-0) 40%) no-repeat;
+  }
+
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-underline-offset: 4px;
+  }
+
+  .back:hover {
+    color: var(--text-strong);
+  }
+
+  .phead {
+    display: grid;
+    gap: 40px;
+    margin-top: 24px;
+  }
+
+  .phead--logo {
+    grid-template-columns: minmax(0, 1fr) 200px;
+    align-items: start;
+  }
+
+  .phead__title {
+    margin-top: 14px;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+  }
+
+  .phead__lead {
+    max-width: 62ch;
+    margin-top: 20px;
+  }
+
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px 32px;
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .meta dd {
+    margin: 4px 0 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-title);
+  }
+
+  .phead__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .phead__links .btn-cta {
+    min-height: 44px;
+  }
+
+  .phead__logo {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    padding: 36px;
+    border-radius: var(--r-card);
+    background: var(--surface);
+  }
+
+  .phead__logo img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(.9);
+  }
+
+  .pcover {
+    margin-top: 56px;
+  }
+
+  .pcover__placeholder {
+    position: relative;
+    aspect-ratio: 16 / 6;
+    border-radius: var(--r-card);
+    overflow: hidden;
+  }
+
+  .pbody {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 720px);
+    gap: 64px;
+    margin-top: 72px;
+  }
+
+  .toc {
+    position: sticky;
+    top: 120px;
+    align-self: start;
+  }
+
+  .toc__title {
+    margin-bottom: 12px;
+  }
+
+  .toc ul {
+    display: grid;
+    gap: 2px;
+    padding-left: 14px;
+    border-left: 1px solid var(--line-soft);
+  }
+
+  .toc a {
+    display: inline-block;
+    padding: 4px 0;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .toc a:hover {
+    color: var(--text-strong);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .pcontent {
+    display: grid;
+    gap: 56px;
+  }
+
+  .pblock {
+    scroll-margin-top: 110px;
+  }
+
+  .pblock h2 {
+    margin-bottom: 18px;
+    font-size: 28px;
+    color: var(--text-title);
+  }
+
+  .pblock > p {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .bullets,
+  .numbered {
+    display: grid;
+    gap: 14px;
+  }
+
+  .bullets li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 15px;
+  }
+
+  .bullets li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: .72em;
+    width: 8px;
+    height: 1px;
+    background: var(--text-title-dim);
+  }
+
+  .numbered {
+    counter-reset: n;
+  }
+
+  .numbered li {
+    counter-increment: n;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 8px;
+    font-size: 15px;
+  }
+
+  .numbered li::before {
+    content: counter(n, decimal-leading-zero);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.3;
+    color: var(--text-title-dim);
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .feature {
+    padding: 24px;
+    border-radius: var(--r-card);
+    background: var(--surface);
+  }
+
+  .feature h3 {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .feature p {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  .results {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .result {
+    display: grid;
+    align-content: start;
+    gap: 8px;
+    padding: 24px;
+    border-radius: var(--r-card);
+    background: var(--surface);
+  }
+
+  .result__value {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.05;
+    color: var(--text-title);
+  }
+
+  .result__label {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-body);
+  }
+
+  .result__note {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-faint);
+  }
+
+  .pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 96px;
+  }
+
+  .pager__card {
+    display: grid;
+    gap: 10px;
+  }
+
+  .pager__card--next {
+    grid-column: 2;
+    text-align: right;
+  }
+
+  .pager__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  .pcta {
+    display: grid;
+    justify-items: center;
+    gap: 24px;
+    margin-top: 96px;
+    padding: 96px 16px;
+    border-top: 1px solid var(--line-soft);
+    background: linear-gradient(1deg, var(--bg-1) 0%, var(--bg-0) 100%);
+    text-align: center;
+  }
+
+  .pcta__title {
+    font-size: clamp(2rem, 3.2vw, 2.8125rem);
+  }
+
+  .pcta .btn-cta {
+    min-height: 48px;
+    padding-inline: 36px;
+  }
+
+  @media (max-width: 1023px) {
+    .pbody {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+    }
+
+    .toc {
+      display: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .phead--logo {
+      grid-template-columns: 1fr;
+    }
+
+    .phead__logo {
+      display: none;
+    }
+
+    .pcover {
+      margin-top: 40px;
+    }
+
+    .pcover__placeholder {
+      aspect-ratio: 16 / 9;
+    }
+
+    .pbody {
+      margin-top: 48px;
+    }
+
+    .pcontent {
+      gap: 44px;
+    }
+
+    .features {
+      grid-template-columns: 1fr;
+    }
+
+    .pager {
+      grid-template-columns: 1fr;
+      margin-top: 64px;
+    }
+
+    .pager__card--next {
+      grid-column: auto;
+    }
+
+    .pager > span:empty {
+      display: none;
+    }
+
+    .result--long {
+      grid-column: 1 / -1;
+    }
+
+    .result__value {
+      font-size: 34px;
+    }
+  }
+</style>

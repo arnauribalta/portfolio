@@ -1,0 +1,114 @@
+---
+// Trayectoria: una entrada por cada elemento visible de experience.json, por `orden`.
+import Icon from "./Icon.astro";
+import { getExperience, getProject, projectName, site } from "../lib/content";
+import { routePath, t, tMaybe, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const entries = getExperience().map((entry) => {
+  const project = getProject(entry.proyecto);
+  return { entry, project };
+});
+---
+
+<ol class="timeline" role="list">
+  {
+    entries.map(({ entry, project }) => {
+      const summary = tMaybe(entry.resumen, lang);
+      return (
+        <li class="tl" data-reveal>
+          <p class="tl__meta">
+            <span class="label">{t(entry.periodo, lang)}</span>
+            {entry.tipo === "logro" && <Icon name="star" size={14} class="tl__star" />}
+          </p>
+          <h3 class="tl__title">
+            <span class="tl__role">{t(entry.rol, lang)}</span>{" "}
+            <span class="tl__org">
+              · {entry.organizacion}
+              {entry.lugar && `, ${entry.lugar}`}
+            </span>
+          </h3>
+          {summary && <p class="tl__summary">{summary}</p>}
+          {project && (
+            <a class="tl__link" href={routePath({ name: "project", slug: project.slug }, lang)}>
+              {t(site.experience.projectLink, lang)}
+              <span class="sr-only">: {projectName(t(project.titulo, lang))}</span>
+              <span aria-hidden="true"> →</span>
+            </a>
+          )}
+        </li>
+      );
+    })
+  }
+</ol>
+
+<style>
+  .timeline {
+    display: grid;
+  }
+
+  .tl {
+    padding: 22px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .tl:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .tl__meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tl__meta :global(.tl__star) {
+    color: var(--text-title);
+  }
+
+  .tl__title {
+    margin-top: 6px;
+    line-height: 1.3;
+    text-wrap: pretty;
+  }
+
+  .tl__role {
+    font-size: 20px;
+    color: var(--text-title);
+  }
+
+  .tl__org {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--text-body);
+  }
+
+  .tl__summary {
+    margin-top: 8px;
+    max-width: 68ch;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  .tl__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 32px;
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--text-title);
+    text-underline-offset: 4px;
+  }
+
+  .tl__link:hover {
+    color: var(--text-strong);
+  }
+</style>

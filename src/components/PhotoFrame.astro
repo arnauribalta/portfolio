@@ -1,0 +1,140 @@
+---
+// Foto con marco redondeado y la «tarjeta desplazada» detrás (referencia).
+// Variante popout: si existe el recorte, la cabeza sobresale del marco.
+import type { ImageMetadata } from "astro";
+import Img from "./Img.astro";
+
+interface Props {
+  image?: ImageMetadata;
+  cutout?: ImageMetadata;
+  alt: string;
+  sizes: string;
+  /** Proporción CSS, p. ej. "4 / 5", "1", "16 / 10" */
+  aspect?: string;
+  variant?: "default" | "popout";
+  tilt?: boolean;
+  caption?: string;
+  /** Texto del placeholder si no hay imagen (monograma o nombre) */
+  placeholder?: string;
+  priority?: boolean;
+}
+
+const {
+  image,
+  cutout,
+  alt,
+  sizes,
+  aspect = "1",
+  variant = "default",
+  tilt = true,
+  caption,
+  placeholder = "",
+  priority = false,
+} = Astro.props;
+
+const withCutout = variant === "popout" && image && cutout;
+---
+
+<figure class:list={["photo", { "photo--cutout": withCutout }]} style={`--aspect: ${aspect}`}>
+  <div class="photo__box" data-tilt={tilt && image ? "" : undefined}>
+    <div class="photo__frame">
+      {
+        image ? (
+          <Img image={image} alt={withCutout ? "" : alt} sizes={sizes} priority={priority} />
+        ) : (
+          <div class="photo__placeholder" aria-hidden="true">
+            {placeholder}
+          </div>
+        )
+      }
+    </div>
+    {withCutout && cutout && (
+      <div class="photo__cutout">
+        <Img image={cutout} alt={alt} sizes={sizes} priority={priority} />
+      </div>
+    )}
+  </div>
+  {caption && <figcaption class="photo__caption">{caption}</figcaption>}
+</figure>
+
+<style>
+  .photo {
+    margin: 0;
+  }
+
+  .photo__box {
+    position: relative;
+    isolation: isolate;
+    transition: transform .15s var(--ease);
+    transform-origin: center;
+  }
+
+  /* Tarjeta desplazada detrás de la foto */
+  .photo__box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: translate(10px, 10px);
+    border-radius: var(--r-card);
+    background: var(--surface-3);
+    border: 1px solid var(--line-soft);
+  }
+
+  .photo__frame {
+    position: relative;
+    aspect-ratio: var(--aspect);
+    overflow: hidden;
+    border-radius: var(--r-card);
+    background: var(--surface);
+  }
+
+  .photo__frame :global(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Con recorte: foto y recorte comparten geometría (112 % de alto, anclados abajo);
+     el marco recorta la foto y el recorte asoma un 12 % por arriba. */
+  .photo--cutout .photo__frame :global(img),
+  .photo__cutout :global(img) {
+    inset: auto 0 0 0;
+    height: 112%;
+    object-position: center bottom;
+  }
+
+  .photo__cutout {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .photo__cutout :global(img) {
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .photo__placeholder {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at 50% 35%, #262626, var(--surface-3) 75%);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: var(--surface-2);
+    letter-spacing: .02em;
+    user-select: none;
+  }
+
+  .photo__caption {
+    margin-top: 22px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+</style>

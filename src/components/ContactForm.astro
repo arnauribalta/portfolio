@@ -1,0 +1,252 @@
+---
+// Formulario de contacto (Formspree). Con JS envía con fetch; sin JS, POST normal.
+import SectionTitle from "./SectionTitle.astro";
+import { getSection, site } from "../lib/content";
+import { routePath, t, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { contact } = site;
+const section = getSection("contacto");
+const f = contact.fields;
+
+// En la casilla de privacidad se enlaza el texto «política de privacidad» si aparece en la frase.
+const consent = t(f.consent, lang);
+const phrase = t(site.footer.privacy, lang);
+const at = consent.toLowerCase().indexOf(phrase.toLowerCase());
+const consentParts =
+  at >= 0
+    ? { before: consent.slice(0, at), link: consent.slice(at, at + phrase.length), after: consent.slice(at + phrase.length) }
+    : { before: "", link: consent, after: "" };
+---
+
+<div class="contact">
+  <header class="contact__head">
+    {section.title && <SectionTitle id="contacto-title" parts={t(section.title, lang)} center />}
+    <p class="contact__intro">{t(contact.intro, lang)}</p>
+  </header>
+
+  <form
+    class="contact__card"
+    action={contact.endpoint}
+    method="POST"
+    data-contact-form
+    data-sending={t(contact.sending, lang)}
+    data-success={t(contact.success, lang)}
+    data-error={t(contact.error, lang)}
+  >
+    <input type="hidden" name="_subject" value={t(contact.subject, lang)} />
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display: none" />
+
+    <div class="contact__row">
+      <div class="field">
+        <label class="sr-only" for="cf-name">{t(f.name, lang)}</label>
+        <input id="cf-name" name="nombre" type="text" autocomplete="name" placeholder={t(f.name, lang)} required />
+      </div>
+      <div class="field">
+        <label class="sr-only" for="cf-email">{t(f.email, lang)}</label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" placeholder={t(f.email, lang)} required />
+      </div>
+    </div>
+
+    <div class="field field--select">
+      <label class="sr-only" for="cf-reason">{t(f.reason, lang)}</label>
+      <select id="cf-reason" name="motivo" required>
+        <option value="" disabled selected>{t(f.reason, lang)}</option>
+        {contact.reasons.map((reason) => <option value={t(reason, lang)}>{t(reason, lang)}</option>)}
+      </select>
+    </div>
+
+    <div class="field">
+      <label class="sr-only" for="cf-message">{t(f.message, lang)}</label>
+      <textarea id="cf-message" name="mensaje" rows="5" placeholder={t(f.message, lang)} required></textarea>
+    </div>
+
+    <div class="contact__bottom">
+      <div class="consent">
+        <input id="cf-consent" name="privacidad" type="checkbox" value="aceptada" required />
+        <label for="cf-consent">
+          {consentParts.before}<a href={routePath({ name: "privacy" }, lang)}>{consentParts.link}</a>{consentParts.after}
+        </label>
+      </div>
+      <button type="submit" class="contact__submit">{t(contact.submit, lang)}</button>
+    </div>
+
+    <p class="contact__status" role="status" aria-live="polite" data-status></p>
+  </form>
+</div>
+
+<script>
+  import "../scripts/contact";
+</script>
+
+<style>
+  .contact {
+    display: grid;
+    justify-items: center;
+  }
+
+  .contact__head {
+    display: grid;
+    justify-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .contact__intro {
+    max-width: 52ch;
+    font-size: 16px;
+    color: var(--text-body);
+  }
+
+  .contact__card {
+    display: grid;
+    gap: 16px;
+    width: min(640px, 100%);
+    padding: 16px;
+    border-radius: var(--r-card);
+    background: var(--surface);
+  }
+
+  .contact__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    display: block;
+    width: 100%;
+    min-height: 50px;
+    padding: 16px;
+    border: 0;
+    border-radius: var(--r-field);
+    background: var(--field);
+    color: var(--text-title);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .field textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .field ::placeholder {
+    color: var(--text-faint);
+    opacity: 1;
+  }
+
+  .field select {
+    appearance: none;
+    padding-right: 44px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239e9e9e' d='M0 0h12L6 8z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    cursor: pointer;
+  }
+
+  .field select:invalid {
+    color: var(--text-faint);
+  }
+
+  .field option {
+    background: var(--field);
+    color: var(--text-title);
+  }
+
+  .field input:focus-visible,
+  .field select:focus-visible,
+  .field textarea:focus-visible {
+    outline: 2px solid var(--text-muted);
+    outline-offset: 0;
+  }
+
+  .contact__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .consent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .consent input {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--text-title);
+    cursor: pointer;
+  }
+
+  .consent a {
+    color: var(--text-title);
+    text-underline-offset: 3px;
+  }
+
+  .contact__submit {
+    min-height: 44px;
+    margin-left: auto;
+    padding: 8px 40px;
+    border: 0;
+    border-radius: var(--r-btn);
+    background: var(--surface-2);
+    color: #efefef;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color .2s var(--ease), color .2s var(--ease);
+  }
+
+  .contact__submit:hover:not(:disabled) {
+    background: var(--invert-bg);
+    color: var(--invert-text);
+  }
+
+  .contact__submit:disabled {
+    cursor: progress;
+  }
+
+  .contact__status:empty {
+    display: none;
+  }
+
+  .contact__status {
+    padding: 14px 16px;
+    border-radius: var(--r-field);
+    background: var(--field);
+    font-size: 14px;
+    color: var(--text-title);
+  }
+
+  .contact__status[data-state="success"] {
+    border-left: 3px solid var(--text-title);
+  }
+
+  .contact__status[data-state="error"] {
+    border-left: 3px solid var(--text-faint);
+  }
+
+  @media (max-width: 767px) {
+    .contact__row {
+      grid-template-columns: 1fr;
+    }
+
+    .contact__submit {
+      width: 100%;
+    }
+  }
+</style>

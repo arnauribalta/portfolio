@@ -1,0 +1,121 @@
+---
+// 404 trilingüe: no se sabe el idioma del visitante, así que se muestran los tres.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import TwoTone from "../components/TwoTone.astro";
+import { site } from "../lib/content";
+import { LANGS, alternatesFor, routePath, t } from "../lib/i18n";
+
+const { notFound } = site;
+const others = LANGS.filter((l) => l !== "es");
+---
+
+<BaseLayout
+  lang="es"
+  title={`${t(notFound.title, "es").join(" ")} · Arnau Ribalta`}
+  description={t(notFound.text, "es")}
+  path="/404"
+  noindex
+>
+  <SiteHeader lang="es" onHome={false} alternates={alternatesFor({ name: "home" })} />
+  <main id="main" class="nf">
+    <div class="container nf__inner">
+      <p class="nf__code" aria-hidden="true">404</p>
+      <h1 class="nf__title"><TwoTone parts={t(notFound.title, "es")} /></h1>
+      <p class="nf__text">{t(notFound.text, "es")}</p>
+      <a class="btn-cta nf__btn" href={routePath({ name: "home" }, "es")}>{t(notFound.button, "es")}</a>
+
+      <div class="nf__others">
+        {
+          others.map((l) => (
+            <div class="nf__other" lang={l}>
+              <p class="nf__other-title">
+                <TwoTone parts={t(notFound.title, l)} />
+              </p>
+              <p class="nf__other-text">{t(notFound.text, l)}</p>
+              <a class="nf__link" href={routePath({ name: "home" }, l)}>
+                {t(notFound.button, l)} →
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .nf {
+    display: grid;
+    align-items: center;
+    min-height: 100svh;
+    padding: calc(var(--header-h) + 72px) 0 72px;
+    background: radial-gradient(circle at 0% 0%, var(--bg-1) 0%, var(--bg-0) 54%);
+  }
+
+  .nf__inner {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .nf__code {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(5rem, 14vw, 9rem);
+    line-height: 1;
+    color: var(--surface-2);
+  }
+
+  .nf__title {
+    margin-top: 8px;
+    font-size: clamp(2.25rem, 4.4vw, 3.5rem);
+  }
+
+  .nf__text {
+    margin-top: 16px;
+    font-size: 16px;
+  }
+
+  .nf__btn {
+    margin-top: 28px;
+    min-height: 44px;
+  }
+
+  .nf__others {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: min(720px, 100%);
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .nf__other-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+  }
+
+  .nf__other-text {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .nf__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 14px;
+    color: var(--text-title);
+    text-underline-offset: 4px;
+  }
+
+  @media (max-width: 767px) {
+    .nf__others {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

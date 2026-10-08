@@ -1,0 +1,165 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import PhotoFrame from "./PhotoFrame.astro";
+import Icon from "./Icon.astro";
+import { getSection, initials, site } from "../lib/content";
+import { getAsset } from "../lib/images";
+import { t, type Lang } from "../lib/i18n";
+import { md } from "../lib/md";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { about } = site;
+const section = getSection("sobre-mi");
+const photo = getAsset(about.photo.src);
+const cutout = getAsset(about.photo.cutout);
+---
+
+<section id="sobre-mi" class="section" aria-labelledby="sobre-mi-title">
+  <div class="container about">
+    <div class:list={["about__media", { "about__media--popout": photo && cutout }]} data-reveal>
+      <PhotoFrame
+        image={photo}
+        cutout={cutout}
+        alt={t(about.photo.alt, lang)}
+        sizes="(max-width: 767px) calc(100vw - 32px), 420px"
+        aspect="4 / 5"
+        variant="popout"
+        placeholder={initials()}
+      />
+    </div>
+
+    <div class="about__content">
+      {section.title && <SectionTitle id="sobre-mi-title" parts={t(section.title, lang)} />}
+      <div class="about__text">
+        {about.paragraphs.map((p) => <p set:html={md(t(p, lang))} />)}
+      </div>
+
+      {
+        about.figures.length > 0 && (
+          <ul class="figures" role="list">
+            {about.figures.map((f) => (
+              <li class="figure" data-reveal>
+                <span class="figure__value">{t(f.value, lang)}</span>
+                <span class="figure__label">{t(f.label, lang)}</span>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+
+      {
+        about.badges.length > 0 && (
+          <ul class="badges" role="list">
+            {about.badges.map((b) => (
+              <li class="badge">
+                <Icon name="trophy" size={14} />
+                <span>{t(b, lang)}</span>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    align-items: center;
+    gap: clamp(40px, 7vw, 96px);
+  }
+
+  .about__media {
+    width: min(420px, 100%);
+    justify-self: center;
+  }
+
+  /* Hueco para la cabeza que sobresale del marco */
+  .about__media--popout {
+    padding-top: 12%;
+  }
+
+  .about__text {
+    display: grid;
+    gap: 16px;
+    margin-top: 24px;
+    max-width: 62ch;
+  }
+
+  .figures {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .figure {
+    display: grid;
+    align-content: start;
+    gap: 6px;
+    padding-left: 16px;
+    border-left: 1px solid var(--line-soft);
+  }
+
+  .figure__value {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--text-title);
+  }
+
+  .figure__label {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--text-muted);
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 32px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid var(--chip-border);
+    border-radius: var(--r-pill);
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--text-body);
+  }
+
+  .badge :global(svg) {
+    flex: none;
+    color: var(--text-title);
+  }
+
+  @media (max-width: 767px) {
+    .about {
+      grid-template-columns: 1fr;
+    }
+
+    .about__media {
+      width: min(280px, 100%);
+    }
+
+    .figure__value {
+      font-size: 32px;
+    }
+
+    .figure {
+      padding-left: 12px;
+    }
+  }
+</style>

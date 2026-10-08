@@ -1,0 +1,83 @@
+---
+// Iconos SVG inline (sin librerías). Decorativos: aria-hidden.
+export type IconName =
+  | "trophy"
+  | "star"
+  | "arrow-left"
+  | "arrow-right"
+  | "arrow-up-right"
+  | "linkedin"
+  | "github"
+  | "email"
+  | "phone"
+  | "link";
+
+interface Props {
+  name: IconName;
+  size?: number;
+  class?: string;
+}
+
+const { name, size = 18, class: className } = Astro.props;
+
+const stroke = {
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": "1.6",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+} as const;
+---
+
+{name === "trophy" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
+    <path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z" />
+    <path d="M17 6h2.5a.5.5 0 0 1 .5.5V8a3 3 0 0 1-3 3M7 6H4.5a.5.5 0 0 0-.5.5V8a3 3 0 0 0 3 3" />
+  </svg>
+)}
+{name === "star" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
+    <path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8L12 3Z" />
+  </svg>
+)}
+{name === "arrow-left" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
+    <path d="m15 5-7 7 7 7" />
+  </svg>
+)}
+{name === "arrow-right" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
+    <path d="m9 5 7 7-7 7" />
+  </svg>
+)}
+{name === "arrow-up-right" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
+    <path d="M7 17 17 7M8 7h9v9" />
+  </svg>
+)}
+{name === "linkedin" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+    <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4V21H3V9.75Zm6.5 0h3.83v1.54h.06c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12V21h-4v-5.03c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65V21h-4V9.75Z" />
+  </svg>
+)}
+{name === "github" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 16 16" aria-hidden="true" fill="currentColor">
+    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+  </svg>
+)}
+{name === "email" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
+    <rect x="3" y="5" width="18" height="14" rx="2" />
+    <path d="m3.5 6.5 8.5 6.5 8.5-6.5" />
+  </svg>
+)}
+{name === "phone" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
+    <path d="M21 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.1 4.2 2 2 0 0 1 3.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L7.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2Z" />
+  </svg>
+)}
+{name === "link" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
+    <path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" />
+  </svg>
+)}

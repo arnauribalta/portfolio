@@ -1,0 +1,450 @@
+/* ─────────────────────────────────────────────────────────────
+   Sistema de diseño · estética de adriansaenz.com
+   No añadas colores ni fuentes nuevas: usa estos tokens.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* Fondos y superficies */
+  --bg-0: #101010;
+  --bg-1: #1e1e1e;
+  --surface: #232323;      /* tarjetas, tiles, formulario */
+  --surface-2: #2b2b2b;    /* botones */
+  --surface-3: #161616;    /* tarjeta desplazada detrás de las fotos */
+  --field: #1c1c1c;        /* inputs */
+
+  /* Texto (todos cumplen AA sobre --bg-0) */
+  --text-strong: #ffffff;
+  --text-title: #dbdbdb;       /* primera palabra de los títulos */
+  --text-title-dim: #939393;   /* segunda palabra de los títulos */
+  --text-body: #adadad;
+  --text-muted: #9e9e9e;
+  --text-faint: #8c8c8c;       /* nunca más oscuro que esto para texto */
+
+  /* Líneas */
+  --line: #606060;                     /* solo bordes, nunca texto */
+  --line-soft: rgba(255, 255, 255, .08);
+  --chip-border: rgba(255, 255, 255, .14);
+
+  /* Inversión al pasar el ratón */
+  --invert-bg: #f0f0f0;
+  --invert-text: #101010;
+  --invert-text-2: #4a4a4a;
+
+  /* Único color funcional: punto de «disponible» */
+  --status: #7bd389;
+
+  /* Radios */
+  --r-btn: 4px;
+  --r-cta: 6px;
+  --r-field: 8px;
+  --r-card: 12px;
+  --r-slide: 20px;
+  --r-pill: 999px;
+
+  /* Tipografía */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Montserrat", system-ui, sans-serif;
+
+  /* Layout */
+  --container: 1120px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --header-h: 60px;
+
+  /* Movimiento */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+
+  /* Colores de contexto: los tiles invertidos los redefinen */
+  --c-title: var(--text-title);
+  --c-title-dim: var(--text-title-dim);
+  --c-strong: var(--text-strong);
+  --c-body: var(--text-body);
+  --c-muted: var(--text-muted);
+  --c-faint: var(--text-faint);
+  --c-chip-border: var(--chip-border);
+
+  color-scheme: dark;
+}
+
+/* ───────────── Base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--bg-0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Snap suave, solo en la home y en escritorio */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  html.is-home {
+    scroll-snap-type: y proximity;
+  }
+}
+
+/* Bloqueo del scroll con el menú móvil abierto */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+body {
+  min-height: 100svh;
+  background: var(--bg-0);
+  color: var(--c-body);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+picture {
+  display: contents;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--c-title);
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+strong {
+  color: var(--c-strong);
+  font-weight: 600;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--text-title);
+  color: var(--bg-0);
+}
+
+/* ───────────── Utilidades */
+
+.container {
+  width: min(var(--container), 100% - 2 * var(--gutter));
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: 16px;
+  z-index: 100;
+  transform: translateY(calc(-100% - 40px));
+  padding: 10px 18px;
+  border-radius: var(--r-cta);
+  background: var(--text-strong);
+  color: var(--bg-0);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* Títulos en dos tonos */
+.tt-1 {
+  color: var(--c-title);
+}
+
+.tt-2 {
+  color: var(--c-title-dim);
+}
+
+/* Etiqueta / meta */
+.label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--c-faint);
+}
+
+/* Entradilla de sección */
+.intro {
+  max-width: 62ch;
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--c-body);
+}
+
+/* Texto destacado */
+.lead {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--c-body);
+}
+
+@media (min-width: 1024px) {
+  .lead {
+    font-size: 18px;
+  }
+}
+
+/* Chips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid var(--c-chip-border);
+  border-radius: var(--r-pill);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--c-body);
+  transition: color .25s var(--ease), border-color .25s var(--ease);
+}
+
+/* Botón de cabecera / CTA */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 6px 28px;
+  border-radius: var(--r-cta);
+  background: var(--surface-2);
+  color: var(--text-strong);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+  transition: background-color .2s var(--ease), color .2s var(--ease);
+}
+
+.btn-cta:hover {
+  background: var(--invert-bg);
+  color: var(--invert-text);
+}
+
+/* Botón de tarjeta («Leer artículo» en la referencia) */
+.btn-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 30px;
+  border-radius: var(--r-btn);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: background-color .2s var(--ease), color .2s var(--ease);
+}
+
+.btn-card:hover {
+  color: var(--text-strong);
+}
+
+/* Tiles que se invierten al pasar el ratón (proyectos, competencias) */
+.tile {
+  display: block;
+  border-radius: var(--r-card);
+  background: var(--surface);
+  padding: 28px;
+  color: var(--c-body);
+  text-decoration: none;
+  transition: background-color .25s var(--ease), color .25s var(--ease);
+}
+
+.tile:focus-visible {
+  --c-title: var(--invert-text);
+  --c-title-dim: var(--invert-text-2);
+  --c-strong: var(--invert-text);
+  --c-body: var(--invert-text-2);
+  --c-muted: var(--invert-text-2);
+  --c-faint: var(--invert-text-2);
+  --c-chip-border: rgba(16, 16, 16, .24);
+  background: var(--invert-bg);
+}
+
+@media (hover: hover) {
+  .tile:hover {
+    --c-title: var(--invert-text);
+    --c-title-dim: var(--invert-text-2);
+    --c-strong: var(--invert-text);
+    --c-body: var(--invert-text-2);
+    --c-muted: var(--invert-text-2);
+    --c-faint: var(--invert-text-2);
+    --c-chip-border: rgba(16, 16, 16, .24);
+    background: var(--invert-bg);
+  }
+}
+
+/* ───────────── Secciones de la home */
+
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: calc(var(--header-h) + 72px) 88px;
+  border-top: 1px solid var(--line-soft);
+  scroll-snap-align: start;
+}
+
+.section:first-child {
+  border-top: 0;
+}
+
+/* Altura mínima de pantalla completa (nunca fija): hero siempre, el resto en escritorio */
+#inicio {
+  min-height: 100svh;
+}
+
+:root {
+  --footer-h: 190px;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    min-height: 100svh;
+  }
+
+  /* Contacto + pie ocupan juntos una pantalla */
+  .section--contact {
+    min-height: calc(100svh - var(--footer-h));
+    padding-bottom: 32px;
+  }
+}
+
+#inicio       { background: radial-gradient(circle at 0% 0%, var(--bg-1) 0%, var(--bg-0) 54%); }
+#sobre-mi     { background: linear-gradient(1deg,   var(--bg-1) 0%, var(--bg-0) 65%); }
+#trayectoria  { background: linear-gradient(178deg, var(--bg-1) 0%, var(--bg-0) 100%); }
+#proyectos    { background: linear-gradient(1deg,   var(--bg-1) 0%, var(--bg-0) 100%); }
+#competencias { background: linear-gradient(178deg, var(--bg-1) 0%, var(--bg-0) 100%); }
+#formacion    { background: linear-gradient(183deg, var(--bg-1) 0%, var(--bg-0) 100%); }
+#contacto     { background: linear-gradient(1deg,   var(--bg-1) 0%, var(--bg-0) 100%); }
+
+.section-head {
+  margin-bottom: 48px;
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-block: calc(var(--header-h) + 56px) 72px;
+  }
+
+  .section-head {
+    margin-bottom: 36px;
+  }
+}
+
+/* ───────────── Movimiento */
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-on [data-reveal]:not(.is-visible) {
+    opacity: 0;
+  }
+
+  .reveal-on [data-reveal].is-visible {
+    animation: reveal .6s var(--ease) backwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

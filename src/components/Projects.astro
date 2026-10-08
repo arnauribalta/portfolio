@@ -1,0 +1,23 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import ProjectBento from "./ProjectBento.astro";
+import { getSection, site } from "../lib/content";
+import { t, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const section = getSection("proyectos");
+---
+
+<section id="proyectos" class="section" aria-labelledby="proyectos-title">
+  <div class="container">
+    <header class="section-head">
+      {section.title && <SectionTitle id="proyectos-title" parts={t(section.title, lang)} />}
+      <p class="intro">{t(site.projects.intro, lang)}</p>
+    </header>
+    <ProjectBento lang={lang} />
+  </div>
+</section>

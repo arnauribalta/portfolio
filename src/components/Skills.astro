@@ -1,0 +1,146 @@
+---
+// Competencias: cuatro grupos (2 × 2) + fila ancha «Stack» + tile «Idiomas». Sin porcentajes.
+import SectionTitle from "./SectionTitle.astro";
+import { getSection, site, skills } from "../lib/content";
+import { t, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const section = getSection("competencias");
+---
+
+<section id="competencias" class="section" aria-labelledby="competencias-title">
+  <div class="container">
+    <header class="section-head">
+      {section.title && <SectionTitle id="competencias-title" parts={t(section.title, lang)} />}
+      <p class="intro">{t(site.skills.intro, lang)}</p>
+    </header>
+
+    <div class="skills">
+      {
+        skills.grupos.map((group) => (
+          <div class="tile skill" data-reveal>
+            <h3 class="skill__title">{t(group.titulo, lang)}</h3>
+            <ul class="chips" role="list">
+              {group.items.map((item) => (
+                <li class="chip">{t(item, lang)}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+
+      {
+        skills.stack.length > 0 && (
+          <div class="tile skill skill--stack" data-reveal>
+            <h3 class="skill__title">{t(site.skills.stackTitle, lang)}</h3>
+            <ul class="chips" role="list">
+              {skills.stack.map((item) => (
+                <li class="chip">{item}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+
+      {
+        skills.idiomas.length > 0 && (
+          <div class="tile skill skill--langs" data-reveal>
+            <h3 class="skill__title">{t(site.skills.languagesTitle, lang)}</h3>
+            <ul class="langs" role="list">
+              {skills.idiomas.map((item) => (
+                <li class="langs__row">
+                  <span class="langs__name">{t(item.idioma, lang)}</span>
+                  <span class="langs__level">{t(item.nivel, lang)}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .skill {
+    grid-column: span 6;
+  }
+
+  .skill--stack {
+    grid-column: span 8;
+  }
+
+  .skill--langs {
+    grid-column: span 4;
+  }
+
+  .skill__title {
+    margin-bottom: 18px;
+    font-size: 22px;
+  }
+
+  .langs {
+    display: grid;
+    gap: 10px;
+  }
+
+  .langs__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--c-chip-border);
+    font-size: 14px;
+  }
+
+  .langs__row:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .langs__name {
+    color: var(--c-title);
+  }
+
+  .langs__level {
+    color: var(--c-muted);
+    text-align: right;
+  }
+
+  @media (max-width: 1023px) {
+    .skills {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skill {
+      grid-column: span 1;
+    }
+
+    .skill--stack,
+    .skill--langs {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .skills {
+      grid-template-columns: 1fr;
+    }
+
+    .skill,
+    .skill--stack,
+    .skill--langs {
+      grid-column: span 1;
+    }
+  }
+</style>

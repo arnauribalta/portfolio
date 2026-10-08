@@ -1,0 +1,75 @@
+---
+// Bento de proyectos (12 columnas). Los dos primeros ocupan 6 y llevan portada; el resto, 4.
+// Si la última fila queda con 2, ocupan 6; con 1, ocupa 12. Se calcula en el build.
+import ProjectTile from "./ProjectTile.astro";
+import { getProjects } from "../lib/content";
+import type { Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const projects = getProjects();
+const n = projects.length;
+const rest = Math.max(n - 2, 0);
+const lastRow = rest % 3;
+
+function spanLg(i: number): 4 | 6 | 12 {
+  if (n === 1) return 12;
+  if (i < 2) return 6;
+  const j = i - 2;
+  if (lastRow && j >= rest - lastRow) return lastRow === 2 ? 6 : 12;
+  return 4;
+}
+
+// En 2 columnas (tablet), si el total es impar el último ocupa la fila entera.
+const spanMd = (i: number) => (n % 2 === 1 && i === n - 1 ? 2 : 1);
+---
+
+<ul class="bento" role="list">
+  {
+    projects.map((project, i) => (
+      <li class={`bento__item lg-${spanLg(i)} md-${spanMd(i)}`} data-reveal>
+        <ProjectTile project={project} lang={lang} big={i < 2} />
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .lg-4 { grid-column: span 4; }
+  .lg-6 { grid-column: span 6; }
+  .lg-12 { grid-column: span 12; }
+
+  @media (max-width: 1023px) {
+    .bento {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bento__item {
+      grid-column: span 1;
+    }
+
+    .md-2 {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .bento {
+      grid-template-columns: 1fr;
+    }
+
+    .bento__item,
+    .md-2 {
+      grid-column: span 1;
+    }
+  }
+</style>

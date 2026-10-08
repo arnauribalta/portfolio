@@ -1,0 +1,182 @@
+---
+// Tarjeta de proyecto: enlace entero a su página. Al pasar el ratón se invierte (referencia).
+import TwoTone from "./TwoTone.astro";
+import Img from "./Img.astro";
+import BrandPlaceholder from "./BrandPlaceholder.astro";
+import { site, type Project } from "../lib/content";
+import { getAsset } from "../lib/images";
+import { routePath, t, tMaybe, type Lang } from "../lib/i18n";
+
+interface Props {
+  project: Project;
+  lang: Lang;
+  /** Los dos primeros: más anchos y con portada */
+  big?: boolean;
+}
+
+const { project, lang, big = false } = Astro.props;
+const title = t(project.titulo, lang);
+const logo = getAsset(project.logo);
+const cover = getAsset(project.imagenes.cover?.src);
+const coverAlt = project.imagenes.cover ? t(project.imagenes.cover.alt, lang) : "";
+const category = tMaybe(project.categoria, lang);
+const id = `pt-${project.slug}`;
+---
+
+<a
+  class:list={["tile", "ptile", { "ptile--big": big }]}
+  href={routePath({ name: "project", slug: project.slug }, lang)}
+  aria-labelledby={`${id}-title`}
+  aria-describedby={`${id}-desc`}
+>
+  {
+    (logo || category) && (
+      <div class="ptile__top">
+        {logo && (
+          <img class="ptile__logo" src={logo.src} width={logo.width} height={logo.height} alt="" loading="lazy" decoding="async" />
+        )}
+        {category && <span class="label ptile__cat">{category}</span>}
+      </div>
+    )
+  }
+
+  {
+    big && (
+      <div class="ptile__cover">
+        {cover ? (
+          <Img image={cover} alt={coverAlt} sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) 50vw, 540px" />
+        ) : (
+          <BrandPlaceholder logo={logo} name={title[0]} />
+        )}
+      </div>
+    )
+  }
+
+  <h3 class="ptile__title" id={`${id}-title`}><TwoTone parts={title} /></h3>
+  <p class="ptile__desc" id={`${id}-desc`}>{t(project.resumenCorto, lang)}</p>
+
+  {
+    project.tags.length > 0 && (
+      <ul class="chips ptile__tags" role="list">
+        {project.tags.map((tag) => (
+          <li class="chip">{t(tag, lang)}</li>
+        ))}
+      </ul>
+    )
+  }
+
+  <span class="ptile__cta" aria-hidden="true">
+    <span class="ptile__cta-text">{t(site.projects.cta, lang)}</span>
+    <span class="ptile__arrow">→</span>
+  </span>
+</a>
+
+<style>
+  .ptile {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 220px;
+    height: 100%;
+  }
+
+  .ptile__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .ptile__logo {
+    width: auto;
+    height: 28px;
+    filter: brightness(0) invert(.9);
+    transition: filter .25s var(--ease);
+  }
+
+  .ptile__cat {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .ptile__cover {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--surface-3);
+  }
+
+  .ptile__cover :global(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+    transition: filter .25s var(--ease), transform .6s var(--ease);
+  }
+
+  .ptile__title {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .ptile__desc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--c-body);
+  }
+
+  .ptile__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 4px;
+    font-size: 14px;
+    color: var(--c-title);
+  }
+
+  .ptile__cta-text {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .ptile__arrow {
+    transition: transform .25s var(--ease);
+  }
+
+  /* Estado invertido */
+  .ptile:focus-visible .ptile__logo {
+    filter: brightness(0) invert(.06);
+  }
+
+  .ptile:focus-visible .ptile__cover :global(img) {
+    filter: none;
+  }
+
+  .ptile:focus-visible .ptile__arrow {
+    transform: translateX(4px);
+  }
+
+  @media (hover: hover) {
+    .ptile:hover .ptile__logo {
+      filter: brightness(0) invert(.06);
+    }
+
+    .ptile:hover .ptile__cover :global(img) {
+      filter: none;
+      transform: scale(1.02);
+    }
+
+    .ptile:hover .ptile__arrow {
+      transform: translateX(4px);
+    }
+  }
+</style>

@@ -1,0 +1,95 @@
+---
+// Puntos de navegación a la derecha (solo home y ≥ 1024 px).
+import { site } from "../lib/content";
+import { t, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<nav class="dotnav" aria-label={t(site.nav.sections, lang)} data-dotnav>
+  <ul role="list">
+    {
+      site.sections.map((section, i) => (
+        <li>
+          <a href={`#${section.id}`} data-dot={section.id} aria-current={i === 0 ? "true" : undefined}>
+            <span class="dotnav__label">{t(section.dot, lang)}</span>
+            <span class="dotnav__dot" aria-hidden="true" />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  import "../scripts/dotnav";
+</script>
+
+<style>
+  .dotnav {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .dotnav {
+      display: block;
+      position: fixed;
+      right: 18px;
+      top: 50%;
+      z-index: 40;
+      transform: translateY(-50%);
+    }
+  }
+
+  .dotnav a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 32px;
+    height: 28px;
+    text-decoration: none;
+  }
+
+  .dotnav__dot {
+    width: 4px;
+    height: 4px;
+    margin-right: 4px;
+    border-radius: 50%;
+    background: #fff;
+    transition: width .2s var(--ease), height .2s var(--ease), margin .2s var(--ease);
+  }
+
+  .dotnav a[aria-current="true"] .dotnav__dot {
+    width: 12px;
+    height: 12px;
+    margin-right: 0;
+  }
+
+  .dotnav__label {
+    position: absolute;
+    right: 100%;
+    margin-right: 6px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--text-body);
+    font-size: 12px;
+    line-height: 1.4;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(4px);
+    pointer-events: none;
+    transition: opacity .2s var(--ease), transform .2s var(--ease);
+  }
+
+  .dotnav a:hover .dotnav__label,
+  .dotnav a:focus-visible .dotnav__label {
+    opacity: 1;
+    transform: none;
+  }
+</style>

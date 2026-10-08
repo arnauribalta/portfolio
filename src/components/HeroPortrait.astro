@@ -1,0 +1,91 @@
+---
+// Retrato en B/N con halo circular y fundido inferior. Sin foto: halo con monograma.
+import Img from "./Img.astro";
+import { initials, site } from "../lib/content";
+import { getAsset } from "../lib/images";
+import { t, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { portrait } = site.hero;
+const image = getAsset(portrait.src);
+---
+
+<div class="portrait">
+  {
+    image ? (
+      <div class="portrait__photo">
+        <Img image={image} alt={t(portrait.alt, lang)} sizes="(max-width: 767px) 280px, 460px" priority />
+      </div>
+    ) : (
+      <span class="portrait__monogram" aria-hidden="true">
+        {initials()}
+      </span>
+    )
+  }
+</div>
+
+<style>
+  .portrait {
+    position: relative;
+    aspect-ratio: 1;
+    width: min(460px, 100%);
+    margin-inline: auto;
+    isolation: isolate;
+  }
+
+  /* Halo circular */
+  .portrait::before {
+    content: "";
+    position: absolute;
+    top: 4%;
+    left: 8%;
+    width: 84%;
+    aspect-ratio: 1;
+    z-index: -1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 40%, #262626, #181818 70%);
+  }
+
+  .portrait__photo {
+    position: absolute;
+    inset: 0;
+  }
+
+  .portrait__photo :global(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: grayscale(1) contrast(1.05);
+    -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 98%);
+    mask-image: linear-gradient(to bottom, #000 72%, transparent 98%);
+  }
+
+  .portrait__monogram {
+    position: absolute;
+    top: 4%;
+    left: 8%;
+    width: 84%;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 120px;
+    line-height: 1;
+    color: var(--surface-2);
+    user-select: none;
+  }
+
+  @media (max-width: 767px) {
+    .portrait__monogram {
+      font-size: 88px;
+    }
+  }
+</style>

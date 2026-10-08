@@ -1,0 +1,82 @@
+---
+// Selector de idioma «ES · CA · EN»: el actual sin enlace; los otros llevan a la página equivalente.
+import { site } from "../lib/content";
+import { LANGS, LANG_META, t, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+  alternates: Record<Lang, string>;
+  size?: "sm" | "lg";
+}
+
+const { lang, alternates, size = "sm" } = Astro.props;
+---
+
+<div class:list={["lang", `lang--${size}`]} role="group" aria-label={t(site.nav.langSwitch, lang)}>
+  {
+    LANGS.map((l, i) => (
+      <>
+        {i > 0 && (
+          <span class="lang__sep" aria-hidden="true">
+            ·
+          </span>
+        )}
+        {l === lang ? (
+          <span class="lang__item lang__item--current" aria-current="true" lang={l} title={LANG_META[l].name}>
+            {LANG_META[l].short}
+          </span>
+        ) : (
+          <a class="lang__item" href={alternates[l]} hreflang={l} lang={l} aria-label={LANG_META[l].name}>
+            {LANG_META[l].short}
+          </a>
+        )}
+      </>
+    ))
+  }
+</div>
+
+<style>
+  .lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .06em;
+  }
+
+  .lang__item {
+    display: inline-grid;
+    place-items: center;
+    min-width: 30px;
+    min-height: 40px;
+    padding: 0 2px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color .2s var(--ease);
+  }
+
+  a.lang__item:hover {
+    color: var(--text-strong);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .lang__item--current {
+    color: var(--text-strong);
+  }
+
+  .lang__sep {
+    color: var(--text-faint);
+  }
+
+  .lang--lg {
+    font-size: 16px;
+    gap: 8px;
+  }
+
+  .lang--lg .lang__item {
+    min-width: 44px;
+    min-height: 44px;
+  }
+</style>

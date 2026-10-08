@@ -1,0 +1,27 @@
+---
+import TwoTone from "./TwoTone.astro";
+
+interface Props {
+  id: string;
+  parts: string[];
+  center?: boolean;
+}
+
+const { id, parts, center = false } = Astro.props;
+---
+
+<h2 id={id} class:list={["section-title", { "section-title--center": center }]}>
+  <TwoTone parts={parts} />
+</h2>
+
+<style>
+  .section-title {
+    font-size: clamp(2rem, 3.2vw, 2.8125rem);
+    line-height: 1.1;
+    letter-spacing: .01em;
+  }
+
+  .section-title--center {
+    text-align: center;
+  }
+</style>

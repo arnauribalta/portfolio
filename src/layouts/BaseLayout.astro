@@ -1,0 +1,95 @@
+---
+import "@fontsource/playfair-display/700.css";
+import "@fontsource/montserrat/400.css";
+import "@fontsource/montserrat/500.css";
+import "@fontsource/montserrat/500-italic.css";
+import "@fontsource/montserrat/600.css";
+import "../styles/global.css";
+import playfairLatin700 from "@fontsource/playfair-display/files/playfair-display-latin-700-normal.woff2?url";
+import { site } from "../lib/content";
+import { LANGS, LANG_META, t, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  /** Ruta canónica de esta página (p. ej. "/en/projects/gastrovision-ai/") */
+  path: string;
+  /** Rutas equivalentes en cada idioma (hreflang). Sin ellas no se emiten alternates. */
+  alternates?: Record<Lang, string>;
+  ogImage?: { url: string; width: number; height: number; alt?: string };
+  ogType?: "website" | "article";
+  jsonLd?: Record<string, unknown>;
+  isHome?: boolean;
+  noindex?: boolean;
+}
+
+const {
+  lang,
+  title,
+  description,
+  path,
+  alternates,
+  ogImage,
+  ogType = "website",
+  jsonLd,
+  isHome = false,
+  noindex = false,
+} = Astro.props;
+
+const base = Astro.site ?? new URL(site.meta.siteUrl);
+const abs = (p: string) => new URL(p, base).href;
+const canonical = abs(path);
+const og = ogImage ?? { url: t(site.meta.ogImage, lang), width: 1200, height: 630 };
+const ogUrl = abs(og.url);
+const jsonLdText = jsonLd ? JSON.stringify(jsonLd).replace(/</g, "\\u003c") : undefined;
+---
+
+<!doctype html>
+<html lang={lang} class:list={["no-js", { "is-home": isHome }]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>document.documentElement.classList.replace("no-js", "js");</script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+    {alternates && LANGS.map((l) => <link rel="alternate" hreflang={l} href={abs(alternates[l])} />)}
+    {alternates && <link rel="alternate" hreflang="x-default" href={abs(alternates.es)} />}
+
+    <link rel="preload" href={playfairLatin700} as="font" type="font/woff2" crossorigin />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#101010" />
+    <meta name="color-scheme" content="dark" />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={site.person.fullName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:width" content={String(og.width)} />
+    <meta property="og:image:height" content={String(og.height)} />
+    {og.alt && <meta property="og:image:alt" content={og.alt} />}
+    <meta property="og:locale" content={LANG_META[lang].ogLocale} />
+    {
+      LANGS.filter((l) => l !== lang).map((l) => (
+        <meta property="og:locale:alternate" content={LANG_META[l].ogLocale} />
+      ))
+    }
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogUrl} />
+    {jsonLdText && <script type="application/ld+json" set:html={jsonLdText} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t(site.nav.skip, lang)}</a>
+    <slot />
+    <script>
+      import "../scripts/reveal";
+      import "../scripts/tilt";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+---
+// Home (5.2): siete secciones a pantalla completa con navegación por puntos.
+import { getImage } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../SiteHeader.astro";
+import DotNav from "../DotNav.astro";
+import Hero from "../Hero.astro";
+import About from "../About.astro";
+import Experience from "../Experience.astro";
+import Projects from "../Projects.astro";
+import Skills from "../Skills.astro";
+import Education from "../Education.astro";
+import ContactForm from "../ContactForm.astro";
+import Footer from "../Footer.astro";
+import { site } from "../../lib/content";
+import { getAsset } from "../../lib/images";
+import { alternatesFor, routePath, t, type Lang } from "../../lib/i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { person } = site;
+const alternates = alternatesFor({ name: "home" });
+
+// Datos estructurados Person (sección 10)
+const portrait = getAsset(site.hero.portrait.src);
+const portraitUrl = portrait
+  ? new URL((await getImage({ src: portrait, width: 800, format: "webp" })).src, site.meta.siteUrl).href
+  : undefined;
+const [locality = "", region = ""] = t(person.location, "es").split(",").map((s) => s.trim());
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: person.fullName,
+  url: site.meta.siteUrl,
+  jobTitle: t(person.jobTitle, lang),
+  address: { "@type": "PostalAddress", addressLocality: locality, addressRegion: region, addressCountry: "ES" },
+  alumniOf: person.alumniOf.map((name) => ({ "@type": "CollegeOrUniversity", name })),
+  sameAs: person.links.filter((l) => l.visible && /^https?:/.test(l.url)).map((l) => l.url),
+  knowsAbout: person.knowsAbout,
+  ...(portraitUrl ? { image: portraitUrl } : {}),
+};
+---
+
+<BaseLayout
+  lang={lang}
+  title={t(site.meta.title, lang)}
+  description={t(site.meta.description, lang)}
+  path={routePath({ name: "home" }, lang)}
+  alternates={alternates}
+  jsonLd={jsonLd}
+  isHome
+>
+  <SiteHeader lang={lang} onHome alternates={alternates} />
+  <DotNav lang={lang} />
+  <main id="main">
+    <Hero lang={lang} />
+    <About lang={lang} />
+    <Experience lang={lang} />
+    <Projects lang={lang} />
+    <Skills lang={lang} />
+    <Education lang={lang} />
+    <section id="contacto" class="section section--contact" aria-labelledby="contacto-title">
+      <div class="container">
+        <ContactForm lang={lang} />
+      </div>
+    </section>
+  </main>
+  <Footer lang={lang} seamless />
+</BaseLayout>

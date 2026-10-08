@@ -1,0 +1,71 @@
+---
+// Plantilla de la política de privacidad. El texto de cada idioma va en su página.
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../SiteHeader.astro";
+import Footer from "../Footer.astro";
+import TwoTone from "../TwoTone.astro";
+import { site } from "../../lib/content";
+import { alternatesFor, routePath, t, type Lang } from "../../lib/i18n";
+
+interface Props {
+  lang: Lang;
+  title: string[];
+  description: string;
+}
+
+const { lang, title, description } = Astro.props;
+const alternates = alternatesFor({ name: "privacy" });
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${t(site.footer.privacy, lang)} · Arnau Ribalta`}
+  description={description}
+  path={routePath({ name: "privacy" }, lang)}
+  alternates={alternates}
+>
+  <SiteHeader lang={lang} onHome={false} alternates={alternates} />
+  <main id="main" class="legal">
+    <div class="container legal__inner">
+      <h1 class="legal__title"><TwoTone parts={title} /></h1>
+      <div class="legal__body">
+        <slot />
+      </div>
+    </div>
+  </main>
+  <Footer lang={lang} />
+</BaseLayout>
+
+<style>
+  .legal {
+    min-height: 70svh;
+    padding: calc(var(--header-h) + 88px) 0 96px;
+    background: radial-gradient(circle at 0% 0%, var(--bg-1) 0%, var(--bg-0) 40%) no-repeat;
+  }
+
+  .legal__inner {
+    max-width: 760px;
+  }
+
+  .legal__title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+  }
+
+  .legal__body {
+    margin-top: 40px;
+  }
+
+  .legal__body :global(ul) {
+    display: grid;
+    gap: 18px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .legal__body :global(li) {
+    padding-left: 18px;
+    border-left: 1px solid var(--line-soft);
+    font-size: 15px;
+  }
+</style>

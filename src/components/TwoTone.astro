@@ -1,0 +1,10 @@
+---
+// Título en dos tonos: la primera parte en --c-title y el resto en --c-title-dim.
+interface Props {
+  parts: string[];
+}
+
+const [first, ...rest] = Astro.props.parts;
+---
+
+<span class="tt-1">{first}</span>{rest.length > 0 && <>{" "}<span class="tt-2">{rest.join(" ")}</span></>}

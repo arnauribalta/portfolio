@@ -1,0 +1,12 @@
+---
+import type { GetStaticPaths } from "astro";
+import ProjectView from "../../../components/views/ProjectView.astro";
+import { getProjects, type Project } from "../../../lib/content";
+
+export const getStaticPaths = (() =>
+  getProjects().map((project) => ({ params: { slug: project.slug }, props: { project } }))) satisfies GetStaticPaths;
+
+const { project } = Astro.props as { project: Project };
+---
+
+<ProjectView lang="en" project={project} />

@@ -1,0 +1,122 @@
+---
+// Carrusel genérico con scroll-snap. Los botones avanzan un elemento. Nunca autoplay.
+import Icon from "./Icon.astro";
+import { site } from "../lib/content";
+import { t, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+  label: string;
+  /** Posición de las flechas: debajo a la derecha o centradas */
+  controls?: "end" | "center";
+  class?: string;
+}
+
+const { lang, label, controls = "end", class: className } = Astro.props;
+---
+
+<div
+  class:list={["carousel", className]}
+  role="region"
+  aria-roledescription={t(site.carousel.label, lang)}
+  aria-label={label}
+  data-carousel
+>
+  <div class="carousel__track" tabindex="0" data-carousel-track>
+    <slot />
+  </div>
+  <div class:list={["carousel__controls", `carousel__controls--${controls}`]} data-carousel-controls>
+    <button type="button" class="carousel__btn" aria-label={t(site.carousel.prev, lang)} data-carousel-prev disabled>
+      <Icon name="arrow-left" size={20} />
+    </button>
+    <button type="button" class="carousel__btn" aria-label={t(site.carousel.next, lang)} data-carousel-next>
+      <Icon name="arrow-right" size={20} />
+    </button>
+  </div>
+</div>
+
+<script>
+  import "../scripts/carousel";
+</script>
+
+<style>
+  .carousel {
+    --gap: 24px;
+    min-width: 0;
+  }
+
+  .carousel__track {
+    /* Contiene los elementos absolutos (p. ej. .sr-only) para que no estiren la página */
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: var(--item-w, 100%);
+    gap: var(--gap);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    /* Margen para la tarjeta desplazada y el tilt */
+    padding: 4px 14px 16px 4px;
+    margin: -4px -14px -16px -4px;
+    scroll-padding-inline: 4px;
+    border-radius: var(--r-card);
+  }
+
+  .carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel__track > :global(*) {
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .carousel__track {
+      scroll-behavior: smooth;
+    }
+  }
+
+  .carousel__controls {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .carousel__controls--end {
+    justify-content: flex-end;
+  }
+
+  .carousel__controls--center {
+    justify-content: center;
+  }
+
+  :global(.no-js) .carousel__controls,
+  .carousel__controls[hidden] {
+    display: none;
+  }
+
+  .carousel__btn {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border: 0;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--bg-0);
+    cursor: pointer;
+    transition: background-color .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+  }
+
+  .carousel__btn:hover:not(:disabled) {
+    transform: scale(1.05);
+  }
+
+  .carousel__btn:disabled {
+    background: #6b6b6b;
+    color: var(--surface-2);
+    cursor: default;
+  }
+</style>

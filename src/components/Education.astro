@@ -1,0 +1,208 @@
+---
+// Formación: titulaciones, «Otros» y carrusel de casos académicos (como «Medios» en la referencia).
+import SectionTitle from "./SectionTitle.astro";
+import Carousel from "./Carousel.astro";
+import { education, getSection, site } from "../lib/content";
+import { t, tMaybe, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const section = getSection("formacion");
+const academicTitle = t(site.education.academicTitle, lang);
+---
+
+<section id="formacion" class="section" aria-labelledby="formacion-title">
+  <div class="container">
+    <header class="section-head">
+      {section.title && <SectionTitle id="formacion-title" parts={t(section.title, lang)} />}
+      <p class="intro">{t(site.education.intro, lang)}</p>
+    </header>
+
+    <div class="edu">
+      <ul class="edu__list" role="list">
+        {
+          education.titulos.map((item) => {
+            const period = tMaybe(item.periodo, lang);
+            const detail = tMaybe(item.detalle, lang);
+            return (
+              <li class="edu__item" data-reveal>
+                <h3 class="edu__title">{t(item.titulo, lang)}</h3>
+                <p class="edu__center">{item.centro}</p>
+                {period && <p class="label edu__period">{period}</p>}
+                {detail && <p class="edu__detail">{detail}</p>}
+              </li>
+            );
+          })
+        }
+      </ul>
+
+      {
+        education.otros.length > 0 && (
+          <div class="edu__others" data-reveal>
+            <h3 class="label">{t(site.education.othersTitle, lang)}</h3>
+            <ul class="chips" role="list">
+              {education.otros.map((item) => (
+                <li class="chip">{t(item, lang)}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+
+    {
+      education.trabajos.length > 0 && (
+        <div class="academic">
+          <h3 class="academic__title">{academicTitle}</h3>
+          <Carousel lang={lang} label={academicTitle}>
+            {education.trabajos.map((work) => {
+              const title = t(work.titulo, lang);
+              const team = tMaybe(work.equipo, lang);
+              return (
+                <article class="acard">
+                  <p class="acard__subject">{t(work.asignatura, lang)}</p>
+                  <h4 class="acard__title">{title}</h4>
+                  <p class="acard__desc">{t(work.descripcion, lang)}</p>
+                  {team && <p class="acard__team">{team}</p>}
+                  <div class="acard__foot">
+                    <a class="btn-card" href={work.pdf} target="_blank" rel="noopener">
+                      {t(site.education.pdfCta, lang)}
+                      <span class="sr-only">: {title}</span>
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
+          </Carousel>
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .edu__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 48px;
+  }
+
+  .edu__item {
+    padding-left: 20px;
+    border-left: 1px solid var(--line-soft);
+  }
+
+  .edu__title {
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  .edu__center {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--text-body);
+  }
+
+  .edu__period {
+    margin-top: 6px;
+  }
+
+  .edu__detail {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  .edu__others {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 16px;
+  }
+
+  .academic {
+    --item-w: 320px;
+    margin-top: 64px;
+  }
+
+  .academic__title {
+    margin-bottom: 24px;
+    font-size: 24px;
+  }
+
+  .academic__carousel {
+    --item-w: 320px;
+  }
+
+  .acard {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 28px;
+    border-radius: var(--r-slide);
+    background: var(--surface);
+  }
+
+  .acard__subject {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.4;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text-title);
+  }
+
+  .acard__title {
+    margin-top: 16px;
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .acard__desc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    overflow: hidden;
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .acard__team {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  .acard__foot {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    padding-top: 24px;
+  }
+
+  .acard__foot .btn-card {
+    padding-inline: 24px;
+  }
+
+  @media (max-width: 767px) {
+    .edu__list {
+      grid-template-columns: 1fr;
+    }
+
+    .academic {
+      --item-w: calc((100% - 24px) / 1.15);
+    }
+
+    .acard {
+      padding: 24px;
+    }
+  }
+</style>

@@ -1,0 +1,66 @@
+---
+// Iconos sociales circulares: LinkedIn, GitHub, Email y Teléfono (solo los visibles).
+import Icon, { type IconName } from "./Icon.astro";
+import { site } from "../lib/content";
+
+const KNOWN: IconName[] = ["linkedin", "github", "email"];
+const { person } = site;
+
+const items = [
+  ...person.links
+    .filter((link) => link.visible)
+    .map((link) => ({
+      href: link.url,
+      label: link.label,
+      icon: (KNOWN.includes(link.id as IconName) ? link.id : "link") as IconName,
+      external: /^https?:/.test(link.url),
+    })),
+  ...(person.phone.visible
+    ? [{ href: person.phone.href, label: person.phone.value, icon: "phone" as IconName, external: false }]
+    : []),
+];
+---
+
+<ul class="social" role="list">
+  {
+    items.map((item) => (
+      <li>
+        <a
+          class="social__link"
+          href={item.href}
+          aria-label={item.label}
+          title={item.label}
+          target={item.external ? "_blank" : undefined}
+          rel={item.external ? "noopener" : undefined}
+        >
+          <Icon name={item.icon} size={18} />
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .social {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .social__link {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: .8px solid var(--text-muted);
+    border-radius: 50%;
+    color: var(--text-title);
+    transition: background-color .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+  }
+
+  .social__link:hover {
+    background: var(--invert-bg);
+    border-color: var(--invert-bg);
+    color: var(--invert-text);
+  }
+</style>
