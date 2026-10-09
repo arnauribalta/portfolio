@@ -3,5 +3,57 @@
   "framework": "astro",
   "installCommand": "npm install",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/DOCUMENT CAS PRÀCTIC 1. AMETLLER Roger Mas, Ada Moreno, Arnau Ribalta, Natalia Romero, Bruna Solà, Sergi Vicens \\(2\\).pdf",
+      "destination": "/docs/academico/ametller-vital-whey.pdf",
+      "statusCode": 301
+    },
+    {
+      "source": "/DOCUMENT%20CAS%20PR%C3%80CTIC%201.%20AMETLLER%20Roger%20Mas,%20Ada%20Moreno,%20Arnau%20Ribalta,%20Natalia%20Romero,%20Bruna%20Sol%C3%A0,%20Sergi%20Vicens%20\\(2\\).pdf",
+      "destination": "/docs/academico/ametller-vital-whey.pdf",
+      "statusCode": 301
+    },
+    {
+      "source": "/Grupo_AIBOOSTERS_Plan de Marketing \\(1\\)_compressed.pdf",
+      "destination": "/docs/academico/ai-boosters-plan-marketing.pdf",
+      "statusCode": 301
+    },
+    {
+      "source": "/Grupo_AIBOOSTERS_Plan%20de%20Marketing%20\\(1\\)_compressed.pdf",
+      "destination": "/docs/academico/ai-boosters-plan-marketing.pdf",
+      "statusCode": 301
+    },
+    {
+      "source": "/Impacto del Entorno en la Consultoría IA \\(1\\).pdf",
+      "destination": "/docs/academico/pestel-consultoria-ia.pdf",
+      "statusCode": 301
+    },
+    {
+      "source": "/Impacto%20del%20Entorno%20en%20la%20Consultor%C3%ADa%20IA%20\\(1\\).pdf",
+      "destination": "/docs/academico/pestel-consultoria-ia.pdf",
+      "statusCode": 301
+    },
+    {
+      "source": "/SYNK AGENCY X RYANAIR.pdf",
+      "destination": "/docs/academico/synk-ryanair-comunicacion.pdf",
+      "statusCode": 301
+    },
+    {
+      "source": "/SYNK%20AGENCY%20X%20RYANAIR.pdf",
+      "destination": "/docs/academico/synk-ryanair-comunicacion.pdf",
+      "statusCode": 301
+    },
+    {
+      "source": "/Estrategias de Comunicación Digital D \\(2\\)_compressed.pdf",
+      "destination": "/docs/academico/estrategias-comunicacion-digital.pdf",
+      "statusCode": 301
+    },
+    {
+      "source": "/Estrategias%20de%20Comunicaci%C3%B3n%20Digital%20D%20\\(2\\)_compressed.pdf",
+      "destination": "/docs/academico/estrategias-comunicacion-digital.pdf",
+      "statusCode": 301
+    }
+  ]
 }
