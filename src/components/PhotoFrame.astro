@@ -1,7 +1,9 @@
 ---
 // Foto con marco redondeado y la «tarjeta desplazada» detrás (referencia).
 // Variante popout: si existe el recorte, la cabeza sobresale del marco.
+// Con vídeo, la imagen hace de portada y el vídeo se reproduce al pulsarlo.
 import type { ImageMetadata } from "astro";
+import { getImage } from "astro:assets";
 import Img from "./Img.astro";
 
 interface Props {
@@ -14,9 +16,15 @@ interface Props {
   variant?: "default" | "popout";
   tilt?: boolean;
   caption?: string;
+  /** Autoría y licencia, para fotos de terceros */
+  credit?: { text: string; url: string };
   /** Texto del placeholder si no hay imagen (monograma o nombre) */
   placeholder?: string;
   priority?: boolean;
+  /** Ruta de un vídeo en public/ (p. ej. "/video/x.mp4"); la imagen es su portada */
+  video?: string;
+  /** Cómo encaja el vídeo en el marco: "cover" llena y recorta, "contain" lo muestra entero */
+  videoFit?: "cover" | "contain";
 }
 
 const {
@@ -28,18 +36,34 @@ const {
   variant = "default",
   tilt = true,
   caption,
+  credit,
   placeholder = "",
   priority = false,
+  video,
+  videoFit = "contain",
 } = Astro.props;
 
 const withCutout = variant === "popout" && image && cutout;
+const poster = video && image ? await getImage({ src: image, width: Math.min(image.width, 960), format: "jpg" }) : undefined;
 ---
 
 <figure class:list={["photo", { "photo--cutout": withCutout }]} style={`--aspect: ${aspect}`}>
-  <div class="photo__box" data-tilt={tilt && image ? "" : undefined}>
+  <div class="photo__box" data-tilt={tilt && image && !video ? "" : undefined}>
     <div class="photo__frame">
       {
-        image ? (
+        video ? (
+          <video
+            class="photo__video"
+            src={video}
+            poster={poster?.src}
+            controls
+            playsinline
+            preload="none"
+            aria-label={alt || caption}
+            data-video
+            style={`object-fit: ${videoFit}`}
+          />
+        ) : image ? (
           <Img image={image} alt={withCutout ? "" : alt} sizes={sizes} priority={priority} />
         ) : (
           <div class="photo__placeholder" aria-hidden="true">
@@ -54,7 +78,18 @@ const withCutout = variant === "popout" && image && cutout;
       </div>
     )}
   </div>
-  {caption && <figcaption class="photo__caption">{caption}</figcaption>}
+  {
+    caption && (
+      <figcaption class="photo__caption">
+        {caption}
+        {credit && (
+          <a class="photo__credit" href={credit.url} target="_blank" rel="noopener">
+            {credit.text}
+          </a>
+        )}
+      </figcaption>
+    )
+  }
 </figure>
 
 <style>
@@ -137,4 +172,38 @@ const withCutout = variant === "popout" && image && cutout;
     font-size: 13px;
     color: var(--text-muted);
   }
+
+  .photo__credit {
+    display: block;
+    width: fit-content;
+    margin-top: 2px;
+    font-size: 11px;
+    color: var(--text-faint);
+    text-underline-offset: 3px;
+  }
+
+  .photo__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-0);
+  }
 </style>
+
+<script>
+  // Vídeos: solo suena uno a la vez y se paran al salir de la vista (p. ej. al pasar de foto)
+  const videos = [...document.querySelectorAll<HTMLVideoElement>("video[data-video]")];
+  if (videos.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) if (!entry.isIntersecting) (entry.target as HTMLVideoElement).pause();
+      },
+      { threshold: 0.4 },
+    );
+    for (const video of videos) {
+      observer.observe(video);
+      video.addEventListener("play", () => videos.forEach((other) => other !== video && other.pause()));
+    }
+  }
+</script>

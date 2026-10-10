@@ -18,7 +18,9 @@ const LTitle = z.strictObject({ es: TitleParts, ca: TitleParts, en: TitleParts }
 const Slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "debe ir en kebab-case");
 /** Ruta relativa a src/assets (la imagen puede no existir todavía). */
 const AssetPath = z.string().min(1);
-const ImageRef = z.strictObject({ src: AssetPath, alt: L });
+// video: ruta en public/ ("/video/x.mp4"); src es entonces su portada
+const VideoPath = z.string().regex(/^\/video\/[a-z0-9-]+\.mp4$/);
+const ImageRef = z.strictObject({ src: AssetPath, alt: L, video: VideoPath.optional() });
 
 const SiteSchema = z.strictObject({
   meta: z.strictObject({ siteUrl: z.url(), title: L, description: L, ogImage: L }),
@@ -60,7 +62,10 @@ const SiteSchema = z.strictObject({
   experience: z.strictObject({
     intro: L,
     projectLink: L,
-    photos: z.array(z.strictObject({ src: AssetPath, caption: L })),
+    // credito: autoría y licencia de las fotos que no son de Arnau (obligatorio con CC BY)
+    photos: z.array(
+      z.strictObject({ src: AssetPath, caption: L, video: VideoPath.optional(), credito: z.strictObject({ texto: L, url: z.url() }).optional() }),
+    ),
   }),
   projects: z.strictObject({ intro: L, cta: L }),
   skills: z.strictObject({ intro: L, stackTitle: L, languagesTitle: L }),
@@ -142,7 +147,8 @@ const ProjectSchema = z.strictObject({
   aptitudes: z.array(L),
   aprendizajes: z.array(L),
   enlaces: z.array(z.strictObject({ label: L, url: z.url() })),
-  imagenes: z.strictObject({ cover: ImageRef.nullable(), galeria: z.array(ImageRef) }),
+  // animacion: portada dibujada en vivo en lugar de imagen («grafo»: grafo neuronal animado)
+  imagenes: z.strictObject({ cover: ImageRef.nullable(), galeria: z.array(ImageRef), animacion: z.enum(["grafo"]).optional() }),
 });
 
 const EducationSchema = z.strictObject({

@@ -299,7 +299,7 @@
   "about": {
     "photo": {
       "src": "img/arnau/sobre-mi.jpg",
-      "cutout": "img/arnau/sobre-mi-recorte.png",
+      "cutout": null,
       "alt": {
         "es": "Arnau Ribalta Marot trabajando",
         "ca": "L'Arnau Ribalta Marot treballant",
@@ -382,39 +382,7 @@
     },
     "photos": [
       {
-        "src": "img/trayectoria/01.jpg",
-        "caption": {
-          "es": "En obra con Ribalta i Fills",
-          "ca": "A l'obra amb Ribalta i Fills",
-          "en": "On site with Ribalta i Fills"
-        }
-      },
-      {
-        "src": "img/trayectoria/02.jpg",
-        "caption": {
-          "es": "El bar de las piscinas de Oliana",
-          "ca": "El bar de les piscines d'Oliana",
-          "en": "The Oliana pool bar"
-        }
-      },
-      {
-        "src": "img/trayectoria/03.jpg",
-        "caption": {
-          "es": "Pádel Noguera, Balaguer",
-          "ca": "Pádel Noguera, Balaguer",
-          "en": "Pádel Noguera, Balaguer"
-        }
-      },
-      {
-        "src": "img/trayectoria/04.jpg",
-        "caption": {
-          "es": "Montaje de un evento con DecibeliK",
-          "ca": "Muntatge d'un esdeveniment amb DecibeliK",
-          "en": "Setting up an event with DecibeliK"
-        }
-      },
-      {
-        "src": "img/trayectoria/05.jpg",
+        "src": "img/trayectoria/ise-pitch.jpg",
         "caption": {
           "es": "ISE Innovation Hackathon 2026",
           "ca": "ISE Innovation Hackathon 2026",
@@ -422,11 +390,76 @@
         }
       },
       {
-        "src": "img/trayectoria/06.jpg",
+        "src": "img/trayectoria/ise-segundo-puesto.jpg",
+        "caption": {
+          "es": "2.º puesto · ISE Innovation Hackathon 2026",
+          "ca": "2n lloc · ISE Innovation Hackathon 2026",
+          "en": "2nd place · ISE Innovation Hackathon 2026"
+        }
+      },
+      {
+        "src": "img/trayectoria/talent-arena.jpg",
         "caption": {
           "es": "Talent Arena · MWC Barcelona 2026",
           "ca": "Talent Arena · MWC Barcelona 2026",
           "en": "Talent Arena · MWC Barcelona 2026"
+        }
+      },
+      {
+        "src": "img/trayectoria/ao2-stand.jpg",
+        "caption": {
+          "es": "Stand de AO2 Solutions en la Bassella Race 2025",
+          "ca": "Estand d'AO2 Solutions a la Bassella Race 2025",
+          "en": "AO2 Solutions stand at the Bassella Race 2025"
+        }
+      },
+      {
+        "src": "img/trayectoria/padel-noguera.jpg",
+        "caption": {
+          "es": "Inauguración de Pádel Noguera, Balaguer",
+          "ca": "Inauguració de Pádel Noguera, Balaguer",
+          "en": "Opening day at Pádel Noguera, Balaguer"
+        }
+      },
+      {
+        "src": "img/trayectoria/mundial-enduro.jpg",
+        "caption": {
+          "es": "Sonorización del Mundial de Enduro con DecibeliK · Oliana 2025",
+          "ca": "Sonorització del Mundial d'Enduro amb DecibeliK · Oliana 2025",
+          "en": "Sound system for the Enduro World Championship with DecibeliK · Oliana 2025"
+        },
+        "video": "/video/mundial-enduro-oliana-2025.mp4"
+      },
+      {
+        "src": "img/trayectoria/decibelik.jpg",
+        "caption": {
+          "es": "Montaje de un evento con DecibeliK",
+          "ca": "Muntatge d'un esdeveniment amb DecibeliK",
+          "en": "Setting up an event with DecibeliK"
+        }
+      },
+      {
+        "src": "img/trayectoria/decibelik-fiesta.jpg",
+        "caption": {
+          "es": "Fiesta con DecibeliK",
+          "ca": "Festa amb DecibeliK",
+          "en": "A party with DecibeliK"
+        }
+      },
+      {
+        "src": "img/trayectoria/bar-piscines.jpg",
+        "caption": {
+          "es": "El bar de las piscinas de Oliana",
+          "ca": "El bar de les piscines d'Oliana",
+          "en": "The Oliana pool bar"
+        }
+      },
+      {
+        "src": "img/trayectoria/obra-ribalta.jpg",
+        "caption": {
+          "es": "En obra con Ribalta i Fills",
+          "ca": "A l'obra amb Ribalta i Fills",
+          "en": "On site with Ribalta i Fills"
         }
       }
     ]

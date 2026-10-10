@@ -15,7 +15,12 @@ interface Props {
 const { lang } = Astro.props;
 const section = getSection("trayectoria");
 const photos = site.experience.photos
-  .map((photo) => ({ image: getAsset(photo.src), caption: t(photo.caption, lang) }))
+  .map((photo) => ({
+    image: getAsset(photo.src),
+    caption: t(photo.caption, lang),
+    video: photo.video,
+    credit: photo.credito ? { text: t(photo.credito.texto, lang), url: photo.credito.url } : undefined,
+  }))
   .filter((photo) => photo.image);
 const title = section.title ? t(section.title, lang) : [];
 ---
@@ -39,6 +44,9 @@ const title = section.title ? t(section.title, lang) : [];
                 image={photo.image}
                 alt=""
                 caption={photo.caption}
+                credit={photo.credit}
+                video={photo.video}
+                videoFit="cover"
                 aspect="1"
                 sizes="(max-width: 1023px) calc(100vw - 32px), 460px"
               />
@@ -62,9 +70,13 @@ const title = section.title ? t(section.title, lang) : [];
     gap: clamp(40px, 6vw, 88px);
   }
 
+  /* Va fija al bajar; en pantallas bajas la foto se encoge para que pie y flechas
+     quepan siempre (276px = 120 de arriba + pie y flechas + margen) */
   .experience__photos {
     position: sticky;
     top: 120px;
+    justify-self: end;
+    width: min(100%, max(280px, calc(100svh - 276px)));
   }
 
   @media (max-width: 1023px) {

@@ -339,45 +339,38 @@
     ],
     "enlaces": [],
     "imagenes": {
-      "cover": {
-        "src": "img/proyectos/ribalta/cover.png",
-        "alt": {
-          "es": "Estimador de presupuestos con el semáforo de precios (datos de ejemplo)",
-          "ca": "Estimador de pressupostos amb el semàfor de preus (dades d'exemple)",
-          "en": "Budget estimator with the price traffic light (sample data)"
-        }
-      },
+      "cover": null,
       "galeria": [
         {
-          "src": "img/proyectos/ribalta/planificacion.png",
+          "src": "img/proyectos/ribalta/planificacion.jpg",
           "alt": {
-            "es": "Gantt de obras con un color por encargado (datos de ejemplo)",
-            "ca": "Gantt d'obres amb un color per encarregat (dades d'exemple)",
-            "en": "Site Gantt chart with one colour per site manager (sample data)"
+            "es": "Planificación de obras: Gantt con un color por encargado (datos de ejemplo)",
+            "ca": "Planificació d'obres: Gantt amb un color per encarregat (dades d'exemple)",
+            "en": "Site planning: Gantt chart with one colour per foreman (sample data)"
           }
         },
         {
-          "src": "img/proyectos/ribalta/avisos.png",
+          "src": "img/proyectos/ribalta/nou-pressupost.jpg",
           "alt": {
-            "es": "Panel de avisos por gravedad (datos de ejemplo)",
-            "ca": "Panell d'avisos per gravetat (dades d'exemple)",
-            "en": "Alerts panel by severity (sample data)"
+            "es": "Nuevo presupuesto: la IA interpreta el documento de la obra",
+            "ca": "Nou pressupost: la IA interpreta el document de l'obra",
+            "en": "New estimate: the AI reads the job document"
           }
         },
         {
-          "src": "img/proyectos/ribalta/excel.png",
-          "alt": {
-            "es": "Excel exportado con la marca de la empresa (datos de ejemplo)",
-            "ca": "Excel exportat amb la marca de l'empresa (dades d'exemple)",
-            "en": "Exported Excel with company branding (sample data)"
-          }
-        },
-        {
-          "src": "img/proyectos/ribalta/base-precios.png",
+          "src": "img/proyectos/ribalta/base-preus.jpg",
           "alt": {
             "es": "Base de precios con partidas propias y de referencia (datos de ejemplo)",
             "ca": "Base de preus amb partides pròpies i de referència (dades d'exemple)",
-            "en": "Price base with own and reference line items (sample data)"
+            "en": "Price database with in-house and reference items (sample data)"
+          }
+        },
+        {
+          "src": "img/proyectos/ribalta/fitxes-obra.jpg",
+          "alt": {
+            "es": "Fichas de obra con datos, adjudicación y documentación (datos de ejemplo)",
+            "ca": "Fitxes d'obra amb dades, adjudicació i documentació (dades d'exemple)",
+            "en": "Job files with details, award and documents (sample data)"
           }
         }
       ]
@@ -719,15 +712,16 @@
       }
     ],
     "imagenes": {
-      "cover": {
-        "src": "img/proyectos/gastrovision/cover.png",
-        "alt": {
-          "es": "Landing de GastroVision AI y carta digital en el móvil",
-          "ca": "Landing de GastroVision AI i carta digital al mòbil",
-          "en": "GastroVision AI landing page and digital menu on a phone"
-        }
-      },
+      "cover": null,
       "galeria": [
+        {
+          "src": "img/proyectos/gastrovision/landing.png",
+          "alt": {
+            "es": "Landing de GastroVision AI y carta digital en el móvil",
+            "ca": "Landing de GastroVision AI i carta digital al mòbil",
+            "en": "GastroVision AI landing page and digital menu on a phone"
+          }
+        },
         {
           "src": "img/proyectos/gastrovision/carta.png",
           "alt": {
@@ -737,27 +731,19 @@
           }
         },
         {
-          "src": "img/proyectos/gastrovision/panel.png",
+          "src": "img/proyectos/gastrovision/carta-bar.jpg",
           "alt": {
-            "es": "Panel del propietario",
-            "ca": "Panell del propietari",
-            "en": "Owner dashboard"
+            "es": "Carta pública de Bar Les Piscines en el móvil",
+            "ca": "Carta pública del Bar Les Piscines al mòbil",
+            "en": "Bar Les Piscines' public menu on a phone"
           }
         },
         {
-          "src": "img/proyectos/gastrovision/maitre.png",
+          "src": "img/proyectos/gastrovision/panel.jpg",
           "alt": {
-            "es": "Conversación con el maître virtual",
-            "ca": "Conversa amb el maître virtual",
-            "en": "Chat with the virtual maître d'"
-          }
-        },
-        {
-          "src": "img/proyectos/gastrovision/instagram.png",
-          "alt": {
-            "es": "Carrusel de lanzamiento para Instagram",
-            "ca": "Carrusel de llançament per a Instagram",
-            "en": "Instagram launch carousel"
+            "es": "Panel del propietario con la carta de Bar Les Piscines",
+            "ca": "Panell del propietari amb la carta del Bar Les Piscines",
+            "en": "Owner dashboard with Bar Les Piscines' menu"
           }
         }
       ]
@@ -858,6 +844,11 @@
         "en": "Designed the go-to-market for a backup and email-recovery service for SMEs in Alt Urgell, Cerdanya and Andorra, prioritising partnerships and the Chamber of Commerce as channels."
       },
       {
+        "es": "Lanzamos AO2 Tracker, una app para que el público de la Bassella Race 2025 siguiera a los corredores: su paso por los puntos de control y su posición en tiempo real.",
+        "ca": "Vam llançar AO2 Tracker, una app perquè el públic de la Bassella Race 2025 seguís els corredors: el seu pas pels punts de control i la seva posició en temps real.",
+        "en": "We launched AO2 Tracker, an app that let Bassella Race 2025 spectators follow the riders: their passage through the checkpoints and their position in real time."
+      },
+      {
         "es": "Cerramos la sociedad en enero de 2026, tras dos años de actividad.",
         "ca": "Vam tancar la societat el gener de 2026, després de dos anys d'activitat.",
         "en": "We closed the company in January 2026 after two years in business."
@@ -903,15 +894,34 @@
     ],
     "enlaces": [],
     "imagenes": {
-      "cover": {
-        "src": "img/proyectos/ao2/cover.png",
-        "alt": {
-          "es": "Identidad de AO2 Solutions",
-          "ca": "Identitat d'AO2 Solutions",
-          "en": "AO2 Solutions brand identity"
+      "cover": null,
+      "galeria": [
+        {
+          "src": "img/proyectos/ao2/tracker.jpg",
+          "alt": {
+            "es": "AO2 Tracker: seguimiento en tiempo real de la Bassella Race 2025",
+            "ca": "AO2 Tracker: seguiment en temps real de la Bassella Race 2025",
+            "en": "AO2 Tracker: real-time tracking for the Bassella Race 2025"
+          }
+        },
+        {
+          "src": "img/proyectos/ao2/stand.jpg",
+          "alt": {
+            "es": "Stand de AO2 Solutions presentando AO2 Tracker en la Bassella Race 2025",
+            "ca": "Estand d'AO2 Solutions presentant AO2 Tracker a la Bassella Race 2025",
+            "en": "AO2 Solutions stand presenting AO2 Tracker at the Bassella Race 2025"
+          }
+        },
+        {
+          "src": "img/proyectos/ao2/lanzamiento.jpg",
+          "alt": {
+            "es": "Vídeo de lanzamiento de AO2 Tracker en App Store y Google Play",
+            "ca": "Vídeo de llançament d'AO2 Tracker a l'App Store i Google Play",
+            "en": "AO2 Tracker launch video for the App Store and Google Play"
+          },
+          "video": "/video/ao2-tracker-lanzamiento.mp4"
         }
-      },
-      "galeria": []
+      ]
     }
   },
   {
@@ -933,7 +943,7 @@
         "Noguera"
       ]
     },
-    "logo": "logos/padel-noguera.svg",
+    "logo": "logos/padel-noguera.png",
     "categoria": {
       "es": "Empresa cofundada · Deporte",
       "ca": "Empresa cofundada · Esport",
@@ -1053,14 +1063,39 @@
     "enlaces": [],
     "imagenes": {
       "cover": {
-        "src": "img/proyectos/padel-noguera/cover.jpg",
+        "src": "img/proyectos/padel-noguera/pasillo.jpg",
         "alt": {
-          "es": "Pistas de Pádel Noguera en Balaguer",
-          "ca": "Pistes de Pádel Noguera a Balaguer",
-          "en": "Pádel Noguera courts in Balaguer"
+          "es": "Pasillo de Pádel Noguera con el logo del club en la alfombra",
+          "ca": "Passadís de Pádel Noguera amb el logo del club a la catifa",
+          "en": "Walkway at Pádel Noguera with the club logo on the carpet"
         }
       },
-      "galeria": []
+      "galeria": [
+        {
+          "src": "img/proyectos/padel-noguera/inauguracion.jpg",
+          "alt": {
+            "es": "Corte de cinta en la inauguración de Pádel Noguera",
+            "ca": "Tall de cinta a la inauguració de Pádel Noguera",
+            "en": "Ribbon cutting at the opening of Pádel Noguera"
+          }
+        },
+        {
+          "src": "img/proyectos/padel-noguera/equipo.jpg",
+          "alt": {
+            "es": "Foto de grupo en la pista el día de la inauguración",
+            "ca": "Foto de grup a la pista el dia de la inauguració",
+            "en": "Group photo on court on opening day"
+          }
+        },
+        {
+          "src": "img/proyectos/padel-noguera/pistas.jpg",
+          "alt": {
+            "es": "Partidos en las pistas el día de la inauguración",
+            "ca": "Partits a les pistes el dia de la inauguració",
+            "en": "Games on the courts on opening day"
+          }
+        }
+      ]
     }
   },
   {
@@ -1258,15 +1293,9 @@
     ],
     "enlaces": [],
     "imagenes": {
-      "cover": {
-        "src": "img/proyectos/segundo-cerebro/cover.png",
-        "alt": {
-          "es": "Grafo de la app local, con las etiquetas difuminadas",
-          "ca": "Graf de l'aplicació local, amb les etiquetes difuminades",
-          "en": "Graph view of the local app, with labels blurred"
-        }
-      },
-      "galeria": []
+      "cover": null,
+      "galeria": [],
+      "animacion": "grafo"
     }
   }
 ]
