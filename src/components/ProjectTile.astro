@@ -19,6 +19,8 @@ const title = t(project.titulo, lang);
 const logo = getAsset(project.logo);
 const cover = getAsset(project.imagenes.cover?.src);
 const coverAlt = project.imagenes.cover ? t(project.imagenes.cover.alt, lang) : "";
+// En las tarjetas grandes sin foto, el logo ya hace de portada: no se repite arriba
+const topLogo = big && !cover ? undefined : logo;
 const category = tMaybe(project.categoria, lang);
 const id = `pt-${project.slug}`;
 ---
@@ -30,10 +32,10 @@ const id = `pt-${project.slug}`;
   aria-describedby={`${id}-desc`}
 >
   {
-    (logo || category) && (
+    (topLogo || category) && (
       <div class="ptile__top">
-        {logo && (
-          <img class="ptile__logo" src={logo.src} width={logo.width} height={logo.height} alt="" loading="lazy" decoding="async" />
+        {topLogo && (
+          <img class="ptile__logo" src={topLogo.src} width={topLogo.width} height={topLogo.height} alt="" loading="lazy" decoding="async" />
         )}
         {category && <span class="label ptile__cat">{category}</span>}
       </div>
@@ -87,11 +89,10 @@ const id = `pt-${project.slug}`;
     gap: 16px;
   }
 
+  /* Logos en sus colores (versión para fondo oscuro) */
   .ptile__logo {
     width: auto;
     height: 28px;
-    filter: brightness(0) invert(.9);
-    transition: filter .25s var(--ease);
   }
 
   .ptile__cat {
@@ -107,7 +108,7 @@ const id = `pt-${project.slug}`;
     background: var(--surface-3);
   }
 
-  .ptile__cover :global(img) {
+  .ptile__cover :global(img:not(.brand__logo)) {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -153,11 +154,7 @@ const id = `pt-${project.slug}`;
   }
 
   /* Estado invertido */
-  .ptile:focus-visible .ptile__logo {
-    filter: brightness(0) invert(.06);
-  }
-
-  .ptile:focus-visible .ptile__cover :global(img) {
+  .ptile:focus-visible .ptile__cover :global(img:not(.brand__logo)) {
     filter: none;
   }
 
@@ -166,11 +163,7 @@ const id = `pt-${project.slug}`;
   }
 
   @media (hover: hover) {
-    .ptile:hover .ptile__logo {
-      filter: brightness(0) invert(.06);
-    }
-
-    .ptile:hover .ptile__cover :global(img) {
+    .ptile:hover .ptile__cover :global(img:not(.brand__logo)) {
       filter: none;
       transform: scale(1.02);
     }

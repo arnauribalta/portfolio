@@ -48,10 +48,13 @@ const { logo, name, size = "md" } = Astro.props;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
   }
 
+  /* Caja fija centrada: el logo cabe entero sea cual sea su proporción */
   .brand__logo {
-    width: auto;
-    max-width: 60%;
-    max-height: 38%;
-    filter: brightness(0) invert(.9);
+    position: absolute;
+    inset: 0;
+    width: 60%;
+    height: 44%;
+    margin: auto;
+    object-fit: contain;
   }
 </style>

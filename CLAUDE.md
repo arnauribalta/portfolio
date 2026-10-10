@@ -24,6 +24,6 @@ Las equivalencias están en `src/lib/i18n.ts`. Los textos legales están en las 
 
 ## Añadir un proyecto
 1. Añade un objeto a `src/data/projects.json` con la misma forma que los demás (slug en kebab-case, `orden`, textos en es/ca/en).
-2. Pon sus imágenes en `src/assets/img/proyectos/<slug>/` y su logo en `src/assets/logos/`.
+2. Pon sus imágenes en `src/assets/img/proyectos/<slug>/` y su logo en `src/assets/logos/`: en color, en la versión que se lee sobre fondo oscuro (SVG o PNG transparente). El logo hace de imagen del proyecto si no hay portada.
 3. Si también es experiencia, añade una entrada en `src/data/experience.json` con `"proyecto": "<slug>"`.
 4. `npm run build` y revisa `/proyectos/<slug>/`, `/ca/projectes/<slug>/` y `/en/projects/<slug>/`.
